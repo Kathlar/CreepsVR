@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerFlat : Player
 {
+    protected override Transform raycastPoint { get { return mainCamera.transform; } }
+
     public override PlayerType playerType { get { return PlayerType.flat; } }
 
     private float rotationX, rotationY;

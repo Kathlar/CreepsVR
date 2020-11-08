@@ -8,6 +8,8 @@ public class XRPlayer : Player
     public XRController rightController { get; private set; }
     private XRController activeController;
 
+    protected override Transform raycastPoint { get { return activeController.transform; } }
+
     public override PlayerType playerType { get { return PlayerType.vr; } }
 
     protected override void Awake()

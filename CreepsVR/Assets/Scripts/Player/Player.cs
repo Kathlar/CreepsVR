@@ -6,6 +6,8 @@ public abstract class Player : MonoBehaviour
 {
     public Camera mainCamera { get; private set; }
 
+    protected bool raycastOn = true;
+    protected abstract Transform raycastPoint { get; }
     protected LineRenderer raycastLine;
 
     public enum PlayerType { flat, vr }
@@ -17,15 +19,32 @@ public abstract class Player : MonoBehaviour
     protected virtual void Awake()
     {
         mainCamera = GetComponentInChildren<Camera>();
+        raycastLine = GetComponentInChildren<LineRenderer>();
     }
 
     protected virtual void Start()
     {
-
+        raycastLine.positionCount = 2;
+        SetRaycast(true);
     }
 
     protected virtual void Update()
     {
+        if(raycastOn)
+        {
+            Ray ray = new Ray(raycastPoint.position, raycastPoint.forward);
+            raycastLine.SetPosition(0, raycastPoint.position);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                raycastLine.SetPosition(1, hit.point);
+            }
+            else raycastLine.SetPosition(1, raycastPoint.position + raycastPoint.forward * 1000);
+        }
+    }
 
+    protected virtual void SetRaycast(bool on)
+    {
+        raycastLine.enabled = on;
+        raycastOn = on;
     }
 }

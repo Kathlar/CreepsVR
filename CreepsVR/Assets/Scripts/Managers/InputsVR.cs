@@ -99,6 +99,8 @@ public class InputsVR : Singleton<InputsVR>
         public override void Update()
         {
             device.TryGetFeatureValue(usage, out float newValue);
+            if (newValue < .05f) newValue = 0;
+            else if (newValue > .99f) newValue = 1;
             lastValue = value;
             value = newValue;
         }
@@ -132,8 +134,12 @@ public class InputsVR : Singleton<InputsVR>
     #endregion
 
     public VRControllerInputValues leftHand, rightHand;
+    private Dictionary<HorizontalSide, VRControllerInputValues> hands =
+        new Dictionary<HorizontalSide, VRControllerInputValues>();
     public static VRControllerInputValues LeftHand { get { return Instance.leftHand; } }
     public static VRControllerInputValues RightHand { get { return Instance.rightHand; } }
+    public static Dictionary<HorizontalSide, VRControllerInputValues> Hands
+        { get { return Instance.hands; } }
 
     protected override void SingletonAwake()
     {
@@ -141,12 +147,14 @@ public class InputsVR : Singleton<InputsVR>
         if (leftHandDevice != default)
         {
             leftHand = new VRControllerInputValues(leftHandDevice);
+            hands.Add(HorizontalSide.left, leftHand);
         }
 
         rightHandDevice = GetHand(InputDeviceCharacteristics.Right);
         if (rightHandDevice != default)
         {
             rightHand = new VRControllerInputValues(rightHandDevice);
+            hands.Add(HorizontalSide.right, rightHand);
         }
     }
 
@@ -158,6 +166,7 @@ public class InputsVR : Singleton<InputsVR>
             if (leftHandDevice != default)
             {
                 leftHand = new VRControllerInputValues(leftHandDevice);
+                hands.Add(HorizontalSide.left, leftHand);
             }
         }
         else
@@ -169,6 +178,7 @@ public class InputsVR : Singleton<InputsVR>
             if (rightHandDevice != default)
             {
                 rightHand = new VRControllerInputValues(rightHandDevice);
+                hands.Add(HorizontalSide.right, rightHand);
             }
         }
         else

@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class XRPlayer : MonoBehaviour
+public class XRPlayer : Player
 {
-    public Camera xrCamera { get; private set; }
-
     public XRController leftController { get; private set; }
     public XRController rightController { get; private set; }
 
     public float rotationSpeed = 80;
 
-    private void Awake()
+    protected override void Awake()
     {
-        xrCamera = GetComponentInChildren<Camera>();
+        base.Awake();
 
         foreach (XRController controller in GetComponentsInChildren<XRController>())
         {
@@ -24,7 +22,7 @@ public class XRPlayer : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(Vector3.up, Inputs.RightHand.joystick.Value.x *
+        transform.Rotate(Vector3.up, InputsVR.RightHand.joystick.Value.x *
             Time.deltaTime * rotationSpeed);
     }
 }

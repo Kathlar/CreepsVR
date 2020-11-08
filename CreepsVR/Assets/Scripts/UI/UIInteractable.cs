@@ -16,13 +16,11 @@ public class UIInteractable : MonoBehaviour, IHoverOver, IClickable
 
     public void OnHoverStart()
     {
-        Debug.Log("1");
         image.color = button.colors.highlightedColor;
     }
 
     public void OnHoverEnd()
     {
-        Debug.Log("2");
         image.color = button.colors.normalColor;
     }
 

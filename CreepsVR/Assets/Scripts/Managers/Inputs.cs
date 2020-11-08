@@ -68,6 +68,7 @@ public class Inputs : Singleton<Inputs>
     [SerializeField] private PlayerInputBool leftMouse, rightMouse, middleMouse;
     [SerializeField] private PlayerInputBool space, leftShift, enter, escape;
     [SerializeField] private PlayerInputAxis mainHorizontal, mainVertical, secondaryHorizontal, secondaryVertical;
+    [SerializeField] private PlayerInputBool rKey, pKey;
 
     #region Input Static Getters
     public static PlayerInputBool LeftMouse { get { return Instance.leftMouse; } }
@@ -83,6 +84,9 @@ public class Inputs : Singleton<Inputs>
     public static PlayerInputAxis MainVertical { get { return Instance.mainVertical; } }
     public static PlayerInputAxis SecondaryHorizontal { get { return Instance.secondaryHorizontal; } }
     public static PlayerInputAxis SecondaryVertical { get { return Instance.secondaryVertical; } }
+
+    public static PlayerInputBool RKey { get { return Instance.rKey; } }
+    public static PlayerInputBool PKey { get { return Instance.pKey; } }
     #endregion
 
     protected override void SingletonAwake()
@@ -102,6 +106,9 @@ public class Inputs : Singleton<Inputs>
         inputTypes.Add((mainVertical = new PlayerInputAxis()).Set("Vertical"));
         inputTypes.Add((secondaryHorizontal = new PlayerInputAxis()).Set("Mouse X"));
         inputTypes.Add((secondaryVertical = new PlayerInputAxis()).Set("Mouse Y"));
+
+        inputTypes.Add((pKey = new PlayerInputBool()).Set(KeyCode.P));
+        inputTypes.Add((rKey = new PlayerInputBool()).Set(KeyCode.R));
     }
 
     protected void Update()

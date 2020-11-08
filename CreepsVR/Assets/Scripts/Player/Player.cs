@@ -6,6 +6,9 @@ public abstract class Player : MonoBehaviour
 {
     public Camera mainCamera { get; private set; }
 
+    public enum PlayerType { flat, vr }
+    public abstract PlayerType playerType { get; }
+
     public float rotationSpeed = 80;
     protected float rotationValue;
 

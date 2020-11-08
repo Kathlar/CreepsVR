@@ -7,6 +7,8 @@ public class XRPlayer : Player
     public XRController leftController { get; private set; }
     public XRController rightController { get; private set; }
 
+    public override PlayerType playerType { get { return PlayerType.vr; } }
+
     protected override void Awake()
     {
         base.Awake();

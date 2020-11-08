@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerFlat : Player
 {
+    public override PlayerType playerType { get { return PlayerType.flat; } }
+
     protected override void Update()
     {
         rotationValue = Inputs.SecondaryHorizontal;

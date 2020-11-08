@@ -6,17 +6,7 @@ public class PlayerFlat : Player
 {
     public override PlayerType playerType { get { return PlayerType.flat; } }
 
-    protected override Transform rayCastPoint { get { return mainCamera.transform; } }
-    private LineRenderer myRaycastLine;
-    protected override LineRenderer raycastLine { get { return myRaycastLine; } }
-
     private float rotationX, rotationY;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        myRaycastLine = GetComponentInChildren<LineRenderer>();
-    }
 
     protected override void Update()
     {

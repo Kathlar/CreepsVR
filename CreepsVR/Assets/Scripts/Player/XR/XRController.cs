@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class XRController : MonoBehaviour
 {
-    public LineRenderer line { get; private set; }
+    public LineRenderer raycastLine;
 
     public HorizontalSide side;
 
     private void Awake()
     {
-        line = GetComponent<LineRenderer>();
+        raycastLine = GetComponentInChildren<LineRenderer>();
     }
 }

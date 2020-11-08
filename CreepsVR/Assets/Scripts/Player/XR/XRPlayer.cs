@@ -10,9 +10,6 @@ public class XRPlayer : Player
 
     public override PlayerType playerType { get { return PlayerType.vr; } }
 
-    protected override Transform rayCastPoint { get { return activeController.transform; } }
-    protected override LineRenderer raycastLine { get { return activeController.line; } }
-
     protected override void Awake()
     {
         base.Awake();

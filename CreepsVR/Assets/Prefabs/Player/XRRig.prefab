@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21979b96714794469ead6f5aedce596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastLine: {fileID: 0}
   side: 1
 --- !u!1 &777768873000079242
 GameObject:
@@ -323,4 +324,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21979b96714794469ead6f5aedce596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastLine: {fileID: 0}
   side: 0

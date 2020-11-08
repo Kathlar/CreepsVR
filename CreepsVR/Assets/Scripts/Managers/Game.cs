@@ -14,16 +14,21 @@ public class Game : Singleton<Game>
 
     protected override void SingletonAwake()
     {
-        GameObject playerToSpawn = null;
-        switch(playerType)
+        Player playerOnScene = FindObjectOfType<Player>();
+        if (playerOnScene) player = playerOnScene;
+        else
         {
-            case Player.PlayerType.flat:
-                playerToSpawn = flatPlayerPrefab;
-                break;
-            case Player.PlayerType.vr:
-                playerToSpawn = vrPlayerPrefab;
-                break;
+            GameObject playerToSpawn = null;
+            switch (playerType)
+            {
+                case Player.PlayerType.flat:
+                    playerToSpawn = flatPlayerPrefab;
+                    break;
+                case Player.PlayerType.vr:
+                    playerToSpawn = vrPlayerPrefab;
+                    break;
+            }
+            player = Instantiate(playerToSpawn).GetComponent<Player>();
         }
-        player = Instantiate(playerToSpawn).GetComponent<Player>();
     }
 }

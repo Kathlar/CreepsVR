@@ -40,5 +40,8 @@ public class XRPlayer : Player
         {
             activeController = rightController;
         }
+
+        if (lastClickable!= null && InputsVR.Hands[activeController.side].triggerButton.WasPressed) 
+            lastClickable.OnClick();
     }
 }

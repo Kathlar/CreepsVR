@@ -9,6 +9,8 @@ public abstract class Player : MonoBehaviour
     protected bool raycastOn = true;
     protected abstract Transform raycastPoint { get; }
     protected LineRenderer raycastLine;
+    protected IHoverOver lastHoverOver;
+    protected IClickable lastClickable;
 
     public enum PlayerType { flat, vr }
     public abstract PlayerType playerType { get; }
@@ -36,9 +38,33 @@ public abstract class Player : MonoBehaviour
             raycastLine.SetPosition(0, raycastPoint.position);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
+                GameObject hitGameObject = hit.transform.gameObject;
                 raycastLine.SetPosition(1, hit.point);
+                if (hitGameObject.TryGetComponent(out IHoverOver hoverOver))
+                {
+                    if (hoverOver != lastHoverOver)
+                    {
+                        if (lastHoverOver != null) lastHoverOver.OnHoverEnd();
+                        lastHoverOver = hoverOver;
+                        if (hoverOver != null) hoverOver.OnHoverStart();
+                    }
+                }
+                else if (lastHoverOver != null)
+                {
+                    lastHoverOver.OnHoverEnd();
+                    lastHoverOver = null;
+                }
+                if (hitGameObject.TryGetComponent(out IClickable clickable))
+                    lastClickable = clickable;
+                else lastClickable = null;
             }
-            else raycastLine.SetPosition(1, raycastPoint.position + raycastPoint.forward * 1000);
+            else
+            {
+                raycastLine.SetPosition(1, raycastPoint.position + raycastPoint.forward * 1000);
+                if (lastHoverOver != null) lastHoverOver.OnHoverEnd();
+                lastHoverOver = null;
+                lastClickable = null;
+            }
         }
     }
 

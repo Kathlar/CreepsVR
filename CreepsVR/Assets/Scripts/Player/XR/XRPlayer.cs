@@ -7,8 +7,6 @@ public class XRPlayer : Player
     public XRController leftController { get; private set; }
     public XRController rightController { get; private set; }
 
-    public float rotationSpeed = 80;
-
     protected override void Awake()
     {
         base.Awake();
@@ -20,9 +18,10 @@ public class XRPlayer : Player
         }
     }
 
-    private void Update()
+    protected override void Update()
     {
-        transform.Rotate(Vector3.up, InputsVR.RightHand.joystick.Value.x *
-            Time.deltaTime * rotationSpeed);
+        rotationValue = InputsVR.RightHand.joystick.Value.x;
+
+        base.Update();
     }
 }

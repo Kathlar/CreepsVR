@@ -14,6 +14,7 @@ public class InputsVR : Singleton<InputsVR>
 
         private List<IPlayerInputBase> inputTypes;
         public PlayerVRInputBool primaryButton, secondaryButton, menuButton;
+        public PlayerVRInputBool triggerButton;
         public PlayerVRInputFloat trigger, grip;
         public PlayerVRInputVector2 joystick;
         public PlayerVRInputBool joystickTouch, joystickClick;
@@ -29,6 +30,9 @@ public class InputsVR : Singleton<InputsVR>
                 Set(device, CommonUsages.secondaryButton));
             inputTypes.Add((menuButton = new PlayerVRInputBool()).
                 Set(device, CommonUsages.menuButton));
+
+            inputTypes.Add((triggerButton = new PlayerVRInputBool()).
+                Set(device, CommonUsages.triggerButton));
 
             inputTypes.Add((trigger = new PlayerVRInputFloat()).
                 Set(device, CommonUsages.trigger));

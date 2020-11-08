@@ -32,7 +32,8 @@ public abstract class Player : MonoBehaviour
 
     protected virtual void Update()
     {
-        if(raycastOn)
+        transform.Rotate(Vector3.up, rotationValue * Time.deltaTime * rotationSpeed);
+        if (raycastOn)
         {
             Ray ray = new Ray(raycastPoint.position, raycastPoint.forward);
             raycastLine.SetPosition(0, raycastPoint.position);
@@ -40,7 +41,6 @@ public abstract class Player : MonoBehaviour
             {
                 GameObject hitGameObject = hit.transform.gameObject;
                 raycastLine.SetPosition(1, hit.point);
-                Debug.Log(hitGameObject.name);
                 if (hitGameObject.TryGetComponent(out IHoverOver hoverOver))
                 {
                     if (hoverOver != lastHoverOver)

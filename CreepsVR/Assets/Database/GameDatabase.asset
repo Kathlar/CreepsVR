@@ -26,6 +26,6 @@ MonoBehaviour:
       sceneAssetName: MainMenu
       levelName: Main Menu
     gameLevelInfos:
-    - sceneAssetName: VRTest
-      levelName: VRTest
+    - sceneAssetName: Test01
+      levelName: Test 1
   weaponPrefabs: []

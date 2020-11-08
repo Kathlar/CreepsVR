@@ -37,7 +37,7 @@ public abstract class Player : MonoBehaviour
         {
             Ray ray = new Ray(raycastPoint.position, raycastPoint.forward);
             raycastLine.SetPosition(0, raycastPoint.position);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, 200, 5))
             {
                 GameObject hitGameObject = hit.transform.gameObject;
                 raycastLine.SetPosition(1, hit.point);

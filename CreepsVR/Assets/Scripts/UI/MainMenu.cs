@@ -103,7 +103,7 @@ public class MainMenu : MonoBehaviour
     public void Button_StartGame()
     {
         LevelSetupInfo setupInfo = new LevelSetupInfo(numberOfPlayers, numberOfCharacters);
-        //LevelFlowControl.SetupLevelInfo(setupInfo);
+        LevelFlow.levelSetupInfo = setupInfo;
         SceneManager.LoadScene(Database.Levels.gameLevelInfos[currentChosenLevelNumber].sceneAssetName);
     }
 }

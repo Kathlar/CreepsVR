@@ -17,7 +17,10 @@ public class XRController : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("Trigger", InputsVR.Hands[side].trigger.Value);
-        animator.SetFloat("Grip", InputsVR.Hands[side].grip.Value);
+        if(InputsVR.Hands.ContainsKey(side))
+        {
+            animator.SetFloat("Trigger", InputsVR.Hands[side].trigger.Value);
+            animator.SetFloat("Grip", InputsVR.Hands[side].grip.Value);
+        }
     }
 }

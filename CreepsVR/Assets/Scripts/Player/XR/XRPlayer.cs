@@ -6,8 +6,12 @@ public class XRPlayer : Player
 {
     public XRController leftController { get; private set; }
     public XRController rightController { get; private set; }
+    private XRController activeController;
 
     public override PlayerType playerType { get { return PlayerType.vr; } }
+
+    protected override Transform rayCastPoint { get { return activeController.transform; } }
+    protected override LineRenderer raycastLine { get { return activeController.line; } }
 
     protected override void Awake()
     {
@@ -18,6 +22,9 @@ public class XRPlayer : Player
             if (controller.side == HorizontalSide.left) leftController = controller;
             else if (controller.side == HorizontalSide.right) rightController = controller;
         }
+
+        if (rightController) activeController = rightController;
+        else activeController = leftController;
     }
 
     protected override void Update()
@@ -25,5 +32,14 @@ public class XRPlayer : Player
         rotationValue = InputsVR.RightHand.joystick.Value.x;
 
         base.Update();
+
+        if (InputsVR.LeftHand.trigger.Value > .1f)
+        {
+            activeController = leftController;
+        }
+        else if (InputsVR.RightHand.trigger.Value > .1f)
+        {
+            activeController = rightController;
+        }
     }
 }

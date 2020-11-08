@@ -12,13 +12,33 @@ public abstract class Player : MonoBehaviour
     public float rotationSpeed = 80;
     protected float rotationValue;
 
+    protected abstract Transform rayCastPoint { get; }
+    private bool raycastOn;
+    protected abstract LineRenderer raycastLine { get; }
+
     protected virtual void Awake()
     {
         mainCamera = GetComponentInChildren<Camera>();
     }
 
+    protected virtual void Start()
+    {
+        raycastLine.positionCount = 2;
+    }
+
     protected virtual void Update()
     {
         transform.Rotate(Vector3.up, rotationValue * Time.deltaTime * rotationSpeed);
+
+        raycastLine.SetPosition(0, rayCastPoint.position);
+        Ray ray = new Ray(rayCastPoint.position, rayCastPoint.forward);
+        if(Physics.Raycast(ray, out RaycastHit rayHit))
+        {
+            raycastLine.SetPosition(1, rayHit.point);
+        }
+        else
+        {
+            raycastLine.SetPosition(1, rayCastPoint.position + rayCastPoint.forward * 1000);
+        }
     }
 }

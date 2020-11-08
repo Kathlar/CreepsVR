@@ -33,13 +33,9 @@ public class XRPlayer : Player
         base.Update();
 
         if (InputsVR.LeftHand.trigger.Value > .1f)
-        {
             activeController = leftController;
-        }
         else if (InputsVR.RightHand.trigger.Value > .1f)
-        {
             activeController = rightController;
-        }
 
         if (lastClickable!= null && InputsVR.Hands[activeController.side].triggerButton.WasPressed) 
             lastClickable.OnClick();

@@ -40,6 +40,7 @@ public abstract class Player : MonoBehaviour
             {
                 GameObject hitGameObject = hit.transform.gameObject;
                 raycastLine.SetPosition(1, hit.point);
+                Debug.Log(hitGameObject.name);
                 if (hitGameObject.TryGetComponent(out IHoverOver hoverOver))
                 {
                     if (hoverOver != lastHoverOver)

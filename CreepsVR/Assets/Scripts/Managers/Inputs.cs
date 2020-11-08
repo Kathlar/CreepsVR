@@ -1,193 +1,126 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
 
 public class Inputs : Singleton<Inputs>
 {
-    protected InputDevice leftHandDevice, rightHandDevice;
+    #region Input Classes
+    [System.Serializable]
+    public class PlayerInputBool : PlayerInputType<bool>
+    {
+        [SerializeField] private KeyCode key = KeyCode.None;
+        [SerializeField] private int mouseButton = -1;
 
-    public ControllerInputValues leftHand, rightHand;
-    public static ControllerInputValues LeftHand { get { return Instance.leftHand; } }
-    public static ControllerInputValues RightHand { get { return Instance.rightHand; } }
+        [SerializeField]
+        private bool wasPressed, isPressed, wasReleased;
+        public bool WasPressed { get { return wasPressed; } }
+        public bool IsPressed { get { return isPressed; } }
+        public bool WasReleased { get { return wasReleased; } }
+
+        public PlayerInputBool Set(KeyCode newKey)
+        {
+            key = newKey;
+            return this;
+        }
+
+        public PlayerInputBool Set(int newMouseButton)
+        {
+            this.mouseButton = newMouseButton;
+            return this;
+        }
+
+        public override void Update()
+        {
+            wasPressed = Input.GetKeyDown(key) || Input.GetMouseButtonDown(mouseButton);
+            isPressed = Input.GetKey(key) || Input.GetMouseButton(mouseButton);
+            wasReleased = Input.GetKeyUp(key) || Input.GetMouseButtonUp(mouseButton);
+        }
+
+        public static implicit operator bool(PlayerInputBool input)
+        {
+            return input.isPressed;
+        }
+    }
+
+    [System.Serializable]
+    public class PlayerInputAxis : PlayerInputType<float>
+    {
+        [SerializeField] private string axisName;
+
+        [SerializeField]
+        private float value, lastValue;
+        public float Value { get { return value; } }
+        public float LastValue { get { return lastValue; } }
+
+        public PlayerInputAxis Set(string newAxisName)
+        {
+            axisName = newAxisName;
+            return this;
+        }
+
+        public override void Update()
+        {
+            lastValue = value;
+            value = Input.GetAxis(axisName);
+        }
+
+        public static implicit operator float(PlayerInputAxis input)
+        {
+            return input.value;
+        }
+    }
+    #endregion
+
+    private List<IPlayerInputBase> inputTypes;
+    [SerializeField] private PlayerInputBool leftMouse, rightMouse, middleMouse;
+    [SerializeField] private PlayerInputBool space, leftShift, enter, escape;
+    [SerializeField] private PlayerInputAxis mainHorizontal, mainVertical, secondaryHorizontal, secondaryVertical;
+
+    #region Input Static Getters
+    public static PlayerInputBool LeftMouse { get { return Instance.leftMouse; } }
+    public static PlayerInputBool RightMouse { get { return Instance.rightMouse; } }
+    public static PlayerInputBool MiddleMouse { get { return Instance.middleMouse; } }
+
+    public static PlayerInputBool Space { get { return Instance.space; } }
+    public static PlayerInputBool LeftShift { get { return Instance.leftShift; } }
+    public static PlayerInputBool Enter { get { return Instance.enter; } }
+    public static PlayerInputBool Escape { get { return Instance.escape; } }
+
+    public static PlayerInputAxis MainHorizontal { get { return Instance.mainHorizontal; } }
+    public static PlayerInputAxis MainVertical { get { return Instance.mainVertical; } }
+    public static PlayerInputAxis SecondaryHorizontal { get { return Instance.secondaryHorizontal; } }
+    public static PlayerInputAxis SecondaryVertical { get { return Instance.secondaryVertical; } }
+    #endregion
 
     protected override void SingletonAwake()
     {
-        leftHandDevice = GetHand(InputDeviceCharacteristics.Left);
-        if (leftHandDevice != default)
-        {
-            leftHand = new ControllerInputValues(leftHandDevice);
-        }
+        inputTypes = new List<IPlayerInputBase>();
 
-        rightHandDevice = GetHand(InputDeviceCharacteristics.Right);
-        if (rightHandDevice != default)
-        {
-            rightHand = new ControllerInputValues(rightHandDevice);
-        }
+        inputTypes.Add((leftMouse = new PlayerInputBool()).Set(0));
+        inputTypes.Add((rightMouse = new PlayerInputBool()).Set(1));
+        inputTypes.Add((middleMouse = new PlayerInputBool()).Set(2));
+
+        inputTypes.Add((space = new PlayerInputBool()).Set(KeyCode.Space));
+        inputTypes.Add((leftShift = new PlayerInputBool()).Set(KeyCode.LeftShift));
+        inputTypes.Add((enter = new PlayerInputBool()).Set(KeyCode.KeypadEnter));
+        inputTypes.Add((escape = new PlayerInputBool()).Set(KeyCode.Escape));
     }
 
-    private void Update()
+    protected void Update()
     {
-        if (leftHandDevice == default)
-        {
-            leftHandDevice = GetHand(InputDeviceCharacteristics.Left);
-            if (leftHandDevice != default)
-            {
-                leftHand = new ControllerInputValues(leftHandDevice);
-            }
-        }
-        else
-            leftHand.Update();
-
-        if (rightHandDevice == default)
-        {
-            rightHandDevice = GetHand(InputDeviceCharacteristics.Right);
-            if (rightHandDevice != default)
-            {
-                rightHand = new ControllerInputValues(rightHandDevice);
-            }
-        }
-        else
-            rightHand.Update();
-    }
-
-    InputDevice GetHand(InputDeviceCharacteristics side)
-    {
-        List<InputDevice> devices = new List<InputDevice>();
-        InputDeviceCharacteristics characteristics =
-            InputDeviceCharacteristics.Controller | side;
-        InputDevices.GetDevicesWithCharacteristics(characteristics, devices);
-        return (devices.Count > 0 ? devices[0] : default);
-    }
-}
-
-[System.Serializable]
-public class ControllerInputValues
-{
-    private InputDevice device;
-
-    private List<PlayerInputTypeBase> inputTypes;
-    public PlayerInputBool primaryButton, secondaryButton, menuButton;
-    public PlayerInputFloat trigger, grip;
-    public PlayerInputVector2 joystick;
-    public PlayerInputBool joystickTouch, joystickClick;
-
-    public ControllerInputValues(InputDevice device)
-    {
-        this.device = device;
-        inputTypes = new List<PlayerInputTypeBase>();
-
-        inputTypes.Add((primaryButton = new PlayerInputBool()).
-            Set(device, CommonUsages.primaryButton));
-        inputTypes.Add((secondaryButton = new PlayerInputBool()).
-            Set(device, CommonUsages.secondaryButton));
-        inputTypes.Add((menuButton = new PlayerInputBool()).
-            Set(device, CommonUsages.menuButton));
-
-        inputTypes.Add((trigger = new PlayerInputFloat()).
-            Set(device, CommonUsages.trigger));
-        inputTypes.Add((grip = new PlayerInputFloat()).
-            Set(device, CommonUsages.grip));
-
-        inputTypes.Add((joystick = new PlayerInputVector2()).
-            Set(device, CommonUsages.primary2DAxis));
-        inputTypes.Add((joystickTouch = new PlayerInputBool()).
-            Set(device, CommonUsages.primary2DAxisTouch));
-        inputTypes.Add((joystickClick = new PlayerInputBool()).
-            Set(device, CommonUsages.primary2DAxisClick));
-    }
-
-    public void Update()
-    {
-        foreach (PlayerInputTypeBase inputType in inputTypes)
+        foreach (IPlayerInputBase inputType in inputTypes)
         {
             inputType.Update();
         }
     }
 }
 
-public interface PlayerInputTypeBase
+public interface IPlayerInputBase
 {
     void Update();
 }
 
-[System.Serializable]
-public abstract class PlayerInputType<T> : PlayerInputTypeBase
+public abstract class PlayerInputType<T> : IPlayerInputBase
 {
-    public InputDevice device { get; private set; }
-    public InputFeatureUsage<T> usage;
-
-    public PlayerInputType<T> Set(InputDevice device, InputFeatureUsage<T> usage)
-    {
-        this.device = device;
-        this.usage = usage;
-        return this;
-    }
-
     public abstract void Update();
-}
-
-[System.Serializable]
-public class PlayerInputBool : PlayerInputType<bool>
-{
-    [SerializeField]
-    private bool wasPressed, isPressed, wasReleased;
-    public bool WasPressed { get { return wasPressed; } }
-    public bool IsPressed { get { return isPressed; } }
-    public bool WasReleased { get { return wasReleased; } }
-
-    public override void Update()
-    {
-        device.TryGetFeatureValue(usage, out bool value);
-        wasPressed = !isPressed && value;
-        wasReleased = isPressed && !value;
-        isPressed = value;
-    }
-
-    public static implicit operator bool(PlayerInputBool input)
-    {
-        return input.isPressed;
-    }
-}
-
-[System.Serializable]
-public class PlayerInputFloat : PlayerInputType<float>
-{
-    [SerializeField]
-    private float value, lastValue;
-    public float Value { get { return value; } }
-    public float LastValue { get { return lastValue; } }
-
-    public override void Update()
-    {
-        device.TryGetFeatureValue(usage, out float newValue);
-        lastValue = value;
-        value = newValue;
-    }
-
-    public static implicit operator float(PlayerInputFloat input)
-    {
-        return input.value;
-    }
-}
-
-[System.Serializable]
-public class PlayerInputVector2 : PlayerInputType<Vector2>
-{
-    [SerializeField]
-    private Vector2 value, lastValue;
-    public Vector2 Value { get { return value; } }
-    public Vector2 LastValue { get { return lastValue; } }
-
-    public override void Update()
-    {
-        device.TryGetFeatureValue(usage, out Vector2 newValue);
-        lastValue = value;
-        value = newValue;
-    }
-
-    public static implicit operator Vector2(PlayerInputVector2 input)
-    {
-        return input.value;
-    }
 }

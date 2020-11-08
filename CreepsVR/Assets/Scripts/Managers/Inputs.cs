@@ -9,7 +9,6 @@ public class Inputs : Singleton<Inputs>
     public class PlayerInputBool : PlayerInputType<bool>
     {
         [SerializeField] private KeyCode key = KeyCode.None;
-        [SerializeField] private int mouseButton = -1;
 
         [SerializeField]
         private bool wasPressed, isPressed, wasReleased;
@@ -23,17 +22,11 @@ public class Inputs : Singleton<Inputs>
             return this;
         }
 
-        public PlayerInputBool Set(int newMouseButton)
-        {
-            this.mouseButton = newMouseButton;
-            return this;
-        }
-
         public override void Update()
         {
-            wasPressed = Input.GetKeyDown(key) || Input.GetMouseButtonDown(mouseButton);
-            isPressed = Input.GetKey(key) || Input.GetMouseButton(mouseButton);
-            wasReleased = Input.GetKeyUp(key) || Input.GetMouseButtonUp(mouseButton);
+            wasPressed = Input.GetKeyDown(key);
+            isPressed = Input.GetKey(key);
+            wasReleased = Input.GetKeyUp(key);
         }
 
         public static implicit operator bool(PlayerInputBool input)
@@ -96,14 +89,19 @@ public class Inputs : Singleton<Inputs>
     {
         inputTypes = new List<IPlayerInputBase>();
 
-        inputTypes.Add((leftMouse = new PlayerInputBool()).Set(0));
-        inputTypes.Add((rightMouse = new PlayerInputBool()).Set(1));
-        inputTypes.Add((middleMouse = new PlayerInputBool()).Set(2));
+        inputTypes.Add((leftMouse = new PlayerInputBool()).Set(KeyCode.Mouse0));
+        inputTypes.Add((rightMouse = new PlayerInputBool()).Set(KeyCode.Mouse1));
+        inputTypes.Add((middleMouse = new PlayerInputBool()).Set(KeyCode.Mouse2));
 
         inputTypes.Add((space = new PlayerInputBool()).Set(KeyCode.Space));
         inputTypes.Add((leftShift = new PlayerInputBool()).Set(KeyCode.LeftShift));
         inputTypes.Add((enter = new PlayerInputBool()).Set(KeyCode.KeypadEnter));
         inputTypes.Add((escape = new PlayerInputBool()).Set(KeyCode.Escape));
+
+        inputTypes.Add((mainHorizontal = new PlayerInputAxis()).Set("Horizontal"));
+        inputTypes.Add((mainVertical = new PlayerInputAxis()).Set("Vertical"));
+        inputTypes.Add((secondaryHorizontal = new PlayerInputAxis()).Set("Mouse X"));
+        inputTypes.Add((secondaryVertical = new PlayerInputAxis()).Set("Mouse Y"));
     }
 
     protected void Update()

@@ -37,7 +37,23 @@ public class XRPlayer : Player
         else if (InputsVR.RightHand.trigger.Value > .1f)
             activeController = rightController;
 
-        if (lastClickable!= null && InputsVR.Hands[activeController.side].triggerButton.WasPressed) 
+        if (lastClickable != null && InputsVR.Hands.ContainsKey(activeController.side) &&
+        InputsVR.Hands[activeController.side].triggerButton.WasPressed)
+        {
             lastClickable.OnClick();
+        }
+    }
+
+    public override void EquipWeapon(GameObject weapon)
+    {
+        base.EquipWeapon(weapon);
+        rightController.EquipWeapon(weapon);
+    }
+
+    public override void UnequipWeapon()
+    {
+        base.UnequipWeapon();
+        leftController.UnequipWeapon();
+        rightController.UnequipWeapon();
     }
 }

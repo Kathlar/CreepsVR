@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    private const float _maxLifeTime = 5;
+
     public TrailRenderer trail { get; private set; }
 
     public Gun gun { get; private set; }
@@ -14,6 +16,11 @@ public class Projectile : MonoBehaviour
     protected virtual void Awake()
     {
         trail = GetComponentInChildren<TrailRenderer>();
+    }
+
+    private void Start()
+    {
+        Invoke("OnHitEffect", _maxLifeTime);
     }
 
     public void Set(Gun gun)
@@ -33,12 +40,17 @@ public class Projectile : MonoBehaviour
         //    if (character.playerNumber == gun.holderNumber) return;
         //    character.GetDamage(damagePower);
         //}
-        gun.NotifyOfHit(this);
         if(trail)
         {
             trail.transform.SetParent(null);
             Destroy(trail.gameObject, trail.time);
         }
+        OnHitEffect();
+    }
+
+    private void OnHitEffect()
+    {
+        gun.NotifyOfHit(this);
         Destroy(gameObject);
     }
 }

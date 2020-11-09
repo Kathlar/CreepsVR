@@ -32,15 +32,40 @@ public class CharacterSoldier : Character
     private void Update()
     {
         Vector3 moveVector = Physics.gravity;
-        if (holdingWeapon && !attacking)
+        if (holdingWeapon)
         {
-            Transform cameraTransform = Game.Player.mainCamera.transform;
-            Vector2 moveInputValue = new Vector2(Mathf.Clamp(Inputs.MainHorizontal +
-                InputsVR.LeftHand.joystick.Value.x, -1, 1), Mathf.Clamp(Inputs.MainVertical +
-                InputsVR.LeftHand.joystick.Value.y, -1, 1));
-            Vector3 walkVector = cameraTransform.forward.FlatY() * moveInputValue.y +
-                cameraTransform.right.FlatY() * moveInputValue.x;
-            moveVector += walkVector * moveSpeed;
+            if(!attacking)
+            {
+                Transform cameraTransform = Game.Player.mainCamera.transform;
+                Vector2 moveInputValue = new Vector2(Mathf.Clamp(Inputs.MainHorizontal +
+                    InputsVR.LeftHand.joystick.Value.x, -1, 1), Mathf.Clamp(Inputs.MainVertical +
+                    InputsVR.LeftHand.joystick.Value.y, -1, 1));
+                Vector3 walkVector = cameraTransform.forward.FlatY() * moveInputValue.y +
+                    cameraTransform.right.FlatY() * moveInputValue.x;
+                moveVector += walkVector * moveSpeed;
+
+                if(InputsVR.LeftHand.triggerButton.WasPressed)
+                {
+                    attacking = true;
+                    spawnedItem.TurnOn();
+                }
+            }
+            else
+            {
+                if (InputsVR.RightHand.triggerButton.WasPressed) spawnedItem.UseStart();
+                else if (InputsVR.RightHand.triggerButton.IsPressed) spawnedItem.UseContinue();
+                else if (InputsVR.RightHand.triggerButton.WasReleased) spawnedItem.UseEnd();
+
+                if(!spawnedItem.StillUsing())
+                {
+                    holdingWeapon = false;
+                    attacking = false;
+
+                    Game.Player.UnequipWeapon();
+                    LevelFlow.SetTurnPart(LevelFlow.TurnPart.turnStart);
+                    regularModeObject.SetActive(true);
+                }
+            }
         }
         controller.Move(moveVector * Time.deltaTime);
     }
@@ -73,6 +98,12 @@ public class CharacterSoldier : Character
     {
         holdingWeapon = true;
         canvas.gameObject.SetActive(false);
+
+        GameObject weapon = Instantiate(icon.weaponPrefab);
+        spawnedItem = weapon.GetComponent<Item>();
+
+        Game.Player.EquipWeapon(weapon);
+
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.movement);
     }
 }

@@ -69,6 +69,8 @@ public class LevelFlow : Singleton<LevelFlow>
                     currentTurnNumber++;
                 }
                 characterGod.SetAsPlayer();
+                characterGod.myCanvas.SetActive(true);
+                Game.Player.SetRaycast(true);
                 break;
             case TurnPart.characterChoice:
                 for(int i = 0; i < soldiers.Count; i++)

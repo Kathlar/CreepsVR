@@ -13,6 +13,7 @@ public abstract class Player : MonoBehaviour
     protected LineRenderer raycastLine;
     protected IHoverOver lastHoverOver;
     protected IClickable lastClickable;
+    public GameObject lastClickableGO;
 
     public enum PlayerType { flat, vr }
     public abstract PlayerType playerType { get; }
@@ -59,8 +60,15 @@ public abstract class Player : MonoBehaviour
                     lastHoverOver = null;
                 }
                 if (hitGameObject.TryGetComponent(out IClickable clickable))
+                {
                     lastClickable = clickable;
-                else lastClickable = null;
+                    lastClickableGO = hitGameObject;
+                }
+                else
+                {
+                    lastClickable = null;
+                    lastClickableGO = null;
+                }
             }
             else
             {
@@ -68,7 +76,13 @@ public abstract class Player : MonoBehaviour
                 if (lastHoverOver != null) lastHoverOver.OnHoverEnd();
                 lastHoverOver = null;
                 lastClickable = null;
+                lastClickableGO = null;
             }
+        }
+        if (lastClickable != null && !lastClickableGO.activeInHierarchy)
+        {
+            lastClickable = null;
+            lastClickableGO = null;
         }
     }
 
@@ -84,5 +98,15 @@ public abstract class Player : MonoBehaviour
             pauseMenuObject.transform.rotation = Quaternion.Euler(0, 
                 mainCamera.transform.eulerAngles.y, 0);
         pauseMenuObject.SetActive(on);
+    }
+
+    public virtual void EquipWeapon(GameObject weapon)
+    {
+
+    }
+
+    public virtual void UnequipWeapon()
+    {
+
     }
 }

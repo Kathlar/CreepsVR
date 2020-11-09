@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private const float _maxLifeTime = 5;
+    private const float _maxLifeTime = 3;
 
     public TrailRenderer trail { get; private set; }
 

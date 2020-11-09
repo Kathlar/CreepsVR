@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelFlow : Singleton<LevelFlow>
@@ -10,11 +11,10 @@ public class LevelFlow : Singleton<LevelFlow>
 
     public CharacterGod characterGod;
     public GameObject characterSoldierPrefab;
-    private Dictionary<int, List<CharacterSoldier>> soldiers = 
-        new Dictionary<int, List<CharacterSoldier>>();
-    public List<Transform> spawnPoints = new List<Transform>();
+    private Dictionary<int, List<CharacterSoldier>> soldiers = new Dictionary<int, List<CharacterSoldier>>();
+    private List<SpawnPoint> soldierSpawnPoints = new List<SpawnPoint>();
 
-    public enum TurnPart { turnStart, characterChoice, weaponChoice, movement, attack }
+    public enum TurnPart { turnStart, characterChoice, soldierWeaponChoice, soldierAction, other }
     private TurnPart turnPart = TurnPart.turnStart;
 
     public Camera nonVrCamera;
@@ -27,17 +27,18 @@ public class LevelFlow : Singleton<LevelFlow>
     protected override void SingletonAwake()
     {
         if (levelSetupInfo == null) levelSetupInfo = LevelSetupInfo.DefaultLevelSetupInfo();
+        soldierSpawnPoints = FindObjectsOfType<SpawnPoint>().ToList();
         for (int i = 0; i < levelSetupInfo.numberOfPlayers; i++)
         {
             soldiers.Add(i, new List<CharacterSoldier>());
             for (int j = 0; j < levelSetupInfo.numberOfCharacters; j++)
             {
-                int randomSpawnPointNumber = Random.Range(0, spawnPoints.Count);
+                int randomSpawnPointNumber = Random.Range(0, soldierSpawnPoints.Count);
                 CharacterSoldier soldier = Instantiate(characterSoldierPrefab,
-                    spawnPoints[randomSpawnPointNumber].position,
-                    spawnPoints[randomSpawnPointNumber].rotation).GetComponent<CharacterSoldier>();
+                    soldierSpawnPoints[randomSpawnPointNumber].transform.position,
+                    soldierSpawnPoints[randomSpawnPointNumber].transform.rotation).GetComponent<CharacterSoldier>();
                 soldier.transform.SetParent(characterGod.transform.parent);
-                spawnPoints.RemoveAt(randomSpawnPointNumber);
+                soldierSpawnPoints.RemoveAt(randomSpawnPointNumber);
                 soldiers[i].Add(soldier);
                 soldier.playerNumber = i;
             }
@@ -101,7 +102,7 @@ public class LevelFlow : Singleton<LevelFlow>
                         soldier.SetChoice(i == currentPlayerNumber);
                 break;
 
-            case TurnPart.weaponChoice:
+            case TurnPart.soldierWeaponChoice:
                 characterGod.SetAsNotPlayer();
                 foreach (var s in soldiers.Values)
                     foreach (CharacterSoldier soldier in s)
@@ -109,10 +110,8 @@ public class LevelFlow : Singleton<LevelFlow>
                 foreach (CharacterSoldier soldier in soldiers[currentPlayerNumber])
                     soldier.SetChoice(false);
                 break;
-            case TurnPart.movement:
+            case TurnPart.soldierAction:
                 Game.Player.SetRaycast(false);
-                break;
-            case TurnPart.attack:
                 break;
         }
     }
@@ -121,7 +120,15 @@ public class LevelFlow : Singleton<LevelFlow>
     {
         Instance.soldiers[soldier.playerNumber].Remove(soldier);
         if (Instance.soldiers[soldier.playerNumber].Count == 0)
-            Game.GoToMainMenu();
+            Instance.LevelFinish();
+    }
+
+    public void LevelFinish()
+    {
+        turnPart = TurnPart.other;
+
+        //show end sequence
+        Game.GoToMainMenu();
     }
 
     void OnDrawGizmos()

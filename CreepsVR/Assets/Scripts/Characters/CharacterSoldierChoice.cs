@@ -42,7 +42,7 @@ public class CharacterSoldierChoice : MonoBehaviour, IHoverOver, IClickable
     public void OnClick()
     {
         if (!isOn) return;
-        character.ChooseCharacter();
+        character.GetChosen();
     }
 
     public void OnHoverEnd()

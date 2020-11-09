@@ -82,7 +82,7 @@ public class CharacterSoldier : Character
                     holdingWeapon = false;
                     attacking = false;
 
-                    Game.Player.UnequipWeapon();
+                    Game.Player.UnequipItem();
                     StartCoroutine(EndTurnCoroutine());
                 }
             }
@@ -148,7 +148,7 @@ public class CharacterSoldier : Character
         spawnedItem = weapon.GetComponent<Item>();
         spawnedItem.Set(playerNumber);
 
-        Game.Player.EquipWeapon(weapon);
+        Game.Player.EquipItem(spawnedItem);
 
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.movement);
     }

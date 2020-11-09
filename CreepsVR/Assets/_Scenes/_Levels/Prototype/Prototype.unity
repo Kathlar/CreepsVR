@@ -59431,6 +59431,10 @@ PrefabInstance:
       propertyPath: m_TargetEye
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4044660326065994883, guid: ba0064c3a0d537e458bed589b860e0e1, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1342177559
+      objectReference: {fileID: 0}
     - target: {fileID: 4044660326065994886, guid: ba0064c3a0d537e458bed589b860e0e1, type: 3}
       propertyPath: m_Name
       value: NonVRCamera

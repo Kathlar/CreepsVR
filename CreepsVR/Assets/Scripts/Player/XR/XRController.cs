@@ -9,7 +9,7 @@ public class XRController : MonoBehaviour
 
     public HorizontalSide side;
 
-    public GameObject equipedWeapon;
+    public Item equipedItem;
 
     private void Awake()
     {
@@ -26,17 +26,17 @@ public class XRController : MonoBehaviour
         }
     }
 
-    public void EquipWeapon(GameObject weapon)
+    public void EquipItem(Item weapon)
     {
         animator.gameObject.SetActive(!weapon);
         weapon.transform.parent = transform;
         weapon.transform.ResetLocalTransform();
-        equipedWeapon = weapon;
+        equipedItem = weapon;
     }
 
-    public void UnequipWeapon()
+    public void UnequipItem()
     {
         animator.gameObject.SetActive(true);
-        Destroy(equipedWeapon);
+        if(equipedItem) Destroy(equipedItem.gameObject);
     }
 }

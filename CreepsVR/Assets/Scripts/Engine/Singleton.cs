@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Base class of all managers, containg static Instance field of the one and only object of 
-/// this type on the scene.
+/// Base class of all managers, containg static Instance field of the one and only object of this type on the scene.
 /// </summary>
 /// <typeparam name="T">The class itself.</typeparam>
 public abstract class Singleton<T> : SingletonBase where T : SingletonBase

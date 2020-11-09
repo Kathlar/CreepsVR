@@ -52,7 +52,7 @@ public class Game : Singleton<Game>
     public static void PauseGame()
     {
         Instance.paused = true;
-        Player.PauseMenu(true);
+        Player.ShowPauseMenu(true);
         Instance.raycastOnBeforePause = Player.raycastOn;
         Player.SetRaycast(true);
         Time.timeScale = 0;
@@ -61,7 +61,7 @@ public class Game : Singleton<Game>
     public static void UnpauseGame()
     {
         Instance.paused = false;
-        Player.PauseMenu(false);
+        Player.ShowPauseMenu(false);
         Player.SetRaycast(Instance.raycastOnBeforePause);
         Time.timeScale = 1;
     }

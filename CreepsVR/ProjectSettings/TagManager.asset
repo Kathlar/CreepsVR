@@ -33,7 +33,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - UINonVR
   - VROnly
   - NotVROnly
   - EditorOnly

@@ -13,6 +13,11 @@ public class QualityManager : Singleton<QualityManager>
 
     protected override void SingletonAwake()
     {
+
+    }
+
+    private void Start()
+    {
         volume = Game.Player.mainCamera.GetComponent<PostProcessVolume>();
         volume.profile = profile = Instantiate(volume.profile);
 

@@ -141,12 +141,10 @@ public class InputsVR : Singleton<InputsVR>
     #endregion
 
     public VRControllerInputValues leftHand, rightHand;
-    private Dictionary<HorizontalSide, VRControllerInputValues> hands =
-        new Dictionary<HorizontalSide, VRControllerInputValues>();
+    private Dictionary<HorizontalSide, VRControllerInputValues> hands = new Dictionary<HorizontalSide, VRControllerInputValues>();
     public static VRControllerInputValues LeftHand { get { return Instance.leftHand; } }
     public static VRControllerInputValues RightHand { get { return Instance.rightHand; } }
-    public static Dictionary<HorizontalSide, VRControllerInputValues> Hands
-        { get { return Instance.hands; } }
+    public static Dictionary<HorizontalSide, VRControllerInputValues> Hands { get { return Instance.hands; } }
 
     protected override void SingletonAwake()
     {
@@ -195,8 +193,7 @@ public class InputsVR : Singleton<InputsVR>
     InputDevice GetHand(InputDeviceCharacteristics side)
     {
         List<InputDevice> devices = new List<InputDevice>();
-        InputDeviceCharacteristics characteristics =
-            InputDeviceCharacteristics.Controller | side;
+        InputDeviceCharacteristics characteristics = InputDeviceCharacteristics.Controller | side;
         InputDevices.GetDevicesWithCharacteristics(characteristics, devices);
         return (devices.Count > 0 ? devices[0] : default);
     }

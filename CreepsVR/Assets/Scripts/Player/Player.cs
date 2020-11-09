@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Player : MonoBehaviour
 {
     public Camera mainCamera { get; private set; }
-
     public GameObject pauseMenuObject;
 
     public bool raycastOn { get; private set; } = true;
@@ -47,11 +46,11 @@ public abstract class Player : MonoBehaviour
                 raycastLine.SetPosition(1, hit.point);
                 if (hitGameObject.TryGetComponent(out IHoverOver hoverOver))
                 {
-                    if (hoverOver != lastHoverOver)
+                    if(hoverOver != lastHoverOver)
                     {
                         if (lastHoverOver != null) lastHoverOver.OnHoverEnd();
                         lastHoverOver = hoverOver;
-                        if (hoverOver != null) hoverOver.OnHoverStart();
+                        hoverOver.OnHoverStart();
                     }
                 }
                 else if (lastHoverOver != null)
@@ -90,23 +89,20 @@ public abstract class Player : MonoBehaviour
     {
         raycastLine.enabled = on;
         raycastOn = on;
+        if(!on)
+        {
+            if (lastHoverOver != null) lastHoverOver.OnHoverEnd();
+            lastHoverOver = null;
+            lastClickable = null;
+        }
     }
 
-    public void PauseMenu(bool on)
+    public void ShowPauseMenu(bool on)
     {
-        if (on) 
-            pauseMenuObject.transform.rotation = Quaternion.Euler(0, 
-                mainCamera.transform.eulerAngles.y, 0);
+        if (on) pauseMenuObject.transform.rotation = Quaternion.Euler(0, mainCamera.transform.eulerAngles.y, 0);
         pauseMenuObject.SetActive(on);
     }
 
-    public virtual void EquipWeapon(GameObject weapon)
-    {
-
-    }
-
-    public virtual void UnequipWeapon()
-    {
-
-    }
+    public abstract void EquipItem(Item weapon);
+    public abstract void UnequipItem();
 }

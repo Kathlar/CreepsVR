@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerFlat : Player
 {
     protected override Transform raycastPoint { get { return mainCamera.transform; } }
-
     public override PlayerType playerType { get { return PlayerType.flat; } }
 
     private float rotationX, rotationY;
@@ -29,5 +28,15 @@ public class PlayerFlat : Player
         mainCamera.transform.localEulerAngles = new Vector3(-rotationX, rotationY, 0);
 
         if (lastClickable != null & Inputs.LeftMouse.WasPressed) lastClickable.OnClick();
+    }
+
+    public override void EquipItem(Item weapon)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void UnequipItem()
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -9,7 +9,6 @@ public class XRPlayer : Player
     private XRController activeController;
 
     protected override Transform raycastPoint { get { return activeController.transform; } }
-
     public override PlayerType playerType { get { return PlayerType.vr; } }
 
     protected override void Awake()
@@ -37,23 +36,19 @@ public class XRPlayer : Player
         else if (InputsVR.RightHand.trigger.Value > .1f)
             activeController = rightController;
 
-        if (lastClickable != null && InputsVR.Hands.ContainsKey(activeController.side) &&
+        if (raycastOn && lastClickable != null && InputsVR.Hands.ContainsKey(activeController.side) &&
         InputsVR.Hands[activeController.side].triggerButton.WasPressed)
-        {
             lastClickable.OnClick();
-        }
     }
 
-    public override void EquipWeapon(GameObject weapon)
+    public override void EquipItem(Item item)
     {
-        base.EquipWeapon(weapon);
-        rightController.EquipWeapon(weapon);
+        rightController.EquipItem(item);
     }
 
-    public override void UnequipWeapon()
+    public override void UnequipItem()
     {
-        base.UnequipWeapon();
-        leftController.UnequipWeapon();
-        rightController.UnequipWeapon();
+        leftController.UnequipItem();
+        rightController.UnequipItem();
     }
 }

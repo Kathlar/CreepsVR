@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f81935d817ee5a41b824a6d713e2528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1687381804350648070}
+  canvas: {fileID: 4577694813310007746}
   regularModeObject: {fileID: 3117111009031818230}
   choice: {fileID: 0}
   playerNumber: 0

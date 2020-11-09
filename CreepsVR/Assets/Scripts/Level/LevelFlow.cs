@@ -69,7 +69,7 @@ public class LevelFlow : Singleton<LevelFlow>
                     currentTurnNumber++;
                 }
                 characterGod.SetAsPlayer();
-                characterGod.myCanvas.SetActive(true);
+                characterGod.canvas.gameObject.SetActive(true);
                 Game.Player.SetRaycast(true);
                 break;
             case TurnPart.characterChoice:

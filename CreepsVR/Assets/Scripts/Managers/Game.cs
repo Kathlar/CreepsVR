@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Core manager of the game, holds information about main objects in game and takes care of scene management.
+/// </summary>
 public class Game : Singleton<Game>
 {
     public Database database;
     public static Database GameDatabase { get { return Instance.database; } }
 
-    public Player.PlayerType playerType = Player.PlayerType.flat;
+    public Player.PlayerType playerTypeToSpawn = Player.PlayerType.flat;
     public GameObject flatPlayerPrefab, vrPlayerPrefab;
     protected Player player;
     public static Player Player { get { return Instance.player; } }
 
     private bool paused;
     public static bool Paused { get { return Instance.paused; } }
-    private bool raycastWasOn;
+    private bool raycastOnBeforePause;
 
     protected override void SingletonAwake()
     {
@@ -24,7 +27,7 @@ public class Game : Singleton<Game>
         else
         {
             GameObject playerToSpawn = null;
-            switch (playerType)
+            switch (playerTypeToSpawn)
             {
                 case Player.PlayerType.flat:
                     playerToSpawn = flatPlayerPrefab;
@@ -37,6 +40,9 @@ public class Game : Singleton<Game>
         }
     }
 
+    /// <summary>
+    /// Pauses the game if it's not, unpauses the game if it's paused.
+    /// </summary>
     public static void PauseUnpauseGame()
     {
         if (Instance.paused) UnpauseGame();
@@ -47,7 +53,7 @@ public class Game : Singleton<Game>
     {
         Instance.paused = true;
         Player.PauseMenu(true);
-        Instance.raycastWasOn = Player.raycastOn;
+        Instance.raycastOnBeforePause = Player.raycastOn;
         Player.SetRaycast(true);
         Time.timeScale = 0;
     }
@@ -56,7 +62,7 @@ public class Game : Singleton<Game>
     {
         Instance.paused = false;
         Player.PauseMenu(false);
-        Player.SetRaycast(Instance.raycastWasOn);
+        Player.SetRaycast(Instance.raycastOnBeforePause);
         Time.timeScale = 1;
     }
 

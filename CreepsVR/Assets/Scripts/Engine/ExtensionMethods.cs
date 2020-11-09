@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// Adds custom methods to built in Unity components.
+/// </summary>
 public static class ExtensionMethods
 {
     public static void ResetLocalTransform(this Transform trans)

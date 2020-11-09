@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Debug Manager, allowing for special behaviors in development builds and editor.
+/// </summary>
 public class Debugs : Singleton<Debugs>
 {
     private bool isDebug;
@@ -17,6 +18,7 @@ public class Debugs : Singleton<Debugs>
 
     private void Update()
     {
+        if (!isDebug) return;
         if (Inputs.RKey.WasPressed || InputsVR.LeftHand.secondaryButton.WasPressed)
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         if (Inputs.PKey.WasPressed || InputsVR.LeftHand.primaryButton.WasPressed)

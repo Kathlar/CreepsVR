@@ -2,6 +2,9 @@
 using UnityEngine;
 using UnityEngine.XR;
 
+/// <summary>
+/// Manager holding information about all vr inputs used in the game.
+/// </summary>
 public class InputsVR : Singleton<InputsVR>
 {
     protected InputDevice leftHandDevice, rightHandDevice;

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
+/// <summary>
+/// Manager taking care of quality settings in game.
+/// </summary>
 public class QualityManager : Singleton<QualityManager>
 {
     PostProcessVolume volume;
@@ -10,15 +13,10 @@ public class QualityManager : Singleton<QualityManager>
 
     protected override void SingletonAwake()
     {
-
-    }
-
-    private void Start()
-    {
         volume = Game.Player.mainCamera.GetComponent<PostProcessVolume>();
         volume.profile = profile = Instantiate(volume.profile);
 
-        switch(QualitySettings.GetQualityLevel())
+        switch (QualitySettings.GetQualityLevel())
         {
             case 0:
                 volume.enabled = false;

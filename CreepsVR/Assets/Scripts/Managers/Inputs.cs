@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manager holding information about all inputs used in the game.
+/// </summary>
 public class Inputs : Singleton<Inputs>
 {
     #region Input Classes

@@ -57,6 +57,10 @@ MonoBehaviour:
       wasPressed: 0
       isPressed: 0
       wasReleased: 0
+    triggerButton:
+      wasPressed: 0
+      isPressed: 0
+      wasReleased: 0
     trigger:
       value: 0
       lastValue: 0
@@ -84,6 +88,10 @@ MonoBehaviour:
       isPressed: 0
       wasReleased: 0
     menuButton:
+      wasPressed: 0
+      isPressed: 0
+      wasReleased: 0
+    triggerButton:
       wasPressed: 0
       isPressed: 0
       wasReleased: 0
@@ -230,6 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8496243814037362958}
   - component: {fileID: 8496243814037362957}
+  - component: {fileID: 957019914}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -266,6 +275,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   database: {fileID: 11400000, guid: a792831ce4efb5248bb4fd1853019106, type: 2}
-  playerType: 0
+  playerTypeToSpawn: 1
   flatPlayerPrefab: {fileID: 4626442202369820723, guid: ffa47cd27b74449668e5767258c6f919, type: 3}
   vrPlayerPrefab: {fileID: 777768873394869090, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+--- !u!114 &957019914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496243814037362952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b22c9d4a4e1fd643875b4cae52e521a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

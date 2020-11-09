@@ -6,6 +6,8 @@ public abstract class Player : MonoBehaviour
 {
     public Camera mainCamera { get; private set; }
 
+    public GameObject pauseMenuObject;
+
     protected bool raycastOn = true;
     protected abstract Transform raycastPoint { get; }
     protected LineRenderer raycastLine;
@@ -26,6 +28,7 @@ public abstract class Player : MonoBehaviour
 
     protected virtual void Start()
     {
+        pauseMenuObject.SetActive(false);
         raycastLine.positionCount = 2;
         SetRaycast(true);
     }
@@ -37,7 +40,7 @@ public abstract class Player : MonoBehaviour
         {
             Ray ray = new Ray(raycastPoint.position, raycastPoint.forward);
             raycastLine.SetPosition(0, raycastPoint.position);
-            if (Physics.Raycast(ray, out RaycastHit hit, 200, 5))
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 GameObject hitGameObject = hit.transform.gameObject;
                 raycastLine.SetPosition(1, hit.point);
@@ -73,5 +76,13 @@ public abstract class Player : MonoBehaviour
     {
         raycastLine.enabled = on;
         raycastOn = on;
+    }
+
+    public void PauseMenu(bool on)
+    {
+        if (on) 
+            pauseMenuObject.transform.rotation = Quaternion.Euler(0, 
+                mainCamera.transform.eulerAngles.y, 0);
+        pauseMenuObject.SetActive(on);
     }
 }

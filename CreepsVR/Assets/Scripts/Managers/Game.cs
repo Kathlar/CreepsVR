@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : Singleton<Game>
 {
@@ -11,6 +12,8 @@ public class Game : Singleton<Game>
     public GameObject flatPlayerPrefab, vrPlayerPrefab;
     protected Player player;
     public static Player Player { get { return Instance.player; } }
+
+    private bool paused;
 
     protected override void SingletonAwake()
     {
@@ -28,7 +31,37 @@ public class Game : Singleton<Game>
                     playerToSpawn = vrPlayerPrefab;
                     break;
             }
-            player = Instantiate(playerToSpawn).GetComponent<Player>();
+            player = Instantiate(playerToSpawn).GetComponentInChildren<Player>();
         }
+    }
+
+    public static void PauseUnpauseGame()
+    {
+        if (Instance.paused) UnpauseGame();
+        else PauseGame();
+    }
+
+    public static void PauseGame()
+    {
+        Instance.paused = true;
+        Player.PauseMenu(true);
+        Time.timeScale = 0;
+    }
+
+    public static void UnpauseGame()
+    {
+        Instance.paused = false;
+        Player.PauseMenu(false);
+        Time.timeScale = 1;
+    }
+
+    public static void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public static void GoToMainMenu()
+    {
+        SceneManager.LoadScene(Database.Levels.mainMenuLevelInfo.sceneAssetName);
     }
 }

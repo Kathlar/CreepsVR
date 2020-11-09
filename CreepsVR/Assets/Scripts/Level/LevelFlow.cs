@@ -13,13 +13,21 @@ public class LevelFlow : Singleton<LevelFlow>
 
     protected override void SingletonAwake()
     {
-        for(int i = 0; i < levelSetupInfo.numberOfPlayers; i++)
-        {
-            soldiers.Add(i, new List<Character>());
-            for (int j = 0; j < levelSetupInfo.numberOfCharacters; j++)
-            {
+        //for(int i = 0; i < levelSetupInfo.numberOfPlayers; i++)
+        //{
+        //    soldiers.Add(i, new List<Character>());
+        //    for (int j = 0; j < levelSetupInfo.numberOfCharacters; j++)
+        //    {
 
-            }
+        //    }
+        //}
+    }
+
+    private void Update()
+    {
+        if (Inputs.Escape.WasPressed || InputsVR.LeftHand.menuButton.WasPressed)
+        {
+            Game.PauseUnpauseGame();
         }
     }
 }

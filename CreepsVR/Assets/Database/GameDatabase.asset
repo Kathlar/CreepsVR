@@ -30,7 +30,7 @@ MonoBehaviour:
       sceneAssetName: MainMenu
       levelName: Main Menu
     gameLevelInfos:
-    - sceneAssetName: Test01
-      levelName: Test 1
+    - sceneAssetName: Prototype
+      levelName: Prototype
   weaponPrefabs:
   - {fileID: 4627912032638250315, guid: 41022635a991f5b4b868c23d12d749b2, type: 3}

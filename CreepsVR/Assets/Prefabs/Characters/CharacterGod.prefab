@@ -531,6 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6388897432913854fab91533319411c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worksWhenGamePaused: 0
 --- !u!1 &5546702055793841095
 GameObject:
   m_ObjectHideFlags: 0

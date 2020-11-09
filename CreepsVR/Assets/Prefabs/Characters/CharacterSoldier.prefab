@@ -436,13 +436,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.5
   m_Radius: 0.3
-  m_SlopeLimit: 45
+  m_SlopeLimit: 46
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.25, z: 0}
 --- !u!136 &5258007090090813399
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -454,7 +454,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
-  m_Height: 2
+  m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3646945654596378635
@@ -1265,6 +1265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6614611962972898467}
+  - component: {fileID: 6981599714205412947}
   m_Layer: 0
   m_Name: CanvasPivot
   m_TagString: Untagged
@@ -1287,6 +1288,18 @@ Transform:
   m_Father: {fileID: 3117111010778642257}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6981599714205412947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534221819375667779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52397b0ffa29b34198c2a4272547a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6754207329386911638
 GameObject:
   m_ObjectHideFlags: 0

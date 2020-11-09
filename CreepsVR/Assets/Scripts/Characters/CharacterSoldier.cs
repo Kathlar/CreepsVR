@@ -77,6 +77,7 @@ public class CharacterSoldier : Character
                     attacking = false;
 
                     Game.Player.UnequipWeapon();
+                    infoWindow.gameObject.SetActive(true);
                     LevelFlow.SetTurnPart(LevelFlow.TurnPart.turnStart);
                     SetAsNotPlayer();
                     regularModeObject.SetActive(true);
@@ -111,6 +112,7 @@ public class CharacterSoldier : Character
             Destroy(weaponSelectionIcons[j]);
         }
         weaponSelectionIcons.Clear();
+        infoWindow.gameObject.SetActive(false);
         foreach(var weapon in Database.WeaponPrefabs)
         {
             WeaponSelectionIcon icon = Instantiate(weaponSelectionButtonPrefab, 

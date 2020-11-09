@@ -8,7 +8,7 @@ public abstract class Player : MonoBehaviour
 
     public GameObject pauseMenuObject;
 
-    protected bool raycastOn = true;
+    public bool raycastOn { get; private set; } = true;
     protected abstract Transform raycastPoint { get; }
     protected LineRenderer raycastLine;
     protected IHoverOver lastHoverOver;

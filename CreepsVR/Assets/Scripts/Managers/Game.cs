@@ -14,6 +14,8 @@ public class Game : Singleton<Game>
     public static Player Player { get { return Instance.player; } }
 
     private bool paused;
+    public static bool Paused { get { return Instance.paused; } }
+    private bool raycastWasOn;
 
     protected override void SingletonAwake()
     {
@@ -45,6 +47,8 @@ public class Game : Singleton<Game>
     {
         Instance.paused = true;
         Player.PauseMenu(true);
+        Instance.raycastWasOn = Player.raycastOn;
+        Player.SetRaycast(true);
         Time.timeScale = 0;
     }
 
@@ -52,11 +56,13 @@ public class Game : Singleton<Game>
     {
         Instance.paused = false;
         Player.PauseMenu(false);
+        Player.SetRaycast(Instance.raycastWasOn);
         Time.timeScale = 1;
     }
 
     public static void RestartLevel()
     {
+        UnpauseGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

@@ -13,14 +13,23 @@ public class CharacterSoldier : Character
 
     public GameObject weaponSelectionButtonPrefab;
     public RectTransform weaponSelectionGrid;
+    private List<GameObject> weaponSelectionIcons = new List<GameObject>();
 
     private Item spawnedItem;
     private bool holdingWeapon, attacking;
-    public float moveSpeed = 6;
+
+    public SoldierInfoWindow infoWindow { get; private set; }
+    private Vector3 startInfoWindowScale;
+
+    public int maxHealth = 100;
+    private int currentHealth;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+
+        infoWindow = GetComponentInChildren<SoldierInfoWindow>();
+        startInfoWindowScale = infoWindow.transform.parent.localScale;
 
         choice = GetComponentInChildren<CharacterSoldierChoice>();
         choice.character = this;
@@ -29,10 +38,16 @@ public class CharacterSoldier : Character
         canvas.gameObject.SetActive(false);
     }
 
+    private void Start()
+    {
+        infoWindow.SetUp(playerNumber);
+        SetHealth(maxHealth);
+    }
+
     private void Update()
     {
         Vector3 moveVector = Physics.gravity;
-        if (holdingWeapon)
+        if (isPlayer && holdingWeapon)
         {
             if(!attacking)
             {
@@ -63,6 +78,7 @@ public class CharacterSoldier : Character
 
                     Game.Player.UnequipWeapon();
                     LevelFlow.SetTurnPart(LevelFlow.TurnPart.turnStart);
+                    SetAsNotPlayer();
                     regularModeObject.SetActive(true);
                 }
             }
@@ -72,7 +88,15 @@ public class CharacterSoldier : Character
 
     public void SetChoice(bool on)
     {
-        choice.gameObject.SetActive(on);
+        choice.gameObject.SetActive(true);
+        if (on) choice.TurnOn();
+        else choice.TurnOff();
+    }
+
+    public void HideChoice()
+    {
+        choice.gameObject.SetActive(false);
+        choice.TurnOff();
     }
 
     public void ChooseCharacter()
@@ -82,6 +106,11 @@ public class CharacterSoldier : Character
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.weaponChoice);
 
         canvas.gameObject.SetActive(true);
+        for(int j = weaponSelectionIcons.Count - 1; j >= 0; j--)
+        {
+            Destroy(weaponSelectionIcons[j]);
+        }
+        weaponSelectionIcons.Clear();
         foreach(var weapon in Database.WeaponPrefabs)
         {
             WeaponSelectionIcon icon = Instantiate(weaponSelectionButtonPrefab, 
@@ -91,6 +120,7 @@ public class CharacterSoldier : Character
             Item item = weapon.GetComponent<Item>();
             icon.iconImage.sprite = item.icon;
             icon.nameText.text = item.itemName;
+            weaponSelectionIcons.Add(icon.gameObject);
         }
     }
 
@@ -101,9 +131,33 @@ public class CharacterSoldier : Character
 
         GameObject weapon = Instantiate(icon.weaponPrefab);
         spawnedItem = weapon.GetComponent<Item>();
+        spawnedItem.Set(playerNumber);
 
         Game.Player.EquipWeapon(weapon);
 
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.movement);
+    }
+
+    public void GetDamage(int power)
+    {
+        SetHealth(Mathf.Clamp(currentHealth - power, 0, currentHealth));
+    }
+
+    private void SetHealth(int newHealth)
+    {
+        currentHealth = Mathf.Clamp(newHealth, 0, maxHealth);
+        if (currentHealth == 0) Die();
+        infoWindow.UpdateHealthBar(currentHealth, maxHealth);
+    }
+
+    private void Die()
+    {
+        LevelFlow.NotifyOfDeath(this);
+        Destroy(gameObject);
+    }
+
+    public void SetInfoWindowSize(bool small)
+    {
+        infoWindow.transform.parent.localScale = (small ? .25f : 1f) * startInfoWindowScale;
     }
 }

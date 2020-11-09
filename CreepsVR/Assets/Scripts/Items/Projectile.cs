@@ -35,12 +35,12 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if(other.TryGetComponent(out PlayerControllerCharacter character))
-        //{
-        //    if (character.playerNumber == gun.holderNumber) return;
-        //    character.GetDamage(damagePower);
-        //}
-        if(trail)
+        if (other.TryGetComponent(out CharacterSoldier character))
+        {
+            if (character.playerNumber == gun.holderNumber) return;
+            character.GetDamage(damagePower);
+        }
+        if (trail)
         {
             trail.transform.SetParent(null);
             Destroy(trail.gameObject, trail.time);

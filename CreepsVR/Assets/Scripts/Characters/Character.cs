@@ -6,6 +6,10 @@ public class Character : MonoBehaviour
 {
     public Transform canvas;
 
+    public float moveSpeed = 6;
+
+    protected bool isPlayer;
+
     public void SetAsPlayer()
     {
         Transform playerTransform = Game.Player.transform.parent;
@@ -14,5 +18,12 @@ public class Character : MonoBehaviour
 
         canvas.eulerAngles = 
             new Vector3(0, Game.Player.mainCamera.transform.eulerAngles.y, 0);
+
+        isPlayer = true;
+    }
+
+    public void SetAsNotPlayer()
+    {
+        isPlayer = false;
     }
 }

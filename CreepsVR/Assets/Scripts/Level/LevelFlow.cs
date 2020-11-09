@@ -71,17 +71,27 @@ public class LevelFlow : Singleton<LevelFlow>
                 characterGod.SetAsPlayer();
                 characterGod.canvas.gameObject.SetActive(true);
                 Game.Player.SetRaycast(true);
+                foreach (var s in soldiers.Values)
+                    foreach (CharacterSoldier soldier in s)
+                    {
+                        soldier.SetInfoWindowSize(false);
+                        soldier.SetChoice(false);
+                    }
+                characterGod.turnText.text = "TURN " + currentTurnNumber.ToString();
+                characterGod.playerText.text = "PLAYER " + (currentPlayerNumber + 1).ToString();
+                characterGod.playerText.color = Database.PlayerInfos[currentPlayerNumber].color;
                 break;
             case TurnPart.characterChoice:
                 for(int i = 0; i < soldiers.Count; i++)
-                {
                     foreach(CharacterSoldier soldier in soldiers[i])
-                    {
                         soldier.SetChoice(i == currentPlayerNumber);
-                    }
-                }
                 break;
+
             case TurnPart.weaponChoice:
+                characterGod.SetAsNotPlayer();
+                foreach (var s in soldiers.Values)
+                    foreach (CharacterSoldier soldier in s)
+                        soldier.SetInfoWindowSize(true);
                 foreach (CharacterSoldier soldier in soldiers[currentPlayerNumber])
                     soldier.SetChoice(false);
                 break;
@@ -91,5 +101,12 @@ public class LevelFlow : Singleton<LevelFlow>
             case TurnPart.attack:
                 break;
         }
+    }
+
+    public static void NotifyOfDeath(CharacterSoldier soldier)
+    {
+        Instance.soldiers[soldier.playerNumber].Remove(soldier);
+        if (Instance.soldiers[soldier.playerNumber].Count == 0)
+            Game.GoToMainMenu();
     }
 }

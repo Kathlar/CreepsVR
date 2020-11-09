@@ -320,7 +320,7 @@ MonoBehaviour:
   playerNumber: 0
   weaponSelectionButtonPrefab: {fileID: 225080278188433279, guid: f7184191278966346960f5020ef5fbd3, type: 3}
   weaponSelectionGrid: {fileID: 8395759017035761334}
-  moveSpeed: 6
+  moveSpeed: 3
 --- !u!143 &4212433985956757527
 CharacterController:
   m_ObjectHideFlags: 0

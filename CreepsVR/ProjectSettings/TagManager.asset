@@ -34,8 +34,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - VROnly
+  - NotVROnly
   - EditorOnly
   m_SortingLayers:
   - name: Default

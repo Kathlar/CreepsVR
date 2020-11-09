@@ -13,7 +13,7 @@ public class CharacterGod : Character
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.characterChoice);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!isPlayer) return;
 
@@ -25,6 +25,9 @@ public class CharacterGod : Character
             cameraTransform.right.FlatY() * moveInputValue.x;
         Vector3 moveVector = walkVector * moveSpeed;
 
-        transform.position += moveVector * Time.deltaTime;
+        Vector3 newPos = transform.position + moveVector * Time.fixedDeltaTime;
+        newPos.x = Mathf.Clamp(newPos.x, LevelFlow.ClampMovementValuesX.x, LevelFlow.ClampMovementValuesX.y);
+        newPos.z = Mathf.Clamp(newPos.z, LevelFlow.ClampMovementValuesZ.x, LevelFlow.ClampMovementValuesZ.y);
+        transform.position = newPos;
     }
 }

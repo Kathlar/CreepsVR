@@ -17,6 +17,13 @@ public class LevelFlow : Singleton<LevelFlow>
     public enum TurnPart { turnStart, characterChoice, weaponChoice, movement, attack }
     private TurnPart turnPart = TurnPart.turnStart;
 
+    public Camera nonVrCamera;
+    private bool showingNonVRCamera;
+
+    public Vector2 clampMovementValuesX, clampMovementValuesZ;
+    public static Vector2 ClampMovementValuesX { get { return Instance.clampMovementValuesX; } }
+    public static Vector2 ClampMovementValuesZ { get { return Instance.clampMovementValuesZ; } }
+
     protected override void SingletonAwake()
     {
         if (levelSetupInfo == null) levelSetupInfo = LevelSetupInfo.DefaultLevelSetupInfo();
@@ -40,6 +47,7 @@ public class LevelFlow : Singleton<LevelFlow>
     private void Start()
     {
         SetTurnPart(TurnPart.turnStart);
+        if (nonVrCamera) nonVrCamera.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -47,6 +55,12 @@ public class LevelFlow : Singleton<LevelFlow>
         if (Inputs.Escape.WasPressed || InputsVR.LeftHand.menuButton.WasPressed)
         {
             Game.PauseUnpauseGame();
+        }
+
+        if(Inputs.Space.WasPressed && nonVrCamera)
+        {
+            showingNonVRCamera = !showingNonVRCamera;
+            nonVrCamera.gameObject.SetActive(showingNonVRCamera);
         }
     }
 
@@ -108,5 +122,14 @@ public class LevelFlow : Singleton<LevelFlow>
         Instance.soldiers[soldier.playerNumber].Remove(soldier);
         if (Instance.soldiers[soldier.playerNumber].Count == 0)
             Game.GoToMainMenu();
+    }
+
+    void OnDrawGizmos()
+    {
+        Vector3 center = new Vector3((clampMovementValuesX.x + clampMovementValuesX.y) / 2, 0,
+            (clampMovementValuesZ.x + clampMovementValuesZ.y) / 2);
+        Vector3 size = new Vector3(Mathf.Abs(clampMovementValuesX.y - clampMovementValuesX.x), .5f,
+            Mathf.Abs(clampMovementValuesZ.y - clampMovementValuesZ.x));
+        Gizmos.DrawWireCube(center, size);
     }
 }

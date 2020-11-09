@@ -6,6 +6,8 @@ public class CharacterSoldier : Character
 {
     public CharacterController controller { get; private set; }
 
+    public Animator animator { get; private set; }
+
     public GameObject regularModeObject;
     [HideInInspector] public CharacterSoldierChoice choice;
 
@@ -24,9 +26,12 @@ public class CharacterSoldier : Character
     public int maxHealth = 100;
     private int currentHealth;
 
+    private bool endingTurn;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
 
         infoWindow = GetComponentInChildren<SoldierInfoWindow>();
         startInfoWindowScale = infoWindow.transform.parent.localScale;
@@ -47,7 +52,7 @@ public class CharacterSoldier : Character
     private void Update()
     {
         Vector3 moveVector = Physics.gravity;
-        if (isPlayer && holdingWeapon)
+        if (!endingTurn && isPlayer && holdingWeapon)
         {
             if(!attacking)
             {
@@ -73,18 +78,25 @@ public class CharacterSoldier : Character
 
                 if(!spawnedItem.StillUsing())
                 {
+                    endingTurn = true;
                     holdingWeapon = false;
                     attacking = false;
 
                     Game.Player.UnequipWeapon();
-                    infoWindow.gameObject.SetActive(true);
-                    LevelFlow.SetTurnPart(LevelFlow.TurnPart.turnStart);
-                    SetAsNotPlayer();
-                    regularModeObject.SetActive(true);
+                    StartCoroutine(EndTurnCoroutine());
                 }
             }
         }
         controller.Move(moveVector * Time.deltaTime);
+    }
+
+    private IEnumerator EndTurnCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        infoWindow.gameObject.SetActive(true);
+        LevelFlow.SetTurnPart(LevelFlow.TurnPart.turnStart);
+        SetAsNotPlayer();
+        regularModeObject.SetActive(true);
     }
 
     public void SetChoice(bool on)
@@ -102,6 +114,7 @@ public class CharacterSoldier : Character
 
     public void ChooseCharacter()
     {
+        endingTurn = false;
         regularModeObject.SetActive(false);
         SetAsPlayer();
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.weaponChoice);
@@ -142,6 +155,8 @@ public class CharacterSoldier : Character
 
     public void GetDamage(int power)
     {
+        animator.SetInteger("Action", Random.Range(1, 5));
+        animator.SetTrigger("HitTrigger");
         SetHealth(Mathf.Clamp(currentHealth - power, 0, currentHealth));
     }
 
@@ -155,6 +170,7 @@ public class CharacterSoldier : Character
     private void Die()
     {
         LevelFlow.NotifyOfDeath(this);
+        animator.SetTrigger("DieTrigger");
         Destroy(gameObject);
     }
 

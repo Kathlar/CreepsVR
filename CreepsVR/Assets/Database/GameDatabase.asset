@@ -15,12 +15,16 @@ MonoBehaviour:
   playerInfos:
   - color: {r: 0.3537736, g: 0.6390331, b: 1, a: 1}
     material: {fileID: 2100000, guid: 9d5dbb49c64fccb4eb1f9b863f543ec8, type: 2}
+    transparentMaterial: {fileID: 2100000, guid: d8aad0dfa543f9846ac93b8449d30601, type: 2}
   - color: {r: 1, g: 0.23898672, b: 0.23113209, a: 1}
     material: {fileID: 2100000, guid: ff000c497b2f38e4fb1c3879b68cd19c, type: 2}
+    transparentMaterial: {fileID: 2100000, guid: 86adf59edeeccad4e8ebc9b1d3fa88dc, type: 2}
   - color: {r: 0.4726414, g: 1, b: 0.3915094, a: 1}
     material: {fileID: 2100000, guid: a7321b79e804ac8468b10f75c32e4f49, type: 2}
+    transparentMaterial: {fileID: 2100000, guid: bc7134878b8918645a886d25737145d1, type: 2}
   - color: {r: 1, g: 0.6880671, b: 0.33490568, a: 1}
     material: {fileID: 2100000, guid: 9a676c92dc850054ea4e0a684a36650f, type: 2}
+    transparentMaterial: {fileID: 2100000, guid: 27c8f2d060e42944d992c7fc0348cb0f, type: 2}
   levelInformations:
     mainMenuLevelInfo:
       sceneAssetName: MainMenu
@@ -28,4 +32,5 @@ MonoBehaviour:
     gameLevelInfos:
     - sceneAssetName: Test01
       levelName: Test 1
-  weaponPrefabs: []
+  weaponPrefabs:
+  - {fileID: 4627912032638250315, guid: 41022635a991f5b4b868c23d12d749b2, type: 3}

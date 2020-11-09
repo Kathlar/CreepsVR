@@ -72,7 +72,7 @@ public abstract class Player : MonoBehaviour
         }
     }
 
-    protected virtual void SetRaycast(bool on)
+    public virtual void SetRaycast(bool on)
     {
         raycastLine.enabled = on;
         raycastOn = on;

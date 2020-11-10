@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    public MeshRenderer[] meshRenderers { get; private set; }
+    protected MeshRenderer[] meshRenderers { get; private set; }
 
     public string itemName = "Item";
     public Sprite icon;
@@ -45,8 +45,6 @@ public abstract class Item : MonoBehaviour
         turnedOn = true;
     }
 
-    public abstract bool StillUsing();
-
     public virtual void UseStart()
     {
         isUsed = true;
@@ -61,4 +59,6 @@ public abstract class Item : MonoBehaviour
     {
         isUsed = true;
     }
+
+    public abstract bool StillUsing();
 }

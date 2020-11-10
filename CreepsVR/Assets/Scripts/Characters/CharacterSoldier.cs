@@ -13,8 +13,8 @@ public class CharacterSoldier : Character
 
     [HideInInspector] public int playerNumber;
 
-    public GameObject weaponSelectionButtonPrefab;
     public RectTransform weaponSelectionGrid;
+    public GameObject weaponSelectionButtonPrefab;
     private List<GameObject> weaponSelectionIcons = new List<GameObject>();
 
     private Item spawnedItem;
@@ -112,12 +112,12 @@ public class CharacterSoldier : Character
         choice.TurnOff();
     }
 
-    public void ChooseCharacter()
+    public void GetChosen()
     {
         endingTurn = false;
         regularModeObject.SetActive(false);
         SetAsPlayer();
-        LevelFlow.SetTurnPart(LevelFlow.TurnPart.weaponChoice);
+        LevelFlow.SetTurnPart(LevelFlow.TurnPart.soldierWeaponChoice);
 
         canvas.gameObject.SetActive(true);
         for(int j = weaponSelectionIcons.Count - 1; j >= 0; j--)
@@ -150,7 +150,7 @@ public class CharacterSoldier : Character
 
         Game.Player.EquipItem(spawnedItem);
 
-        LevelFlow.SetTurnPart(LevelFlow.TurnPart.movement);
+        LevelFlow.SetTurnPart(LevelFlow.TurnPart.soldierAction);
     }
 
     public void GetDamage(int power)

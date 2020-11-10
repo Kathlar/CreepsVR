@@ -32,9 +32,4 @@ public class UIInteractable : MonoBehaviour, IHoverOver, IClickable
         if (!worksWhenGamePaused && Game.Paused) return;
         button.onClick.Invoke();
     }
-
-    public void DebugTest()
-    {
-        Debug.Log("TEST");
-    }
 }

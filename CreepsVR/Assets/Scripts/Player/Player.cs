@@ -6,6 +6,7 @@ public abstract class Player : MonoBehaviour
 {
     public Camera mainCamera { get; private set; }
     public GameObject pauseMenuObject;
+    public TurnTimer timer;
 
     public bool raycastOn { get; private set; } = true;
     protected abstract Transform raycastPoint { get; }
@@ -24,6 +25,8 @@ public abstract class Player : MonoBehaviour
     {
         mainCamera = GetComponentInChildren<Camera>();
         raycastLine = GetComponentInChildren<LineRenderer>();
+        timer = GetComponentInChildren<TurnTimer>();
+        timer.Set(delegate { LevelFlow.OnTimerEnd(); });
     }
 
     protected virtual void Start()

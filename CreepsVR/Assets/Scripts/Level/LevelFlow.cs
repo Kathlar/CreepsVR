@@ -13,8 +13,9 @@ public class LevelFlow : Singleton<LevelFlow>
     public GameObject characterSoldierPrefab;
     private Dictionary<int, List<CharacterSoldier>> soldiers = new Dictionary<int, List<CharacterSoldier>>();
     private List<SpawnPoint> soldierSpawnPoints = new List<SpawnPoint>();
+    private CharacterSoldier currentSoldier;
 
-    public enum TurnPart { turnStart, characterChoice, soldierWeaponChoice, soldierAction, other }
+    public enum TurnPart { turnStart, characterChoice, soldierWeaponChoice, soldierMovement, soliderAttack, other }
     private TurnPart turnPart = TurnPart.turnStart;
 
     public Camera nonVrCamera;
@@ -110,10 +111,30 @@ public class LevelFlow : Singleton<LevelFlow>
                 foreach (CharacterSoldier soldier in soldiers[currentPlayerNumber])
                     soldier.SetChoice(false);
                 break;
-            case TurnPart.soldierAction:
+            case TurnPart.soldierMovement:
                 Game.Player.SetRaycast(false);
+                Game.Player.timer.SetTimer(5);
                 break;
         }
+    }
+
+    public static void OnTimerEnd()
+    {
+        switch (Instance.turnPart)
+        {
+            case TurnPart.soldierMovement:
+                Instance.currentSoldier.StartAttackMode();
+                Game.Player.timer.SetTimer(4);
+                break;
+            case TurnPart.soliderAttack:
+                Instance.currentSoldier.EndTurn();
+                break;
+        }
+    }
+
+    public static void SetCurrentSoldier(CharacterSoldier soldier)
+    {
+        Instance.currentSoldier = soldier;
     }
 
     public static void NotifyOfDeath(CharacterSoldier soldier)

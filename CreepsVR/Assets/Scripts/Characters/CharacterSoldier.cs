@@ -66,8 +66,7 @@ public class CharacterSoldier : Character
 
                 if(InputsVR.LeftHand.triggerButton.WasPressed)
                 {
-                    attacking = true;
-                    spawnedItem.TurnOn();
+                    StartAttackMode();
                 }
             }
             else
@@ -78,16 +77,21 @@ public class CharacterSoldier : Character
 
                 if(!spawnedItem.StillUsing())
                 {
-                    endingTurn = true;
-                    holdingWeapon = false;
-                    attacking = false;
-
-                    Game.Player.UnequipItem();
-                    StartCoroutine(EndTurnCoroutine());
+                    EndTurn();
                 }
             }
         }
         controller.Move(moveVector * Time.deltaTime);
+    }
+
+    public void EndTurn()
+    {
+        endingTurn = true;
+        holdingWeapon = false;
+        attacking = false;
+
+        Game.Player.UnequipItem();
+        StartCoroutine(EndTurnCoroutine());
     }
 
     private IEnumerator EndTurnCoroutine()
@@ -118,6 +122,7 @@ public class CharacterSoldier : Character
         regularModeObject.SetActive(false);
         SetAsPlayer();
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.soldierWeaponChoice);
+        LevelFlow.SetCurrentSoldier(this);
 
         canvas.gameObject.SetActive(true);
         for(int j = weaponSelectionIcons.Count - 1; j >= 0; j--)
@@ -150,7 +155,15 @@ public class CharacterSoldier : Character
 
         Game.Player.EquipItem(spawnedItem);
 
-        LevelFlow.SetTurnPart(LevelFlow.TurnPart.soldierAction);
+        LevelFlow.SetTurnPart(LevelFlow.TurnPart.soldierMovement);
+    }
+
+    public void StartAttackMode()
+    {
+        attacking = true;
+        spawnedItem.TurnOn();
+        Game.Player.timer.TurnOffTimer();
+        LevelFlow.SetTurnPart(LevelFlow.TurnPart.soliderAttack);
     }
 
     public void GetDamage(int power)

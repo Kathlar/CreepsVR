@@ -422,8 +422,8 @@ MonoBehaviour:
   regularModeObject: {fileID: 47822576728473309}
   choice: {fileID: 0}
   playerNumber: 0
-  weaponSelectionButtonPrefab: {fileID: 225080278188433279, guid: f7184191278966346960f5020ef5fbd3, type: 3}
   weaponSelectionGrid: {fileID: 8395759017035761334}
+  weaponSelectionButtonPrefab: {fileID: 225080278188433279, guid: f7184191278966346960f5020ef5fbd3, type: 3}
   maxHealth: 100
 --- !u!143 &4212433985956757527
 CharacterController:
@@ -438,7 +438,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.5
   m_Radius: 0.3
-  m_SlopeLimit: 46
+  m_SlopeLimit: 31
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001

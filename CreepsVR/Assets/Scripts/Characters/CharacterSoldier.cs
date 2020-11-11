@@ -87,7 +87,6 @@ public class CharacterSoldier : Character, IDamageable
 
                 if(!spawnedItem.StillUsing())
                 {
-                    Debug.Log("tesT");
                     EndTurn();
                 }
             }

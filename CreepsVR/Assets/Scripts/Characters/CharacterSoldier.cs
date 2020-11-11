@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterSoldier : Character
+public class CharacterSoldier : Character, IDamageable
 {
     public CharacterController controller { get; private set; }
 

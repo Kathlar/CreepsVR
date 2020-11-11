@@ -64,16 +64,16 @@ public class CharacterSoldier : Character
                     cameraTransform.right.FlatY() * moveInputValue.x;
                 moveVector += walkVector * moveSpeed;
 
-                if(InputsVR.LeftHand.triggerButton.WasPressed)
+                if(InputsVR.LeftHand.triggerButton.WasPressed || Inputs.RightMouse.WasPressed)
                 {
                     StartAttackMode();
                 }
             }
             else
             {
-                if (InputsVR.RightHand.triggerButton.WasPressed) spawnedItem.UseStart();
-                else if (InputsVR.RightHand.triggerButton.IsPressed) spawnedItem.UseContinue();
-                else if (InputsVR.RightHand.triggerButton.WasReleased) spawnedItem.UseEnd();
+                if (InputsVR.RightHand.triggerButton.WasPressed || Inputs.LeftMouse.WasPressed) spawnedItem.UseStart();
+                else if (InputsVR.RightHand.triggerButton.IsPressed || Inputs.LeftMouse.IsPressed) spawnedItem.UseContinue();
+                else if (InputsVR.RightHand.triggerButton.WasReleased || Inputs.LeftMouse.WasReleased) spawnedItem.UseEnd();
 
                 if(!spawnedItem.StillUsing())
                 {

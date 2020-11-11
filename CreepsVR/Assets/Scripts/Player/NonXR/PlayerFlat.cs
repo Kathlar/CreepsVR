@@ -9,6 +9,9 @@ public class PlayerFlat : Player
 
     private float rotationX, rotationY;
 
+    public Transform itemPoint;
+    private Item equipedItem;
+
     protected override void Start()
     {
         base.Start();
@@ -32,11 +35,13 @@ public class PlayerFlat : Player
 
     public override void EquipItem(Item weapon)
     {
-        throw new System.NotImplementedException();
+        weapon.transform.parent = itemPoint;
+        weapon.transform.ResetLocalTransform();
+        equipedItem = weapon;
     }
 
     public override void UnequipItem()
     {
-        throw new System.NotImplementedException();
+        if(equipedItem) Destroy(equipedItem.gameObject);
     }
 }

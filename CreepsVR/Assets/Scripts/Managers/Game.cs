@@ -22,6 +22,10 @@ public class Game : Singleton<Game>
 
     protected override void SingletonAwake()
     {
+#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+        playerTypeToSpawn = Player.PlayerType.flat;
+#endif
+
         Player playerOnScene = FindObjectOfType<Player>();
         if (playerOnScene) player = playerOnScene;
         else

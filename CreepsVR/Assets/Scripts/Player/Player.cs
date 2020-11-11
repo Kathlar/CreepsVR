@@ -6,14 +6,14 @@ public abstract class Player : MonoBehaviour
 {
     public Camera mainCamera { get; private set; }
     public GameObject pauseMenuObject;
-    public TurnTimer timer;
+    public TurnTimer timer { get; private set; }
 
     public bool raycastOn { get; private set; } = true;
     protected abstract Transform raycastPoint { get; }
     protected LineRenderer raycastLine;
     protected IHoverOver lastHoverOver;
     protected IClickable lastClickable;
-    public GameObject lastClickableGO;
+    protected GameObject lastClickableGO;
 
     public enum PlayerType { flat, vr }
     public abstract PlayerType playerType { get; }

@@ -6,6 +6,7 @@ public class RotateWithCamera : MonoBehaviour
 {
     void Update()
     {
-        transform.eulerAngles = new Vector3(0, Game.Player.mainCamera.transform.eulerAngles.y, 0);
+        if(Game.Player.playerType != Player.PlayerType.flat)
+            transform.eulerAngles = new Vector3(0, Game.Player.mainCamera.transform.eulerAngles.y, 0);
     }
 }

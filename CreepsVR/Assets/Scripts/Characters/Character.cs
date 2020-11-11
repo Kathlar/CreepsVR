@@ -16,8 +16,7 @@ public class Character : MonoBehaviour
         playerTransform.SetParent(transform);
         playerTransform.ResetLocalTransform();
 
-        canvas.eulerAngles = 
-            new Vector3(0, Game.Player.mainCamera.transform.eulerAngles.y, 0);
+        canvas.eulerAngles = new Vector3(0, Game.Player.mainCamera.transform.eulerAngles.y, 0);
 
         isPlayer = true;
     }

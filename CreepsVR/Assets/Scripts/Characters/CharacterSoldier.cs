@@ -181,7 +181,7 @@ public class CharacterSoldier : Character, IDamageable
         Game.Player.timer.SetTimer(5);
     }
 
-    public void GetDamage(int power)
+    public void GetDamage(int power, Vector3 hitPoint, Vector3 damageVelocity)
     {
         animator.SetInteger("Action", Random.Range(1, 5));
         animator.SetTrigger("HitTrigger");
@@ -195,7 +195,7 @@ public class CharacterSoldier : Character, IDamageable
         infoWindow.UpdateHealthBar(currentHealth, maxHealth);
     }
 
-    private void Die()
+    public void Die()
     {
         LevelFlow.NotifyOfDeath(this);
         animator.SetTrigger("DieTrigger");

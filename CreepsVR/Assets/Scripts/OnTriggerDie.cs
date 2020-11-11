@@ -7,6 +7,6 @@ public class OnTriggerDie : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out CharacterSoldier soldier))
-            soldier.GetDamage(10000);
+            soldier.Die();
     }
 }

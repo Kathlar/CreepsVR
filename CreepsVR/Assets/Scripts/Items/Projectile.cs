@@ -33,13 +33,16 @@ public class Projectile : MonoBehaviour
         transform.position += transform.forward * moveSpeed * Time.fixedDeltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.TryGetComponent(out CharacterSoldier character))
+        if (other.transform.TryGetComponent(out IDamageable damageable))
         {
-            if (character == gun.holder) return;
-            character.GetDamage(damagePower);
+            if (damageable == gun.holder) return;
+            damageable.GetDamage(damagePower, other.contacts[0].point, transform.forward * moveSpeed);
         }
+        else if (other.transform.TryGetComponent(out Rigidbody hitRigid))
+            hitRigid.AddForce(transform.forward * moveSpeed);
+
         if (trail)
         {
             trail.transform.SetParent(null);

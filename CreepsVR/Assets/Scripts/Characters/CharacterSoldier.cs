@@ -20,6 +20,7 @@ public class CharacterSoldier : Character
     private Item spawnedItem;
     private bool holdingWeapon, attacking;
 
+    public Transform soldierInfoPivot;
     public SoldierInfoWindow infoWindow { get; private set; }
     private Vector3 startInfoWindowScale;
 
@@ -38,7 +39,7 @@ public class CharacterSoldier : Character
         animator = GetComponentInChildren<Animator>();
 
         infoWindow = GetComponentInChildren<SoldierInfoWindow>();
-        startInfoWindowScale = infoWindow.transform.parent.localScale;
+        startInfoWindowScale = soldierInfoPivot.transform.parent.localScale;
 
         choice = GetComponentInChildren<CharacterSoldierChoice>();
         choice.character = this;
@@ -105,7 +106,7 @@ public class CharacterSoldier : Character
     private IEnumerator EndTurnCoroutine()
     {
         yield return new WaitForSeconds(2f);
-        infoWindow.gameObject.SetActive(true);
+        soldierInfoPivot.gameObject.SetActive(true);
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.turnStart);
         SetAsNotPlayer();
         regularModeObject.SetActive(true);
@@ -138,7 +139,7 @@ public class CharacterSoldier : Character
             Destroy(weaponSelectionIcons[j]);
         }
         weaponSelectionIcons.Clear();
-        infoWindow.gameObject.SetActive(false);
+        soldierInfoPivot.gameObject.SetActive(false);
         foreach(var weapon in Database.WeaponPrefabs)
         {
             WeaponSelectionIcon icon = Instantiate(weaponSelectionButtonPrefab, 
@@ -159,7 +160,7 @@ public class CharacterSoldier : Character
 
         GameObject weapon = Instantiate(icon.weaponPrefab);
         spawnedItem = weapon.GetComponent<Item>();
-        spawnedItem.Set(playerNumber);
+        spawnedItem.Set(this);
 
         Game.Player.EquipItem(spawnedItem);
 
@@ -197,6 +198,6 @@ public class CharacterSoldier : Character
 
     public void SetInfoWindowSize(bool small)
     {
-        infoWindow.transform.parent.localScale = (small ? .25f : 1f) * startInfoWindowScale;
+        soldierInfoPivot.transform.localScale = (small ? .25f : 1f) * startInfoWindowScale;
     }
 }

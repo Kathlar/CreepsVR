@@ -105,11 +105,14 @@ public class LevelFlow : Singleton<LevelFlow>
 
             case TurnPart.soldierWeaponChoice:
                 characterGod.SetAsNotPlayer();
-                foreach (var s in soldiers.Values)
-                    foreach (CharacterSoldier soldier in s)
-                        soldier.SetInfoWindowSize(true);
                 foreach (CharacterSoldier soldier in soldiers[currentPlayerNumber])
                     soldier.SetChoice(false);
+                foreach (var s in soldiers.Values)
+                    foreach (CharacterSoldier soldier in s)
+                    {
+                        soldier.SetInfoWindowSize(true);
+                        soldier.HideChoice();
+                    }
                 break;
             case TurnPart.soldierMovement:
                 Game.Player.SetRaycast(false);
@@ -123,14 +126,8 @@ public class LevelFlow : Singleton<LevelFlow>
         switch (Instance.turnPart)
         {
             case TurnPart.soldierMovement:
-                //Debug.Break();
-                //Debug.Log("1");
                 Instance.currentSoldier.StartAttackMode();
-                //Debug.Break();
-                //Debug.Log("2");
                 Game.Player.timer.SetTimer(5);
-                //Debug.Break();
-                //Debug.Log("3");
                 break;
             case TurnPart.soliderAttack:
                 Instance.currentSoldier.EndTurn();

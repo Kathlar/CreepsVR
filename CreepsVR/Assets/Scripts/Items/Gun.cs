@@ -17,6 +17,7 @@ public class Gun : Weapon
         if (numberOfBullets > 0 && Time.timeSinceLevelLoad > timeOfLastShot + timeBetweenShots)
         {
             numberOfBullets--;
+            if (audioSource) audioSource.PlayOneShot(audioSource.clip);
             foreach(Transform shootPoint in shootPoints)
             {
                 Projectile bullet = Instantiate(bulletPrefab, shootPoint.position,

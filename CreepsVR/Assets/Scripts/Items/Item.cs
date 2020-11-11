@@ -4,18 +4,20 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
+    public AudioSource audioSource { get; private set; }
     protected MeshRenderer[] meshRenderers { get; private set; }
 
     public string itemName = "Item";
     public Sprite icon;
 
-    public int holderNumber { get; private set; }
+    public CharacterSoldier holder { get; private set; }
 
     public bool turnedOn { get; private set; } = false;
     public bool isUsed { get; private set; } = false;
 
-    private void Awake()
+    protected virtual void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
     }
 
@@ -29,9 +31,9 @@ public abstract class Item : MonoBehaviour
         }
     }
 
-    public void Set(int playerNumber)
+    public void Set(CharacterSoldier soldier)
     {
-        holderNumber = playerNumber;
+        holder = soldier;
     }
 
     public void TurnOn()

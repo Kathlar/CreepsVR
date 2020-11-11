@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SoldierInfoWindow : MonoBehaviour
 {
+    public Image iconBG;
     public Image playerIconImage;
     public Text playerNameText;
 
@@ -13,6 +14,7 @@ public class SoldierInfoWindow : MonoBehaviour
 
     public void SetUp(int playerNumber)
     {
+        iconBG.color = Database.PlayerInfos[playerNumber].color;
         playerIconImage.color = Database.PlayerInfos[playerNumber].color;
         playerNameText.color = playerIconImage.color;
         playerNameText.text = "PLAYER " + (playerNumber + 1).ToString();

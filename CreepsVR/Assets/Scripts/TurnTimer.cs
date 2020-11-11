@@ -49,9 +49,7 @@ public class TurnTimer : MonoBehaviour
     public void SetTimer(float time)
     {
         timerOn = true;
-        Debug.Log(timerValue);
         timerValue = time;
-        Debug.Log(timerValue);
         SetObjects((int)timerValue);
     }
 

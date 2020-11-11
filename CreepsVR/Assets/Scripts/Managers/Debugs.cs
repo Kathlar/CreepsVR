@@ -21,7 +21,7 @@ public class Debugs : Singleton<Debugs>
         if (!isDebug) return;
         if (Inputs.RKey.WasPressed || InputsVR.LeftHand.secondaryButton.WasPressed)
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        if (Inputs.PKey.WasPressed || InputsVR.LeftHand.primaryButton.WasPressed)
+        if (Inputs.PKey.WasPressed || InputsVR.RightHand.secondaryButton.WasPressed)
             Debug.Break();
     }
 }

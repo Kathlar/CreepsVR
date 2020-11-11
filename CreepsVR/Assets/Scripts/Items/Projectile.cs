@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.TryGetComponent(out CharacterSoldier character))
         {
-            if (character.playerNumber == gun.holderNumber) return;
+            if (character == gun.holder) return;
             character.GetDamage(damagePower);
         }
         if (trail)

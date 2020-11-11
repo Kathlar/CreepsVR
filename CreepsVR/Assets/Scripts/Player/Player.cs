@@ -14,6 +14,7 @@ public abstract class Player : MonoBehaviour
     protected IHoverOver lastHoverOver;
     protected IClickable lastClickable;
     protected GameObject lastClickableGO;
+    private float startRaycastSize;
 
     public enum PlayerType { flat, vr }
     public abstract PlayerType playerType { get; }
@@ -27,6 +28,7 @@ public abstract class Player : MonoBehaviour
         raycastLine = GetComponentInChildren<LineRenderer>();
         timer = GetComponentInChildren<TurnTimer>();
         timer.Set(delegate { LevelFlow.OnTimerEnd(); });
+        startRaycastSize = raycastLine.startWidth;
     }
 
     protected virtual void Start()
@@ -98,6 +100,11 @@ public abstract class Player : MonoBehaviour
             lastHoverOver = null;
             lastClickable = null;
         }
+    }
+
+    public virtual void SetRaycastSize(float size)
+    {
+        raycastLine.SetWidth(startRaycastSize * size, startRaycastSize * size);
     }
 
     public void ShowPauseMenu(bool on)

@@ -13,7 +13,7 @@ public abstract class Item : MonoBehaviour
     public CharacterSoldier holder { get; private set; }
 
     public bool turnedOn { get; private set; } = false;
-    public bool isUsed { get; private set; } = false;
+    public bool isUsed;// { get; private set; } = false;
 
     protected virtual void Awake()
     {

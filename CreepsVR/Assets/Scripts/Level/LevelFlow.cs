@@ -123,8 +123,14 @@ public class LevelFlow : Singleton<LevelFlow>
         switch (Instance.turnPart)
         {
             case TurnPart.soldierMovement:
+                Debug.Break();
+                Debug.Log("1");
                 Instance.currentSoldier.StartAttackMode();
+                Debug.Break();
+                Debug.Log("2");
                 Game.Player.timer.SetTimer(4);
+                Debug.Break();
+                Debug.Log("3");
                 break;
             case TurnPart.soliderAttack:
                 Instance.currentSoldier.EndTurn();

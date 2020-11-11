@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TurnTimer : MonoBehaviour
 {
-    bool timerOn;
-    private float timerValue = -1;
+    public bool timerOn;
+    public float timerValue = -1;
 
     public List<GameObject> digitNumbers = new List<GameObject>();
     public List<GameObject> decimalNumbers = new List<GameObject>();
@@ -43,7 +43,6 @@ public class TurnTimer : MonoBehaviour
 
     public void SetTimer(float time)
     {
-        if (time <= 0) return;
         timerOn = true;
         timerValue = time;
         SetObjects((int)timerValue);

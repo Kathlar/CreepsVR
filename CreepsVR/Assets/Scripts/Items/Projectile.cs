@@ -6,16 +6,19 @@ public class Projectile : MonoBehaviour
 {
     private const float _maxLifeTime = 3;
 
-    public TrailRenderer trail { get; private set; }
+    public Explosive explose { get; private set; }
+    public GameObject trail;
 
     public Gun gun { get; private set; }
 
     public float moveSpeed = 10;
     public int damagePower = 20;
 
+    bool hit;
+
     protected virtual void Awake()
     {
-        trail = GetComponentInChildren<TrailRenderer>();
+        explose = GetComponent<Explosive>();
     }
 
     private void Start()
@@ -35,20 +38,32 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.TryGetComponent(out IDamageable damageable))
+        if (hit) return;
+        hit = true;
+        bool shouldExplode = false;
+        if(explose)
+            shouldExplode = true;
+        else
         {
-            if (damageable == gun.holder) return;
-            damageable.GetDamage(damagePower, other.contacts[0].point, transform.forward * moveSpeed);
+            if (other.transform.TryGetComponent(out IDamageable damageable))
+            {
+                if (damageable == gun.holder) return;
+                damageable.GetDamage(damagePower, other.contacts[0].point, transform.forward * moveSpeed);
+            }
+            else if (other.transform.TryGetComponent(out Rigidbody hitRigid))
+                hitRigid.AddForce(transform.forward * moveSpeed);
         }
-        else if (other.transform.TryGetComponent(out Rigidbody hitRigid))
-            hitRigid.AddForce(transform.forward * moveSpeed);
 
         if (trail)
         {
             trail.transform.SetParent(null);
-            Destroy(trail.gameObject, trail.time);
+            if (trail.TryGetComponent(out TrailRenderer trailTrail))
+                Destroy(trail.gameObject, trailTrail.time);
+            else if (trail.TryGetComponent(out ParticleSystem trailParticle))
+                Destroy(trail.gameObject, trailParticle.main.duration);
         }
-        OnHitEffect();
+        if(shouldExplode) explose.Explode();
+        else OnHitEffect();
     }
 
     private void OnHitEffect()

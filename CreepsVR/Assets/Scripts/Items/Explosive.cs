@@ -14,10 +14,10 @@ public class Explosive : MonoBehaviour
 
     public void Explode()
     {
-        StartCoroutine(ThrownCoroutine());
+        StartCoroutine(ExplodeCoroutine());
     }
 
-    private IEnumerator ThrownCoroutine()
+    private IEnumerator ExplodeCoroutine()
     {
         yield return new WaitForSeconds(timeToExplode);
 

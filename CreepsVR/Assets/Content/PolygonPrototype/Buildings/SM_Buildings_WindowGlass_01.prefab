@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33580217695625762}
   - component: {fileID: 23429477340953082}
   - component: {fileID: 64466255368784488}
+  - component: {fileID: -6187266334983428415}
   m_Layer: 0
   m_Name: SM_Buildings_WindowGlass_01
   m_TagString: Untagged
@@ -96,3 +97,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: d3cc5dc9e6f4c644caeb3be6e2776220, type: 3}
+--- !u!114 &-6187266334983428415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124332603172438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09cb7119b37d894f9d2db1197e1a505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 5
+  ExplodeForce: 5
+  maxDamageDurability: 10

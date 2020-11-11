@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 33550749001479166}
   - component: {fileID: 23741573666390980}
   - component: {fileID: 58326209797374910}
+  - component: {fileID: 4951565947983071886}
+  - component: {fileID: -7454726894625488544}
   m_Layer: 0
   m_Name: SM_Buildings_Wall_5x3_01P
   m_TagString: Untagged
@@ -95,3 +97,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 3, z: 0.099999994}
   m_Center: {x: 2.5, y: 1.5, z: 0.049999997}
+--- !u!114 &4951565947983071886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194301909540060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09cb7119b37d894f9d2db1197e1a505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 5
+  ExplodeForce: 5
+  maxDamageDurability: 10
+--- !u!114 &-7454726894625488544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194301909540060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09cb7119b37d894f9d2db1197e1a505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 1
+  ExplodeForce: 0
+  maxDamageDurability: 10

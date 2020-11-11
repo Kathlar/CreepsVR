@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 33867728821629966}
   - component: {fileID: 23457968112576352}
   - component: {fileID: 64413666673079002}
+  - component: {fileID: -8509949000848457236}
+  - component: {fileID: -8658985982852670563}
   m_Layer: 0
   m_Name: SM_Buildings_Ramp_70_1x1_01P
   m_TagString: Untagged
@@ -96,3 +98,33 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: fc2c81bcdcc76754f932a5b884b9472d, type: 3}
+--- !u!114 &-8509949000848457236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950366490001396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09cb7119b37d894f9d2db1197e1a505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 5
+  ExplodeForce: 5
+  maxDamageDurability: 10
+--- !u!114 &-8658985982852670563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950366490001396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09cb7119b37d894f9d2db1197e1a505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 1
+  ExplodeForce: 0
+  maxDamageDurability: 10

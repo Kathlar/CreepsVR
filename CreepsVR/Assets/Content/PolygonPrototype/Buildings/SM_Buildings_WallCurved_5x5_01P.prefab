@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33918158402354770}
   - component: {fileID: 23338344317271648}
   - component: {fileID: 64378223803558512}
+  - component: {fileID: -2620940108999070733}
   m_Layer: 0
   m_Name: SM_Buildings_WallCurved_5x5_01P
   m_TagString: Untagged
@@ -96,3 +97,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ccd5c96c0b9c6a14bba4df85e935d276, type: 3}
+--- !u!114 &-2620940108999070733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413395420434154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09cb7119b37d894f9d2db1197e1a505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 5
+  ExplodeForce: 5
+  maxDamageDurability: 10

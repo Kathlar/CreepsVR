@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33779816996005060}
   - component: {fileID: 23465353575219542}
   - component: {fileID: 64376578588620744}
+  - component: {fileID: -3139808551946093076}
   m_Layer: 0
   m_Name: SM_Buildings_RoofAngledCornerMiddle_1x1_01P
   m_TagString: Untagged
@@ -96,3 +97,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: a3e4cee86604216459705f67cdcb8d5e, type: 3}
+--- !u!114 &-3139808551946093076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796192518529110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09cb7119b37d894f9d2db1197e1a505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 5
+  ExplodeForce: 5
+  maxDamageDurability: 10

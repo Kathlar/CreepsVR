@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33361817230974112}
   - component: {fileID: 23095239167990984}
   - component: {fileID: 64687679001337774}
+  - component: {fileID: -1091874819070186583}
   m_Layer: 0
   m_Name: SM_Buildings_FloorAngle_5x5_01P
   m_TagString: Untagged
@@ -96,3 +97,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f16a5273d4eb0ed49b1700bbd23d4876, type: 3}
+--- !u!114 &-1091874819070186583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242151962472430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09cb7119b37d894f9d2db1197e1a505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 5
+  ExplodeForce: 5
+  maxDamageDurability: 10

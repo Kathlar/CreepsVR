@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33060031888258434}
   - component: {fileID: 23288062564928326}
   - component: {fileID: 64858373227604956}
+  - component: {fileID: 4198438674009783489}
   m_Layer: 0
   m_Name: SM_Buildings_Rail_5x1_01P
   m_TagString: Untagged
@@ -96,3 +97,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: bad7bb0cab1d866479d8ca3b98a1ed3b, type: 3}
+--- !u!114 &4198438674009783489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576974579525394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09cb7119b37d894f9d2db1197e1a505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 5
+  ExplodeForce: 5
+  maxDamageDurability: 10

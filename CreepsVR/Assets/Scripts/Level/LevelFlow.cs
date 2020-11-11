@@ -49,6 +49,9 @@ public class LevelFlow : Singleton<LevelFlow>
     public bool timerGame;
     public static bool TimerGame { get { return Instance.timerGame; } }
 
+    public bool destructableGame;
+    public static bool DestructableGame { get { return Instance.destructableGame; } }
+
     private void Start()
     {
         SetTurnPart(TurnPart.turnStart);

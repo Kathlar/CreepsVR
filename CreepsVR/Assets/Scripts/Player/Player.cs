@@ -12,6 +12,7 @@ public abstract class Player : MonoBehaviour
     public bool raycastOn { get; private set; } = true;
     protected abstract Transform raycastPoint { get; }
     protected LineRenderer raycastLine;
+    public Transform raycastEnd;
     protected IHoverOver lastHoverOver;
     protected IClickable lastClickable;
     protected GameObject lastClickableGO;
@@ -49,7 +50,9 @@ public abstract class Player : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, 1000, raycastLayer))
             {
                 GameObject hitGameObject = hit.transform.gameObject;
+                raycastEnd.gameObject.SetActive(true);
                 raycastLine.SetPosition(1, hit.point);
+                raycastEnd.position = hit.point;
                 if (hitGameObject.TryGetComponent(out IHoverOver hoverOver))
                 {
                     if(hoverOver != lastHoverOver)
@@ -78,9 +81,16 @@ public abstract class Player : MonoBehaviour
             else
             {
                 if (Physics.Raycast(ray, out hit))
+                {
+                    raycastEnd.gameObject.SetActive(true);
                     raycastLine.SetPosition(1, hit.point);
+                    raycastEnd.position = hit.point;
+                }
                 else
+                {
                     raycastLine.SetPosition(1, raycastPoint.position + raycastPoint.forward * 1000);
+                    raycastEnd.gameObject.SetActive(false);
+                }
                 if (lastHoverOver != null) lastHoverOver.OnHoverEnd();
                 lastHoverOver = null;
                 lastClickable = null;
@@ -92,12 +102,14 @@ public abstract class Player : MonoBehaviour
             lastClickable = null;
             lastClickableGO = null;
         }
+        raycastEnd.transform.LookAt(mainCamera.transform.position);
     }
 
     public virtual void SetRaycast(bool on)
     {
         raycastLine.enabled = on;
         raycastOn = on;
+        raycastEnd.gameObject.SetActive(on);
         if(!on)
         {
             if (lastHoverOver != null) lastHoverOver.OnHoverEnd();

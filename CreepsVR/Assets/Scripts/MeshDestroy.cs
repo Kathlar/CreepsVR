@@ -15,6 +15,15 @@ public class MeshDestroy : MonoBehaviour, IDamageable
 
     public int maxDamageDurability = 10;
 
+    public void GetDamage(int power, Vector3 hitPoint, Vector3 damageVelocity)
+    {
+        if (!LevelFlow.DestructableGame) return;
+        if (power > maxDamageDurability)
+        {
+            DestroyMesh();
+        }
+    }
+
     public void DestroyMesh()
     {
         var originalMesh = GetComponent<MeshFilter>().mesh;
@@ -286,12 +295,4 @@ public class MeshDestroy : MonoBehaviour, IDamageable
         }
     }
 
-
-    public void GetDamage(int power, Vector3 hitPoint, Vector3 damageVelocity)
-    {
-        if (power > maxDamageDurability)
-        {
-            DestroyMesh();
-        }
-    }
 }

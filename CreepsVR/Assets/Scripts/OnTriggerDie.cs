@@ -8,5 +8,7 @@ public class OnTriggerDie : MonoBehaviour
     {
         if (other.TryGetComponent(out CharacterSoldier soldier))
             soldier.Die();
+        else
+            Destroy(other.gameObject);
     }
 }

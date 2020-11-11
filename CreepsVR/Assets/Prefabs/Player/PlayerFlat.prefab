@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuObject: {fileID: 5301608776499889458}
+  raycastLayer:
+    serializedVersion: 2
+    m_Bits: 32
   rotationSpeed: 7
   itemPoint: {fileID: 5213894594785826477}
 --- !u!1 &3777714349297275863

@@ -586,6 +586,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuObject: {fileID: 4998977064838052559}
+  raycastLayer:
+    serializedVersion: 2
+    m_Bits: 32
   rotationSpeed: 80
 --- !u!1 &4103953943464927502
 GameObject:

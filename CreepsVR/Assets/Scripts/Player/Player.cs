@@ -8,6 +8,7 @@ public abstract class Player : MonoBehaviour
     public GameObject pauseMenuObject;
     public TurnTimer timer { get; private set; }
 
+    public LayerMask raycastLayer;
     public bool raycastOn { get; private set; } = true;
     protected abstract Transform raycastPoint { get; }
     protected LineRenderer raycastLine;
@@ -45,7 +46,7 @@ public abstract class Player : MonoBehaviour
         {
             Ray ray = new Ray(raycastPoint.position, raycastPoint.forward);
             raycastLine.SetPosition(0, raycastPoint.position);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, 1000, raycastLayer))
             {
                 GameObject hitGameObject = hit.transform.gameObject;
                 raycastLine.SetPosition(1, hit.point);
@@ -76,7 +77,10 @@ public abstract class Player : MonoBehaviour
             }
             else
             {
-                raycastLine.SetPosition(1, raycastPoint.position + raycastPoint.forward * 1000);
+                if (Physics.Raycast(ray, out hit))
+                    raycastLine.SetPosition(1, hit.point);
+                else
+                    raycastLine.SetPosition(1, raycastPoint.position + raycastPoint.forward * 1000);
                 if (lastHoverOver != null) lastHoverOver.OnHoverEnd();
                 lastHoverOver = null;
                 lastClickable = null;

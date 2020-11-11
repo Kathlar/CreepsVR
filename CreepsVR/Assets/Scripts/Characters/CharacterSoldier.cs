@@ -26,6 +26,10 @@ public class CharacterSoldier : Character
     public int maxHealth = 100;
     private int currentHealth;
 
+    public Transform groundPoint;
+    public float yVelocity;
+    public LayerMask groundLayer;
+
     private bool endingTurn;
 
     private void Awake()
@@ -51,7 +55,7 @@ public class CharacterSoldier : Character
 
     private void Update()
     {
-        Vector3 moveVector = Physics.gravity;
+        Vector3 moveVector = Vector3.zero;
         if (!endingTurn && isPlayer && holdingWeapon)
         {
             if(!attacking)
@@ -81,6 +85,10 @@ public class CharacterSoldier : Character
                 }
             }
         }
+        bool isGrounded = Physics.CheckSphere(groundPoint.position, .2f, groundLayer);
+        if (isGrounded) yVelocity = -1;
+        else yVelocity = Mathf.Lerp(yVelocity, Physics.gravity.y, Time.deltaTime * 3);
+        moveVector += new Vector3(0, yVelocity, 0);
         controller.Move(moveVector * Time.deltaTime);
     }
 

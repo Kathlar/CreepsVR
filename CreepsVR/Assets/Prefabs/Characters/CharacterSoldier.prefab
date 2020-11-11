@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 3117111010778642256}
   - component: {fileID: 4212433985956757527}
   - component: {fileID: 5258007090090813399}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CharacterSoldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,6 +402,7 @@ Transform:
   - {fileID: 6614611962972898467}
   - {fileID: 8781222278695846753}
   - {fileID: 6620867378647855082}
+  - {fileID: 8536729181260202998}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -425,6 +426,11 @@ MonoBehaviour:
   weaponSelectionGrid: {fileID: 8395759017035761334}
   weaponSelectionButtonPrefab: {fileID: 225080278188433279, guid: f7184191278966346960f5020ef5fbd3, type: 3}
   maxHealth: 100
+  groundPoint: {fileID: 8536729181260202998}
+  yVelocity: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!143 &4212433985956757527
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1445,6 +1451,36 @@ Transform:
   - {fileID: 4322403017579958303}
   m_Father: {fileID: 3117111010778642257}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7487319230286517879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8536729181260202998}
+  m_Layer: 0
+  m_Name: GroundPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8536729181260202998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487319230286517879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3117111010778642257}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7688623841284695995
 GameObject:

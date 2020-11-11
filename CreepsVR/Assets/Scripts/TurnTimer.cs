@@ -26,14 +26,19 @@ public class TurnTimer : MonoBehaviour
         float newTimerValue = timerValue - Time.deltaTime;
         if(newTimerValue <= 0)
         {
+            Debug.Log(timerValue);
+            Debug.Log("TEST");
             TurnOffTimer();
             timerEnd();
         }
-        else if(Mathf.Floor(newTimerValue) != Mathf.Floor(timerValue))
+        else
         {
-            SetObjects((int)newTimerValue);
+            if (Mathf.Floor(newTimerValue) != Mathf.Floor(timerValue))
+            {
+                SetObjects((int)newTimerValue);
+            }
+            timerValue = newTimerValue;
         }
-        timerValue = newTimerValue;
     }
 
     public void Set(TimerEnd onTimerEnd)
@@ -44,7 +49,9 @@ public class TurnTimer : MonoBehaviour
     public void SetTimer(float time)
     {
         timerOn = true;
+        Debug.Log(timerValue);
         timerValue = time;
+        Debug.Log(timerValue);
         SetObjects((int)timerValue);
     }
 
@@ -62,6 +69,7 @@ public class TurnTimer : MonoBehaviour
 
     public void TurnOffTimer()
     {
+        timerValue = 0;
         timerOn = false;
         foreach (GameObject t in digitNumbers)
             t.SetActive(false);

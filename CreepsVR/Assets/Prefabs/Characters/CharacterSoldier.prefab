@@ -496,14 +496,14 @@ MonoBehaviour:
   canvas: {fileID: 6614611962972898467}
   moveSpeed: 3
   regularModeObject: {fileID: 47822576728473309}
-  choice: {fileID: 0}
   playerNumber: 0
+  choice: {fileID: 0}
+  characterMesh: {fileID: 2139308249147369735}
+  maxHealth: 100
   weaponSelectionGrid: {fileID: 8395759017035761334}
   weaponSelectionButtonPrefab: {fileID: 225080278188433279, guid: f7184191278966346960f5020ef5fbd3, type: 3}
   soldierInfoPivot: {fileID: 6620867378647855082}
-  maxHealth: 100
   groundPoint: {fileID: 8536729181260202998}
-  yVelocity: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
@@ -1775,8 +1775,17 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 921039a1a8d750745b35fdf531f40365, type: 2}
+    - target: {fileID: 137720934533220950, guid: 2f3e27eecb190e44a9af50723c394274, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 41680dad0f0243748b4e228f49a2e3c4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f3e27eecb190e44a9af50723c394274, type: 3}
+--- !u!137 &2139308249147369735 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137720934533220950, guid: 2f3e27eecb190e44a9af50723c394274, type: 3}
+  m_PrefabInstance: {fileID: 2042683634040775505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2038256924384537617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4580766925885248, guid: 2f3e27eecb190e44a9af50723c394274, type: 3}

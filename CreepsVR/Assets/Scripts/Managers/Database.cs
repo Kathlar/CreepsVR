@@ -34,6 +34,8 @@ public class PlayerInformation
     public Color color = Color.white;
     public Material material;
     public Material transparentMaterial;
+
+    public Material polygonPrototypeMaterial;
 }
 
 /// <summary>

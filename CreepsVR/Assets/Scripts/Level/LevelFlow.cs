@@ -46,6 +46,9 @@ public class LevelFlow : Singleton<LevelFlow>
         }
     }
 
+    public bool timerGame;
+    public static bool TimerGame { get { return Instance.timerGame; } }
+
     private void Start()
     {
         SetTurnPart(TurnPart.turnStart);
@@ -127,7 +130,6 @@ public class LevelFlow : Singleton<LevelFlow>
         {
             case TurnPart.soldierMovement:
                 Instance.currentSoldier.StartAttackMode();
-                Game.Player.timer.SetTimer(5);
                 break;
             case TurnPart.soliderAttack:
                 Instance.currentSoldier.EndTurn();
@@ -155,7 +157,7 @@ public class LevelFlow : Singleton<LevelFlow>
         Game.GoToMainMenu();
     }
 
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         Vector3 center = new Vector3((clampMovementValuesX.x + clampMovementValuesX.y) / 2, 0,
             (clampMovementValuesZ.x + clampMovementValuesZ.y) / 2);

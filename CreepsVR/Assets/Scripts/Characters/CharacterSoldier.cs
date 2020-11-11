@@ -8,11 +8,16 @@ public class CharacterSoldier : Character
 
     public Animator animator { get; private set; }
 
+    [Header("Soldier Info")]
     public GameObject regularModeObject;
-    [HideInInspector] public CharacterSoldierChoice choice;
-
     [HideInInspector] public int playerNumber;
+    [HideInInspector] public CharacterSoldierChoice choice;
+    public SkinnedMeshRenderer characterMesh;
 
+    public int maxHealth = 100;
+    private int currentHealth;
+
+    [Header("Weapon Selection")]
     public RectTransform weaponSelectionGrid;
     public GameObject weaponSelectionButtonPrefab;
     private List<GameObject> weaponSelectionIcons = new List<GameObject>();
@@ -20,15 +25,14 @@ public class CharacterSoldier : Character
     private Item spawnedItem;
     private bool holdingWeapon, attacking;
 
+    [Header("Soldier Info Window")]
     public Transform soldierInfoPivot;
     public SoldierInfoWindow infoWindow { get; private set; }
     private Vector3 startInfoWindowScale;
 
-    public int maxHealth = 100;
-    private int currentHealth;
-
+    [Header("Velocity Info")]
     public Transform groundPoint;
-    public float yVelocity;
+    private float yVelocity;
     public LayerMask groundLayer;
 
     private bool endingTurn;
@@ -52,6 +56,7 @@ public class CharacterSoldier : Character
     {
         infoWindow.SetUp(playerNumber);
         SetHealth(maxHealth);
+        if (characterMesh) characterMesh.material = Database.PlayerInfos[playerNumber].polygonPrototypeMaterial;
     }
 
     private void Update()
@@ -173,6 +178,7 @@ public class CharacterSoldier : Character
         spawnedItem.TurnOn();
         Game.Player.timer.TurnOffTimer();
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.soliderAttack);
+        Game.Player.timer.SetTimer(5);
     }
 
     public void GetDamage(int power)

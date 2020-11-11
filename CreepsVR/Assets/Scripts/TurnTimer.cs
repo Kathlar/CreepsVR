@@ -48,6 +48,7 @@ public class TurnTimer : MonoBehaviour
 
     public void SetTimer(float time)
     {
+        if (!LevelFlow.TimerGame) return;
         timerOn = true;
         timerValue = time;
         SetObjects((int)timerValue);

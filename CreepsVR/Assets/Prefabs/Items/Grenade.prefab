@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1592833185658174905}
   - component: {fileID: 3764644840070343972}
   - component: {fileID: 8986690710653071244}
+  - component: {fileID: -2470190296334370606}
   - component: {fileID: 4949273326094215957}
   m_Layer: 0
   m_Name: Grenade
@@ -66,6 +67,18 @@ MonoBehaviour:
   itemName: Grenade
   icon: {fileID: 21300000, guid: ed1c9f9defff64a8e9e09272d8c67fe1, type: 3}
   isUsed: 0
+--- !u!114 &-2470190296334370606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159506143561133604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd204d89872ad5544bf0e780851cd0ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   timeToExplode: 3
   explosionRadius: 4
   damagePower: 20

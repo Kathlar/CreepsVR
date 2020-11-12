@@ -28,6 +28,9 @@ public class Gun : Weapon
                     shootPoint.rotation).GetComponent<Projectile>();
                 bullet.Set(this);
                 projectiles.Add(bullet);
+
+                foreach (Collider col in colliders)
+                    Physics.IgnoreCollision(col, bullet.mainCollider);
             }
         }
     }

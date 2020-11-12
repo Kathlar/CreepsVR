@@ -9,6 +9,8 @@ public class LevelFlow : Singleton<LevelFlow>
     private int currentTurnNumber = 1;
     private int currentPlayerNumber = -1;
     private List<int> deadPlayerNumbers = new List<int>();
+    public List<WeaponInformations> weaponInformations = new List<WeaponInformations>();
+    public static List<WeaponInformations> WeaponInformations { get { return Instance.weaponInformations; } }
 
     public CharacterGod characterGod;
     public GameObject characterSoldierPrefab;
@@ -33,6 +35,7 @@ public class LevelFlow : Singleton<LevelFlow>
         for (int i = 0; i < levelSetupInfo.numberOfPlayers; i++)
         {
             soldiers.Add(i, new List<CharacterSoldier>());
+            weaponInformations.Add(Database.WeaponInformations.Clone());
             for (int j = 0; j < levelSetupInfo.numberOfCharacters; j++)
             {
                 int randomSpawnPointNumber = Random.Range(0, soldierSpawnPoints.Count);

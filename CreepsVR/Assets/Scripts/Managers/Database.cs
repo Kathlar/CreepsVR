@@ -20,9 +20,9 @@ public class Database : ScriptableObject
 
     public List<PlayerInformation> playerInfos = new List<PlayerInformation>();
     public static List<PlayerInformation> PlayerInfos { get { return database.playerInfos; } }
-    
-    public List<GameObject> weaponPrefabs = new List<GameObject>();
-    public static List<GameObject> WeaponPrefabs { get { return database.weaponPrefabs; } }
+
+    public WeaponInformations weaponInformations;
+    public static WeaponInformations WeaponInformations { get { return database.weaponInformations; } }
 }
 
 /// <summary>
@@ -39,11 +39,50 @@ public class PlayerInformation
 }
 
 /// <summary>
-/// Level information.
+/// Information about a game level.
 /// </summary>
 [System.Serializable]
 public class LevelInformation
 {
     public string sceneAssetName;
     public string levelName;
+}
+
+/// <summary>
+/// Information about weapon.
+/// </summary>
+[System.Serializable]
+public class WeaponInformation
+{
+    public GameObject weaponPrefab;
+    public int usagesForStart;
+    public bool canBeDroppedInRandomCrate;
+
+    public WeaponInformation Clone()
+    {
+        WeaponInformation newWI = new WeaponInformation();
+        newWI.weaponPrefab = weaponPrefab;
+        newWI.usagesForStart = usagesForStart;
+        newWI.canBeDroppedInRandomCrate = canBeDroppedInRandomCrate;
+        return newWI;
+    }
+}
+
+/// <summary>
+/// Information about player's weapons.
+/// </summary>
+[System.Serializable]
+public class WeaponInformations
+{
+    public List<WeaponInformation> weapons = new List<WeaponInformation>();
+
+    public WeaponInformations Clone()
+    {
+        WeaponInformations clone = new WeaponInformations();
+        foreach(WeaponInformation wi in weapons)
+        {
+            clone.weapons.Add(wi.Clone());
+        }
+        return clone;
+    }
 }

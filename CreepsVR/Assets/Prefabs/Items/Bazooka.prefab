@@ -77,6 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Bazooka
+  description: A rocket launcher, that shoots one missle destroying the enviroment
+    and dealing 20 damage.
   icon: {fileID: 21300000, guid: 06a53ca148aa04aed96126d7d3dae99e, type: 3}
   twoHanded: 1
   shootPoints:

@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Gun
+  description: Regular one-shot gun that deals 30 damage.
   icon: {fileID: 21300000, guid: 77d0cbf9be0c74918881317474aa6880, type: 3}
   twoHanded: 0
   shootPoints:

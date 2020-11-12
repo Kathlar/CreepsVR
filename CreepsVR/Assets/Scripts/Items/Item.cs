@@ -6,9 +6,12 @@ public abstract class Item : MonoBehaviour
 {
     public AudioSource audioSource { get; private set; }
     protected MeshRenderer[] meshRenderers { get; private set; }
+    protected Collider[] colliders { get; private set; }
     protected RaycastLineForward line;
 
     public string itemName = "Item";
+    [TextArea]
+    public string description;
     public Sprite icon;
 
     public CharacterSoldier holder { get; private set; }
@@ -22,6 +25,7 @@ public abstract class Item : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        colliders = GetComponentsInChildren<Collider>();
         line = GetComponentInChildren<RaycastLineForward>();
     }
 

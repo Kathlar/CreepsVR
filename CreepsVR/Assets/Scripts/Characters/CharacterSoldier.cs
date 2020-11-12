@@ -146,15 +146,23 @@ public class CharacterSoldier : Character, IDamageable
         }
         weaponSelectionIcons.Clear();
         soldierInfoPivot.gameObject.SetActive(false);
-        foreach(var weapon in Database.WeaponPrefabs)
+        foreach(var weapon in LevelFlow.WeaponInformations[playerNumber].weapons)
         {
             WeaponSelectionIcon icon = Instantiate(weaponSelectionButtonPrefab, 
                 weaponSelectionGrid).GetComponent<WeaponSelectionIcon>();
-            icon.weaponPrefab = weapon;
+            Item item = weapon.weaponPrefab.GetComponent<Item>();
+
+            icon.weapon = weapon;
             icon.soldier = this;
-            Item item = weapon.GetComponent<Item>();
             icon.iconImage.sprite = item.icon;
             icon.nameText.text = item.itemName;
+            icon.weaponCountText.text = weapon.usagesForStart.ToString();
+            icon.uIInteractable.tooltipWindow.GetComponentInChildren<UnityEngine.UI.Text>().text = item.description;
+            if (weapon.usagesForStart <= 0)
+            {
+                icon.bgImage.color = Color.grey;
+                icon.button.enabled = false;
+            }
             weaponSelectionIcons.Add(icon.gameObject);
         }
     }
@@ -164,7 +172,7 @@ public class CharacterSoldier : Character, IDamageable
         holdingWeapon = true;
         canvas.gameObject.SetActive(false);
 
-        GameObject weapon = Instantiate(icon.weaponPrefab);
+        GameObject weapon = Instantiate(icon.weapon.weaponPrefab);
         spawnedItem = weapon.GetComponent<Item>();
         spawnedItem.Set(this);
 

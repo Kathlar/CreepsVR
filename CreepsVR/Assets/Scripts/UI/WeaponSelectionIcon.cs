@@ -5,14 +5,29 @@ using UnityEngine.UI;
 
 public class WeaponSelectionIcon : MonoBehaviour
 {
-    [HideInInspector] public GameObject weaponPrefab;
-    [HideInInspector] public CharacterSoldier soldier;
-
+    public UIInteractable uIInteractable { get; private set; }
+    public Image bgImage { get; private set; }
+    public Button button { get; private set; }
     public Image iconImage;
     public Text nameText;
+    public Text weaponCountText;
+
+    [HideInInspector] public WeaponInformation weapon;
+    [HideInInspector] public CharacterSoldier soldier;
+
+    private void Awake()
+    {
+        uIInteractable = GetComponent<UIInteractable>();
+        bgImage = GetComponent<Image>();
+        button = GetComponent<Button>();
+    }
 
     public void Button_Select()
     {
-        soldier.ChooseWeapon(this);
+        if (weapon.usagesForStart > 0)
+        {
+            weapon.usagesForStart--;
+            soldier.ChooseWeapon(this);
+        }
     }
 }

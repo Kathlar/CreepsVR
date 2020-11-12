@@ -6,8 +6,10 @@ public class Projectile : MonoBehaviour
 {
     private const float _maxLifeTime = 3;
 
-    public ParticleSystem hitEffectParticle;
+    public Collider mainCollider { get; private set; }
     public Explosive explose { get; private set; }
+
+    public ParticleSystem hitEffectParticle;
     public GameObject trail;
 
     public Gun gun { get; private set; }
@@ -19,6 +21,7 @@ public class Projectile : MonoBehaviour
 
     protected virtual void Awake()
     {
+        mainCollider = GetComponentInChildren<Collider>();
         explose = GetComponent<Explosive>();
     }
 

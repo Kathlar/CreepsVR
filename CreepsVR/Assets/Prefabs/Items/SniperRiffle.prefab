@@ -234,6 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Sniper Riffle
+  description: A sniper riffle, with laser sight, that shoots one powerful bullet
+    dealing 60 damage.
   icon: {fileID: 21300000, guid: 30a98509c675e4956b73aac61dddc6c7, type: 3}
   twoHanded: 1
   shootPoints:

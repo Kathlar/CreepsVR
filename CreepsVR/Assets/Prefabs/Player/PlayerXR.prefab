@@ -587,6 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuObject: {fileID: 4998977064838052559}
+  currentCharacter: {fileID: 0}
   raycastLayer:
     serializedVersion: 2
     m_Bits: 32

@@ -15,11 +15,20 @@ public class MeshDestroy : MonoBehaviour
 
     public int maxDamageDurability = 10;
 
+    public List<MeshDestroy> destroyIfAllDestroyed = new List<MeshDestroy>();
+    public List<MeshDestroy> notifyOnDestruction { get; private set; } = new List<MeshDestroy>();
+
     private List<PartMesh> parts = new List<PartMesh>();
 
     private void Awake()
     {
         GenerateMeshParts();
+    }
+
+    private void Start()
+    {
+        foreach (MeshDestroy m in destroyIfAllDestroyed)
+            m.notifyOnDestruction.Add(this);
     }
 
     protected void GenerateMeshParts()
@@ -72,6 +81,10 @@ public class MeshDestroy : MonoBehaviour
 
     public void DestroyMesh()
     {
+        foreach (MeshDestroy mesh in notifyOnDestruction)
+        {
+            if(mesh) mesh.Notify(this);
+        }
         if (!LevelFlow.DestructableGame) return;
         for (var i = 0; i < parts.Count; i++)
         {
@@ -80,6 +93,15 @@ public class MeshDestroy : MonoBehaviour
             parts[i].GameObject.GetComponent<Rigidbody>().AddForceAtPosition(parts[i].Bounds.center * ExplodeForce, transform.position);
         }
         Destroy(gameObject);
+    }
+
+    public void Notify(MeshDestroy m)
+    {
+        if(destroyIfAllDestroyed.Contains(m))
+        {
+            destroyIfAllDestroyed.Remove(m);
+            if (destroyIfAllDestroyed.Count == 0) DestroyMesh();
+        }
     }
 
     private PartMesh GenerateMesh(PartMesh original, Plane plane, bool left)

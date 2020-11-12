@@ -329,6 +329,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &15105810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,6 +430,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &17338461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,6 +515,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &18936591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -605,6 +608,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &20198989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -747,6 +751,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &33645266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -882,7 +887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_LocalScale.x
@@ -1074,6 +1079,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &48608342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1158,6 +1164,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &51690016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1321,6 +1328,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &66714976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1400,6 +1408,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &67062856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1651,6 +1660,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &86402072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1734,6 +1744,8 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 1275176938}
 --- !u!1001 &91298883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1881,6 +1893,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &98489581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2040,6 +2053,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &99990068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2119,6 +2133,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &113164518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2202,6 +2217,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &115518325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2294,6 +2310,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &117789956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2449,6 +2466,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &121133011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2532,6 +2550,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &133798268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2674,6 +2693,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &138709189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2757,6 +2777,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &140435870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2849,6 +2870,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &144068975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3021,6 +3043,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &159683550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3183,6 +3206,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &172386291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3337,6 +3361,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &177365462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3428,6 +3453,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &179103981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3579,6 +3605,8 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 898252506}
 --- !u!1001 &185020431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3662,6 +3690,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &186603818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3812,6 +3841,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &192566395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3896,6 +3926,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &198182091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3988,6 +4019,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &198552406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4075,6 +4107,11 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 948310145}
+  - {fileID: 322151615}
+  - {fileID: 916003466}
+  - {fileID: 1397928003}
 --- !u!1 &201655237 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
@@ -4095,6 +4132,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &203895951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4191,6 +4229,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &207349796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4274,6 +4313,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &216747946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4559,7 +4599,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 800560024}
+    m_TransformParent: {fileID: 244194880}
     m_Modifications:
     - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_Name
@@ -4575,7 +4615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4883762814713038, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_RootOrder
-      value: 50
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 4883762814713038, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_LocalScale.x
@@ -4616,7 +4656,7 @@ PrefabInstance:
     - target: {fileID: 23926487519972606, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 62aecda5cf371754da240f6bbda196e1, type: 2}
+      objectReference: {fileID: 2100000, guid: e82b4bd13ea8ce54081b0ac484ec6ecb, type: 2}
     m_RemovedComponents:
     - {fileID: 4721048255521216755, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
@@ -4681,6 +4721,8 @@ Transform:
   - {fileID: 745272263}
   - {fileID: 2007898561}
   - {fileID: 797039989}
+  - {fileID: 242827423}
+  - {fileID: 1010077536}
   m_Father: {fileID: 1704577787}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4775,6 +4817,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &250802247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4858,6 +4901,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &253346518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5008,6 +5052,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &261400917 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
@@ -5028,6 +5073,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &262233879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5119,6 +5165,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &265686099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5198,6 +5267,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &267270378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5281,6 +5351,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &270150751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5360,6 +5431,7 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &270460597
 GameObject:
   m_ObjectHideFlags: 0
@@ -5493,6 +5565,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &293921819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5569,7 +5642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4796727144638148, guid: bd97c05e714e4e44a95ebdeaa26a6c9f, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4796727144638148, guid: bd97c05e714e4e44a95ebdeaa26a6c9f, type: 3}
       propertyPath: m_LocalScale.x
@@ -5774,6 +5847,7 @@ MonoBehaviour:
   CutCascades: 3
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &303564059
 GameObject:
   m_ObjectHideFlags: 0
@@ -5968,6 +6042,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &309556424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6384,6 +6459,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &319283389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6472,6 +6548,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &322151612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6564,6 +6641,11 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 198552409}
+  - {fileID: 75141697}
+  - {fileID: 916003466}
+  - {fileID: 18936594}
 --- !u!1001 &328275828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6651,6 +6733,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &329037927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6734,6 +6817,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &342660168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6817,6 +6901,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &343928128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6908,6 +6993,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &346456438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6987,6 +7073,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &348346923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7193,6 +7280,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &356148892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7352,6 +7440,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &365707025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7365,7 +7454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4601733028705902, guid: 33771a1a04d924d4bb5b7baaa65a729d, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4601733028705902, guid: 33771a1a04d924d4bb5b7baaa65a729d, type: 3}
       propertyPath: m_LocalScale.x
@@ -7693,6 +7782,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &376527249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7785,6 +7875,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &377583585
 GameObject:
   m_ObjectHideFlags: 0
@@ -7907,6 +7998,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &381282201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7986,6 +8100,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &391060489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8065,6 +8180,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &393232366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8148,6 +8264,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &402875539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8580,6 +8719,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &449804156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8799,6 +8961,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &454175711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8883,6 +9046,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &462880412
 GameObject:
   m_ObjectHideFlags: 0
@@ -9009,6 +9173,8 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 1275176938}
 --- !u!1001 &466373391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9160,6 +9326,8 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 898252506}
 --- !u!1001 &474977211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9256,6 +9424,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &481286860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9344,6 +9513,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &496166622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9425,7 +9595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_LocalScale.x
@@ -9566,6 +9736,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &527303120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9645,6 +9816,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &528208386
 GameObject:
   m_ObjectHideFlags: 0
@@ -9940,6 +10112,11 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 948310145}
+  - {fileID: 1035687300}
+  - {fileID: 865830873}
+  - {fileID: 898252506}
 --- !u!1001 &556199725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10084,7 +10261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10209,6 +10386,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &570701941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10292,6 +10492,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &571028366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10383,6 +10584,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &571754407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10466,6 +10668,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &580456180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10688,6 +10891,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &583998689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10767,6 +10971,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &586232880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10827,26 +11032,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4719498968730246, guid: a2fe7f9dc74a5ff4696014f411430c80, type: 3}
   m_PrefabInstance: {fileID: 586232880}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &601338452 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
-  m_PrefabInstance: {fileID: 242827422}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &601338453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601338452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f09cb7119b37d894f9d2db1197e1a505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CutCascades: 5
-  ExplodeForce: 7
-  maxDamageDurability: 10
 --- !u!1001 &602707428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11061,6 +11246,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &614356465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11209,6 +11395,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &619947902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11398,6 +11585,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &635122406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11545,6 +11733,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &644823427
 GameObject:
   m_ObjectHideFlags: 0
@@ -11688,6 +11877,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &676238474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11779,6 +11969,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &680024750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11796,7 +11987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4796727144638148, guid: bd97c05e714e4e44a95ebdeaa26a6c9f, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4796727144638148, guid: bd97c05e714e4e44a95ebdeaa26a6c9f, type: 3}
       propertyPath: m_LocalScale.x
@@ -11934,6 +12125,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &695414108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12030,6 +12222,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &703736962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
@@ -12050,6 +12243,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &703896615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12141,6 +12335,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &705639337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12284,6 +12479,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &707650637
 GameObject:
   m_ObjectHideFlags: 0
@@ -12410,6 +12606,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &716943239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12572,6 +12769,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &727948041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
@@ -12592,6 +12790,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &735699018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12688,6 +12887,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &745272262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12819,7 +13019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_LocalScale.x
@@ -13270,6 +13470,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &799571131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13358,6 +13559,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &800050393
 GameObject:
   m_ObjectHideFlags: 0
@@ -13467,8 +13669,6 @@ Transform:
   - {fileID: 1740796566}
   - {fileID: 1822520300}
   - {fileID: 2005755645}
-  - {fileID: 242827423}
-  - {fileID: 1010077536}
   m_Father: {fileID: 1505371650}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13734,6 +13934,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &823847652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13955,6 +14156,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &828737160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14051,6 +14253,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &832118140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14143,6 +14346,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &832963195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14365,6 +14569,7 @@ MonoBehaviour:
   CutCascades: 3
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &845549256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14448,6 +14653,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &857414132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14527,6 +14755,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &865830870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14610,6 +14839,7 @@ MonoBehaviour:
   CutCascades: 5
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &868134220
 GameObject:
   m_ObjectHideFlags: 0
@@ -14781,6 +15011,7 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &874879855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14868,6 +15099,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &880207272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14951,6 +15183,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &883273166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15098,6 +15331,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &894574041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15307,6 +15541,7 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &911422502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15324,7 +15559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4796727144638148, guid: bd97c05e714e4e44a95ebdeaa26a6c9f, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4796727144638148, guid: bd97c05e714e4e44a95ebdeaa26a6c9f, type: 3}
       propertyPath: m_LocalScale.x
@@ -15466,6 +15701,7 @@ MonoBehaviour:
   CutCascades: 5
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &919603322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15549,6 +15785,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &919700276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15636,26 +15895,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
---- !u!1 &932229737 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
-  m_PrefabInstance: {fileID: 1010077535}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &932229738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932229737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f09cb7119b37d894f9d2db1197e1a505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CutCascades: 5
-  ExplodeForce: 7
-  maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &939947892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15747,6 +15987,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &948310142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15839,6 +16080,12 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 198552409}
+  - {fileID: 916003466}
+  - {fileID: 536278588}
+  - {fileID: 865830873}
+  - {fileID: 1728614116}
 --- !u!1001 &952478018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16167,6 +16414,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &967367782
 GameObject:
   m_ObjectHideFlags: 0
@@ -16558,6 +16806,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &996714581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16654,6 +16903,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &996902831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16792,6 +17042,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1002365778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16883,6 +17134,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &1003278667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16970,6 +17244,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1003722640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17053,12 +17328,13 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1010077535
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 800560024}
+    m_TransformParent: {fileID: 244194880}
     m_Modifications:
     - target: {fileID: 1570628789228942, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_Name
@@ -17074,7 +17350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4883762814713038, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_RootOrder
-      value: 51
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4883762814713038, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_LocalScale.x
@@ -17115,7 +17391,7 @@ PrefabInstance:
     - target: {fileID: 23926487519972606, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 62aecda5cf371754da240f6bbda196e1, type: 2}
+      objectReference: {fileID: 2100000, guid: e82b4bd13ea8ce54081b0ac484ec6ecb, type: 2}
     m_RemovedComponents:
     - {fileID: 4721048255521216755, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
@@ -17207,6 +17483,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1024958801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17295,6 +17572,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1025642640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17441,6 +17719,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1035687297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17520,6 +17799,11 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 1307362086}
+  - {fileID: 536278588}
+  - {fileID: 865830873}
+  - {fileID: 1275176938}
 --- !u!1001 &1057079790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17611,6 +17895,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &1076658953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17698,6 +18005,7 @@ MonoBehaviour:
   CutCascades: 3
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1079993262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17789,6 +18097,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1081396057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17940,6 +18249,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1086868357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18163,6 +18473,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1100695979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18246,6 +18557,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1109249261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18454,6 +18766,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &1122868290
 GameObject:
   m_ObjectHideFlags: 0
@@ -18711,6 +19024,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1144251899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18850,6 +19164,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1150098059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18929,6 +19244,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1151419869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19075,6 +19391,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1161407249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19218,6 +19535,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1183698919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19301,6 +19619,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1184117180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19389,6 +19708,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1187238720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19545,6 +19865,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1201107163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19628,6 +19949,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &1202593821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19766,6 +20110,7 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1217141005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19845,6 +20190,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1218463374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19924,6 +20270,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1219031792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20015,6 +20362,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1226125663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20098,6 +20446,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1226579822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20181,6 +20530,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1228624248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20264,6 +20614,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1232306772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20281,7 +20632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4796727144638148, guid: bd97c05e714e4e44a95ebdeaa26a6c9f, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4796727144638148, guid: bd97c05e714e4e44a95ebdeaa26a6c9f, type: 3}
       propertyPath: m_LocalScale.x
@@ -20431,6 +20782,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &1235827709
 GameObject:
   m_ObjectHideFlags: 0
@@ -20494,6 +20846,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1242761857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20573,6 +20926,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1249904194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20727,6 +21081,13 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 1722472423}
+  - {fileID: 919603325}
+  - {fileID: 7055543}
+  - {fileID: 1256906701}
 --- !u!1001 &1253055420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20869,6 +21230,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &1264363643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20886,7 +21270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21004,7 +21388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4796727144638148, guid: bd97c05e714e4e44a95ebdeaa26a6c9f, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4796727144638148, guid: bd97c05e714e4e44a95ebdeaa26a6c9f, type: 3}
       propertyPath: m_LocalScale.x
@@ -21151,6 +21535,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1272899252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21298,6 +21683,7 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1275376891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21386,6 +21772,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1278211781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21473,6 +21860,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1279876047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21560,6 +21948,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1283968202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21651,6 +22040,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1292619909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21734,6 +22124,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1295721652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21876,6 +22267,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1304127900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21961,7 +22353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22141,6 +22533,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1307274952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22232,6 +22625,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1307362083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22324,6 +22718,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1308997016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22483,6 +22878,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &1319136021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22778,6 +23196,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1328732219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22785,6 +23204,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 777768873000079243, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 777768873394869090, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
       propertyPath: m_Name
       value: PlayerXR
@@ -23183,6 +23606,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1346578506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23270,6 +23694,7 @@ MonoBehaviour:
   CutCascades: 3
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1349504136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23421,6 +23846,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1358343721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23577,6 +24003,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1361950162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23668,6 +24095,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1368308299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23751,6 +24179,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &1379880822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23982,6 +24433,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &1385691887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24129,6 +24603,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1397928000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24216,6 +24691,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1403064445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24312,6 +24788,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1412045474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24450,6 +24927,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1422950220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24808,6 +25286,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1431767008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24887,6 +25366,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1446608613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24970,6 +25450,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1452159360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25049,6 +25530,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1452406573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25196,6 +25678,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1471490067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25363,6 +25846,12 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 996714584}
+  - {fileID: 445545060}
+  - {fileID: 7055543}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
 --- !u!1001 &1478846235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25451,6 +25940,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1486953448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25657,6 +26147,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1503224733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25744,6 +26235,7 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1504578175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26001,6 +26493,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &1517653583
 GameObject:
   m_ObjectHideFlags: 0
@@ -26127,6 +26620,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1520655321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26367,6 +26861,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1532114839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26450,6 +26945,29 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 676238477}
+  - {fileID: 1100695982}
+  - {fileID: 880207275}
+  - {fileID: 329037930}
+  - {fileID: 343928131}
+  - {fileID: 168197151}
+  - {fileID: 517509907}
+  - {fileID: 292164212}
+  - {fileID: 247439700}
+  - {fileID: 1779039024}
+  - {fileID: 726328123}
+  - {fileID: 1476327656}
+  - {fileID: 1722472423}
+  - {fileID: 2056157179}
+  - {fileID: 1029174394}
+  - {fileID: 1952910454}
+  - {fileID: 1250959196}
+  - {fileID: 1734206371}
+  - {fileID: 1446608616}
+  - {fileID: 1925840268}
+  - {fileID: 1632887039}
+  - {fileID: 1634360290}
 --- !u!1001 &1533169173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26529,6 +27047,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1540633804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26604,6 +27123,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!4 &1559852196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4044660326065994881, guid: ba0064c3a0d537e458bed589b860e0e1, type: 3}
@@ -26710,6 +27230,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &1565436415
 GameObject:
   m_ObjectHideFlags: 0
@@ -26828,6 +27349,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1576764695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26907,6 +27429,7 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1603904911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26990,6 +27513,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1609610024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27007,7 +27531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4221991727650628, guid: 855d57c01bc2e7041adea269cfcf2fd0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27133,6 +27657,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1617467053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27461,6 +27986,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1631154880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27544,6 +28070,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1632887036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27627,6 +28154,13 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 445545060}
+  - {fileID: 1779039024}
+  - {fileID: 1476327656}
+  - {fileID: 919603325}
+  - {fileID: 7055543}
+  - {fileID: 1925840268}
 --- !u!1001 &1634360287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27718,6 +28252,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1635152705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27797,6 +28332,7 @@ MonoBehaviour:
   CutCascades: 3
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1642424056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28212,6 +28748,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1671969328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28296,6 +28833,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1685081289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28434,6 +28972,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1704334785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28526,6 +29065,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &1704577786
 GameObject:
   m_ObjectHideFlags: 0
@@ -28677,6 +29217,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1719288449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28824,6 +29365,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1722472420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28907,6 +29449,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1727262643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29067,6 +29610,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &1728791983
 GameObject:
   m_ObjectHideFlags: 0
@@ -29208,6 +29752,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1734206368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29291,6 +29836,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1740796565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29378,6 +29924,7 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1745677815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29532,6 +30079,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &1763523434
 GameObject:
   m_ObjectHideFlags: 0
@@ -29650,6 +30198,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1775670150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29810,6 +30359,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1779039021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29893,6 +30443,13 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 445545060}
+  - {fileID: 919603325}
+  - {fileID: 7055543}
+  - {fileID: 1250959196}
+  - {fileID: 1256906701}
+  - {fileID: 1632887039}
 --- !u!1001 &1780634491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30048,6 +30605,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1800047236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30128,6 +30686,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1801333612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30270,6 +30829,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1816118866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30479,6 +31039,7 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &1822543561
 GameObject:
   m_ObjectHideFlags: 0
@@ -30810,6 +31371,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &1841375294
 GameObject:
   m_ObjectHideFlags: 0
@@ -30928,6 +31490,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1868812626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31007,6 +31570,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1871378661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31267,6 +31831,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1925840265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31358,6 +31923,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1952910451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31449,6 +32015,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1953874403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31545,6 +32112,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1956636349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31636,6 +32204,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1958588084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31775,6 +32344,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1964642667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31850,6 +32420,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1969333365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32118,6 +32689,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1982799058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32210,6 +32782,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1983685381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32297,6 +32870,7 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1985824078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32455,6 +33029,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &1988389900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32589,6 +33164,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2005755644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32668,6 +33244,11 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed:
+  - {fileID: 192566398}
+  - {fileID: 66714979}
+  - {fileID: 1216312835}
+  - {fileID: 865830873}
 --- !u!1001 &2007898560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32827,6 +33408,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2017798661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32910,6 +33492,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2020593332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32994,6 +33577,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2023607390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33290,6 +33874,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2048931606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33446,6 +34031,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2056157176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33529,6 +34115,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2068978405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33608,6 +34195,7 @@ MonoBehaviour:
   CutCascades: 4
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2080169766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33687,6 +34275,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2080243961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33708,7 +34297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4883762814713038, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4883762814713038, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
       propertyPath: m_LocalScale.x
@@ -34041,6 +34630,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2096917722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34137,6 +34727,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2101033014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34216,6 +34807,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2102394499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34300,6 +34892,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2103344368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34379,6 +34972,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2108804150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34463,6 +35057,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &2122627108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34610,6 +35205,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1 &2143794396
 GameObject:
   m_ObjectHideFlags: 0
@@ -34700,6 +35296,7 @@ MonoBehaviour:
   CutCascades: 2
   ExplodeForce: 7
   maxDamageDurability: 10
+  destroyIfAllDestroyed: []
 --- !u!1001 &4044660326946179109
 PrefabInstance:
   m_ObjectHideFlags: 0

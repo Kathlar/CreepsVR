@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Explosive : MonoBehaviour
 {
+    public AudioSource audioSource;
+
     public bool exploded { get; private set; }
 
     public float timeToExplode = 3;
@@ -21,6 +23,12 @@ public class Explosive : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToExplode);
 
+        if(audioSource)
+        {
+            audioSource.transform.SetParent(null);
+            audioSource.Play();
+            Destroy(audioSource, audioSource.clip.length);
+        }
         explosionEffect.gameObject.SetActive(true);
         explosionEffect.transform.SetParent(null);
         explosionEffect.Play();

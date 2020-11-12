@@ -182,7 +182,7 @@ public class CharacterSoldier : Character, IDamageable
         Game.Player.timer.SetTimer(5);
     }
 
-    public void GetDamage(int power, Vector3 hitPoint, Vector3 damageVelocity)
+    public void GetDamage(int power)
     {
         timeOfLastDamage = Time.timeSinceLevelLoad;
         if(Time.timeSinceLevelLoad > timeOfLastDamageAnimation + 1)

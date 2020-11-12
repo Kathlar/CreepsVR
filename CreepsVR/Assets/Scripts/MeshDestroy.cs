@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeshDestroy : MonoBehaviour, IDamageable
+public class MeshDestroy : MonoBehaviour
 {
     private bool edgeSet = false;
     private Vector3 edgeVertex = Vector3.zero;
@@ -22,17 +22,9 @@ public class MeshDestroy : MonoBehaviour, IDamageable
         GenerateMeshParts();
     }
 
-    public void GetDamage(int power, Vector3 hitPoint, Vector3 damageVelocity)
-    {
-        if (!LevelFlow.DestructableGame) return;
-        if (power > maxDamageDurability)
-        {
-            DestroyMesh();
-        }
-    }
-
     protected void GenerateMeshParts()
     {
+        if (!LevelFlow.DestructableGame) return;
         var originalMesh = GetComponent<MeshFilter>().mesh;
         if (!originalMesh.isReadable) return;
         originalMesh.RecalculateBounds();
@@ -80,6 +72,7 @@ public class MeshDestroy : MonoBehaviour, IDamageable
 
     public void DestroyMesh()
     {
+        if (!LevelFlow.DestructableGame) return;
         for (var i = 0; i < parts.Count; i++)
         {
             parts[i].GameObject.SetActive(true);

@@ -136,4 +136,6 @@ public abstract class Player : MonoBehaviour
     {
 
     }
+
+    public abstract void LookAt(Vector3 point);
 }

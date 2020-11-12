@@ -55,7 +55,7 @@ public class Projectile : MonoBehaviour
             if (other.transform.TryGetComponent(out IDamageable damageable))
             {
                 if (damageable == gun.holder) return;
-                damageable.GetDamage(damagePower, other.contacts[0].point, transform.forward * moveSpeed);
+                damageable.GetDamage(damagePower);
             }
             else if (other.transform.TryGetComponent(out Rigidbody hitRigid))
                 hitRigid.AddForce(transform.forward * moveSpeed);

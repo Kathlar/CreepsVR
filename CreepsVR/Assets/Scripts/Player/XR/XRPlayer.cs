@@ -59,6 +59,17 @@ public class XRPlayer : Player
         rightController.SetMaterial(m);
     }
 
+    public override void LookAt(Vector3 point)
+    {
+        //Vector3 myForward = transform.forward;
+        //Vector3 cameraForward = mainCamera.transform.forward;
+        //myForward.y = cameraForward.y = 0;
+        //float angle = Vector3.Angle(myForward, cameraForward);
+        //Quaternion rotation = Quaternion.LookRotation(-transform.position, Vector3.up);
+        //rotation *= Quaternion.Euler(Vector3.up * (angle + 180));
+        //transform.rotation = rotation;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.black;

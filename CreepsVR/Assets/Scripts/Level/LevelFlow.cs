@@ -84,6 +84,7 @@ public class LevelFlow : Singleton<LevelFlow>
         switch(turnPart)
         {
             case TurnPart.turnStart:
+                //Game.Player.LookAt(Vector3.zero);
                 currentPlayerNumber++;
                 if(currentPlayerNumber >= levelSetupInfo.numberOfPlayers)
                 {

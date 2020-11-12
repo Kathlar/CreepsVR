@@ -15,6 +15,13 @@ public class MeshDestroy : MonoBehaviour, IDamageable
 
     public int maxDamageDurability = 10;
 
+    private List<PartMesh> parts = new List<PartMesh>();
+
+    private void Awake()
+    {
+        GenerateMeshParts();
+    }
+
     public void GetDamage(int power, Vector3 hitPoint, Vector3 damageVelocity)
     {
         if (!LevelFlow.DestructableGame) return;
@@ -24,12 +31,11 @@ public class MeshDestroy : MonoBehaviour, IDamageable
         }
     }
 
-    public void DestroyMesh()
+    protected void GenerateMeshParts()
     {
         var originalMesh = GetComponent<MeshFilter>().mesh;
         if (!originalMesh.isReadable) return;
         originalMesh.RecalculateBounds();
-        var parts = new List<PartMesh>();
         var subParts = new List<PartMesh>();
 
         var mainPart = new PartMesh()
@@ -67,9 +73,19 @@ public class MeshDestroy : MonoBehaviour, IDamageable
         for (var i = 0; i < parts.Count; i++)
         {
             parts[i].MakeGameobject(this);
+            parts[i].GameObject.transform.SetParent(transform);
+            parts[i].GameObject.SetActive(false);
+        }
+    }
+
+    public void DestroyMesh()
+    {
+        for (var i = 0; i < parts.Count; i++)
+        {
+            parts[i].GameObject.SetActive(true);
+            parts[i].GameObject.transform.SetParent(null);
             parts[i].GameObject.GetComponent<Rigidbody>().AddForceAtPosition(parts[i].Bounds.center * ExplodeForce, transform.position);
         }
-
         Destroy(gameObject);
     }
 
@@ -286,9 +302,16 @@ public class MeshDestroy : MonoBehaviour, IDamageable
             filter.mesh = mesh;
 
             var collider = GameObject.AddComponent<MeshCollider>();
-            collider.convex = true;
+            try
+            {
+                collider.convex = true;
 
-            var rigidbody = GameObject.AddComponent<Rigidbody>();
+                var rigidbody = GameObject.AddComponent<Rigidbody>();
+            }
+            catch(Exception e)
+            {
+                Debug.Log("Mesh Destroy error: " + e.Message);
+            }
             //var meshDestroy = GameObject.AddComponent<MeshDestroy>();
             //meshDestroy.CutCascades = original.CutCascades;
             //meshDestroy.ExplodeForce = original.ExplodeForce;

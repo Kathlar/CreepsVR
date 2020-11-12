@@ -8,6 +8,7 @@ using UnityEngine.Rendering.PostProcessing;
 /// </summary>
 public class QualityManager : Singleton<QualityManager>
 {
+#if UNITY_POST_PROCESSING_STACK_V2
     PostProcessVolume volume;
     PostProcessProfile profile;
 
@@ -30,4 +31,5 @@ public class QualityManager : Singleton<QualityManager>
                 break;
         }
     }
+#endif
 }

@@ -63,9 +63,9 @@ public class CharacterSoldier : Character, IDamageable
     private void Update()
     {
         Vector3 moveVector = Vector3.zero;
-        if (!endingTurn && isPlayer && holdingWeapon)
+        if (isPlayer && holdingWeapon)
         {
-            if(!attacking)
+            if(!attacking || endingTurn)
             {
                 Transform cameraTransform = Game.Player.mainCamera.transform;
                 Vector2 moveInputValue = new Vector2(Mathf.Clamp(Inputs.MainHorizontal +
@@ -102,7 +102,6 @@ public class CharacterSoldier : Character, IDamageable
     public void EndTurn()
     {
         endingTurn = true;
-        holdingWeapon = false;
         attacking = false;
 
         StartCoroutine(EndTurnCoroutine());
@@ -111,6 +110,7 @@ public class CharacterSoldier : Character, IDamageable
     private IEnumerator EndTurnCoroutine()
     {
         yield return new WaitForSeconds(2f);
+        holdingWeapon = false;
         Game.Player.UnequipItem();
         soldierInfoPivot.gameObject.SetActive(true);
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.turnStart);

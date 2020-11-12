@@ -6,6 +6,7 @@ public abstract class Item : MonoBehaviour
 {
     public AudioSource audioSource { get; private set; }
     protected MeshRenderer[] meshRenderers { get; private set; }
+    protected RaycastLineForward line;
 
     public string itemName = "Item";
     public Sprite icon;
@@ -21,10 +22,12 @@ public abstract class Item : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        line = GetComponentInChildren<RaycastLineForward>();
     }
 
     private void Start()
     {
+        if (line) line.gameObject.SetActive(false);
         foreach(MeshRenderer mesh in meshRenderers)
         {
             Color c = mesh.material.color;
@@ -40,6 +43,7 @@ public abstract class Item : MonoBehaviour
 
     public void TurnOn()
     {
+        if (line) line.gameObject.SetActive(true);
         foreach (MeshRenderer mesh in meshRenderers)
         {
             Color c = mesh.material.color;

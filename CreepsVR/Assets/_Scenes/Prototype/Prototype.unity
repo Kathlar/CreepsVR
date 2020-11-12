@@ -16160,6 +16160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: _GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8496243814037362957, guid: 73bf2e26088e44b4d93c36d81583cb5b, type: 3}
+      propertyPath: playerTypeToSpawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8496243814037362958, guid: 73bf2e26088e44b4d93c36d81583cb5b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -23197,256 +23201,6 @@ MonoBehaviour:
   ExplodeForce: 7
   maxDamageDurability: 10
   destroyIfAllDestroyed: []
---- !u!1001 &1328732219
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 777768873000079243, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869090, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_Name
-      value: PlayerXR
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -19
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -24
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9553988
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.29531875
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_ShowCustomSorter
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_BeforeStackBundles.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[0].assemblyQualifiedName
-      value: SCPE.AmbientOcclusion2D, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[1].assemblyQualifiedName
-      value: SCPE.BlackBars, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[2].assemblyQualifiedName
-      value: SCPE.Blur, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[3].assemblyQualifiedName
-      value: SCPE.ColorSplit, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[4].assemblyQualifiedName
-      value: SCPE.Colorize, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[5].assemblyQualifiedName
-      value: SCPE.Danger, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[6].assemblyQualifiedName
-      value: SCPE.Dithering, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[7].assemblyQualifiedName
-      value: SCPE.DoubleVision, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[8].assemblyQualifiedName
-      value: SCPE.Gradient, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[9].assemblyQualifiedName
-      value: SCPE.HueShift3D, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[10].assemblyQualifiedName
-      value: SCPE.Kaleidoscope, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[11].assemblyQualifiedName
-      value: SCPE.Kuwahara, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[12].assemblyQualifiedName
-      value: SCPE.LUT, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[13].assemblyQualifiedName
-      value: SCPE.Mosaic, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[14].assemblyQualifiedName
-      value: SCPE.Overlay, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[15].assemblyQualifiedName
-      value: SCPE.RadialBlur, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[16].assemblyQualifiedName
-      value: SCPE.Refraction, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[17].assemblyQualifiedName
-      value: SCPE.Ripples, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[18].assemblyQualifiedName
-      value: SCPE.Scanlines, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[19].assemblyQualifiedName
-      value: SCPE.Sharpen, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[20].assemblyQualifiedName
-      value: SCPE.SpeedLines, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[21].assemblyQualifiedName
-      value: SCPE.Sunshafts, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[22].assemblyQualifiedName
-      value: SCPE.TiltShift, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[23].assemblyQualifiedName
-      value: SCPE.Transition, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[24].assemblyQualifiedName
-      value: SCPE.TubeDistortion, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_BeforeStackBundles.Array.data[0].assemblyQualifiedName
-      value: SCPE.CloudShadows, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_BeforeStackBundles.Array.data[1].assemblyQualifiedName
-      value: SCPE.EdgeDetection, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_BeforeStackBundles.Array.data[2].assemblyQualifiedName
-      value: SCPE.Fog, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_BeforeStackBundles.Array.data[3].assemblyQualifiedName
-      value: SCPE.LensFlares, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_BeforeStackBundles.Array.data[4].assemblyQualifiedName
-      value: SCPE.LightStreaks, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_BeforeStackBundles.Array.data[5].assemblyQualifiedName
-      value: SCPE.Pixelize, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_BeforeStackBundles.Array.data[6].assemblyQualifiedName
-      value: SCPE.Posterize, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_BeforeStackBundles.Array.data[7].assemblyQualifiedName
-      value: SCPE.Sketch, sc.posteffects.runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
 --- !u!1001 &1335279215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27430,6 +27184,63 @@ MonoBehaviour:
   ExplodeForce: 7
   maxDamageDurability: 10
   destroyIfAllDestroyed: []
+--- !u!1001 &1593920356
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 777768873394869090, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_Name
+      value: PlayerXR
+      objectReference: {fileID: 0}
+    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777768873394869092, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
 --- !u!1001 &1603904911
 PrefabInstance:
   m_ObjectHideFlags: 0

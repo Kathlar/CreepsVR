@@ -20,6 +20,9 @@ public class Game : Singleton<Game>
     public static bool Paused { get { return Instance.paused; } }
     private bool raycastOnBeforePause;
 
+    public AsyncOperation operation;
+    public static AsyncOperation Operation { get { return Instance.operation; } }
+
     protected override void SingletonAwake()
     {
 #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
@@ -73,11 +76,21 @@ public class Game : Singleton<Game>
     public static void RestartLevel()
     {
         UnpauseGame();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public static void GoToMainMenu()
     {
-        SceneManager.LoadScene(Database.Levels.mainMenuLevelInfo.sceneAssetName);
+        LoadScene(Database.Levels.mainMenuLevelInfo.sceneAssetName);
+    }
+
+    public static void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
+
+    public static void LoadSceneWithLoadingScreen(string name)
+    {
+        Instance.operation = SceneManager.LoadSceneAsync(name);
     }
 }

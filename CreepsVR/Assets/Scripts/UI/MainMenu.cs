@@ -18,6 +18,8 @@ public class MainMenu : MonoBehaviour
 
     private int currentChosenLevelNumber = 0;
 
+    public GameObject loadingIconObject;
+
     private void Start()
     {
         mainMenuWindow.SetActive(true);
@@ -104,6 +106,8 @@ public class MainMenu : MonoBehaviour
     {
         LevelSetupInfo setupInfo = new LevelSetupInfo(numberOfPlayers, numberOfCharacters);
         LevelFlow.levelSetupInfo = setupInfo;
-        SceneManager.LoadScene(Database.Levels.gameLevelInfos[currentChosenLevelNumber].sceneAssetName);
+        loadingIconObject.SetActive(true);
+        transform.parent.gameObject.SetActive(false);
+        Game.LoadSceneWithLoadingScreen(Database.Levels.gameLevelInfos[currentChosenLevelNumber].sceneAssetName);
     }
 }

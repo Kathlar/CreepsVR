@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     private const float _maxLifeTime = 3;
 
+    public ParticleSystem hitEffectParticle;
     public Explosive explose { get; private set; }
     public GameObject trail;
 
@@ -45,6 +46,12 @@ public class Projectile : MonoBehaviour
             shouldExplode = true;
         else
         {
+            if (hitEffectParticle)
+            {
+                hitEffectParticle.Play();
+                hitEffectParticle.transform.SetParent(null);
+                Destroy(hitEffectParticle.gameObject, hitEffectParticle.duration);
+            }
             if (other.transform.TryGetComponent(out IDamageable damageable))
             {
                 if (damageable == gun.holder) return;

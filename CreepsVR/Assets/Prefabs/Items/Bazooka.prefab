@@ -82,6 +82,7 @@ MonoBehaviour:
   numberOfBullets: 1
   timeBetweenShots: 0
   bulletPrefab: {fileID: 2305481102931469631, guid: 1ce4f9d11d72ec942ad4f32fbc352f8f, type: 3}
+  shootEffect: {fileID: 0}
 --- !u!1001 &4627912033138665114
 PrefabInstance:
   m_ObjectHideFlags: 0

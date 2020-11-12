@@ -104,13 +104,13 @@ public class CharacterSoldier : Character, IDamageable
         holdingWeapon = false;
         attacking = false;
 
-        Game.Player.UnequipItem();
         StartCoroutine(EndTurnCoroutine());
     }
 
     private IEnumerator EndTurnCoroutine()
     {
         yield return new WaitForSeconds(2f);
+        Game.Player.UnequipItem();
         soldierInfoPivot.gameObject.SetActive(true);
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.turnStart);
         SetAsNotPlayer();

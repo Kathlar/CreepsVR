@@ -11,13 +11,17 @@ public class Gun : Weapon
     public GameObject bulletPrefab;
     protected List<Projectile> projectiles = new List<Projectile>();
 
+    public ParticleSystem shootEffect;
+
     public override void UseContinue()
     {
         base.UseContinue();
         if (numberOfBullets > 0 && Time.timeSinceLevelLoad > timeOfLastShot + timeBetweenShots)
         {
+            timeOfLastShot = Time.timeSinceLevelLoad;
             numberOfBullets--;
             if (audioSource) audioSource.PlayOneShot(audioSource.clip);
+            if (shootEffect) shootEffect.Play();
             foreach(Transform shootPoint in shootPoints)
             {
                 Projectile bullet = Instantiate(bulletPrefab, shootPoint.position,

@@ -78,8 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3826c931ce82c6145a9e3c108e7b4c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffectParticle: {fileID: 0}
   trail: {fileID: 2737773202702960635}
-  moveSpeed: 10
+  moveSpeed: 15
   damagePower: 20
 --- !u!114 &4347128445888438318
 MonoBehaviour:

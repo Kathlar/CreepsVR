@@ -23116,6 +23116,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: antialiasingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: stopNaNPropagation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: fastApproximateAntialiasing.fastMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: fastApproximateAntialiasing.keepAlpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415278912400898770, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
 --- !u!1001 &1335279215

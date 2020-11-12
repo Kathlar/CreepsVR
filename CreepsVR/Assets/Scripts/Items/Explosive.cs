@@ -32,7 +32,7 @@ public class Explosive : MonoBehaviour
         explosionEffect.gameObject.SetActive(true);
         explosionEffect.transform.SetParent(null);
         explosionEffect.Play();
-        Destroy(explosionEffect.gameObject, explosionEffect.duration);
+        Destroy(explosionEffect.gameObject, explosionEffect.main.duration);
 
         Collider[] objectsInRadius = Physics.OverlapSphere(transform.position, explosionRadius);
 

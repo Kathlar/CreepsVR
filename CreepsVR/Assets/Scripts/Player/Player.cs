@@ -8,6 +8,9 @@ public abstract class Player : MonoBehaviour
     public GameObject pauseMenuObject;
     public TurnTimer timer { get; private set; }
 
+    public Character currentCharacter;
+    private Quaternion startRotation;
+
     public LayerMask raycastLayer;
     public bool raycastOn { get; private set; } = true;
     protected abstract Transform raycastPoint { get; }
@@ -31,6 +34,7 @@ public abstract class Player : MonoBehaviour
         timer = GetComponentInChildren<TurnTimer>();
         timer.Set(delegate { LevelFlow.OnTimerEnd(); });
         startRaycastSize = raycastLine.startWidth;
+        startRotation = transform.rotation;
     }
 
     protected virtual void Start()
@@ -120,13 +124,19 @@ public abstract class Player : MonoBehaviour
 
     public virtual void SetRaycastSize(float size)
     {
-        raycastLine.SetWidth(startRaycastSize * size, startRaycastSize * size);
+        raycastLine.startWidth = startRaycastSize * size;
+        raycastLine.endWidth = startRaycastSize * size;
     }
 
     public void ShowPauseMenu(bool on)
     {
         if (on) pauseMenuObject.transform.rotation = Quaternion.Euler(0, mainCamera.transform.eulerAngles.y, 0);
         pauseMenuObject.SetActive(on);
+        if (currentCharacter)
+        {
+            if (on) currentCharacter.HideCanvas();
+            else currentCharacter.ShowCanvas();
+        }
     }
 
     public abstract void EquipItem(Item weapon);
@@ -137,5 +147,8 @@ public abstract class Player : MonoBehaviour
 
     }
 
-    public abstract void LookAt(Vector3 point);
+    public void ResetRotation()
+    {
+        transform.localRotation = startRotation;
+    }
 }

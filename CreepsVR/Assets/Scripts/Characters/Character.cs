@@ -10,6 +10,8 @@ public class Character : MonoBehaviour
 
     protected bool isPlayer;
 
+    private bool canvasWasOn;
+
     public virtual void SetAsPlayer()
     {
         Transform playerTransform = Game.Player.transform.parent;
@@ -20,10 +22,22 @@ public class Character : MonoBehaviour
         canvas.eulerAngles = new Vector3(0, Game.Player.mainCamera.transform.eulerAngles.y, 0);
 
         isPlayer = true;
+        Game.Player.currentCharacter = this;
     }
 
     public virtual void SetAsNotPlayer()
     {
         isPlayer = false;
+    }
+
+    public virtual void ShowCanvas()
+    {
+        if(canvasWasOn) canvas.gameObject.SetActive(true);
+    }
+
+    public virtual void HideCanvas()
+    {
+        canvasWasOn = canvas.gameObject.activeSelf;
+        canvas.gameObject.SetActive(false);
     }
 }

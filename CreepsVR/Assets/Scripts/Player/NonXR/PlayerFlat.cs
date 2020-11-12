@@ -44,9 +44,4 @@ public class PlayerFlat : Player
     {
         if(equipedItem) Destroy(equipedItem.gameObject);
     }
-
-    public override void LookAt(Vector3 point)
-    {
-        transform.LookAt(new Vector3(point.x, transform.position.y, point.z));
-    }
 }

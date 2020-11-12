@@ -8,6 +8,7 @@ public class LevelFlow : Singleton<LevelFlow>
     public static LevelSetupInfo levelSetupInfo;
     private int currentTurnNumber = 1;
     private int currentPlayerNumber = -1;
+    private List<int> deadPlayerNumbers = new List<int>();
 
     public CharacterGod characterGod;
     public GameObject characterSoldierPrefab;
@@ -84,18 +85,22 @@ public class LevelFlow : Singleton<LevelFlow>
         switch(turnPart)
         {
             case TurnPart.turnStart:
-                //Game.Player.LookAt(Vector3.zero);
-                currentPlayerNumber++;
-                if(currentPlayerNumber >= levelSetupInfo.numberOfPlayers)
+                do
                 {
-                    currentPlayerNumber = 0;
-                    currentTurnNumber++;
+                    currentPlayerNumber++;
+                    if (currentPlayerNumber >= levelSetupInfo.numberOfPlayers)
+                    {
+                        currentPlayerNumber = 0;
+                        currentTurnNumber++;
+                    }
                 }
+                while (deadPlayerNumbers.Contains(currentPlayerNumber));
                 characterGod.transform.localPosition = Vector3.zero;
                 characterGod.SetAsPlayer();
                 characterGod.canvas.gameObject.SetActive(true);
                 Game.Player.SetRaycast(true);
                 Game.Player.SetHandMaterial(Database.PlayerInfos[currentPlayerNumber].material);
+                Game.Player.ResetRotation();
                 foreach (var s in soldiers.Values)
                     foreach (CharacterSoldier soldier in s)
                     {
@@ -122,6 +127,7 @@ public class LevelFlow : Singleton<LevelFlow>
                         soldier.SetInfoWindowSize(true);
                         soldier.HideChoice();
                     }
+                Game.Player.ResetRotation();
                 break;
             case TurnPart.soldierMovement:
                 Game.Player.SetRaycast(false);
@@ -152,7 +158,11 @@ public class LevelFlow : Singleton<LevelFlow>
     {
         Instance.soldiers[soldier.playerNumber].Remove(soldier);
         if (Instance.soldiers[soldier.playerNumber].Count == 0)
-            Instance.LevelFinish();
+        {
+            Instance.deadPlayerNumbers.Add(soldier.playerNumber);
+            if(Instance.deadPlayerNumbers.Count >= levelSetupInfo.numberOfPlayers - 1)
+                Instance.LevelFinish();
+        }
     }
 
     public void LevelFinish()

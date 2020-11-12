@@ -43,18 +43,21 @@ public class MainMenu : MonoBehaviour
 
     public void Button_StartGameWindow()
     {
+        if (Time.timeSinceLevelLoad < .5f) return;
         startGameWindow.SetActive(true);
         mainMenuWindow.SetActive(false);
     }
 
     public void Button_SettingsWindow()
     {
+        if (Time.timeSinceLevelLoad < .5f) return;
         settingsWindow.SetActive(true);
         mainMenuWindow.SetActive(false);
     }
 
     public void Button_CreditsWindow()
     {
+        if (Time.timeSinceLevelLoad < .5f) return;
         creditsWindow.SetActive(true);
         mainMenuWindow.SetActive(false);
     }

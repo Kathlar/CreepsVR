@@ -50,11 +50,11 @@ public class Projectile : MonoBehaviour
             {
                 hitEffectParticle.Play();
                 hitEffectParticle.transform.SetParent(null);
-                Destroy(hitEffectParticle.gameObject, hitEffectParticle.duration);
+                Destroy(hitEffectParticle.gameObject, hitEffectParticle.main.duration);
             }
             if (other.transform.TryGetComponent(out IDamageable damageable))
             {
-                if (damageable == gun.holder) return;
+                if ((Object)damageable == gun.holder) return;
                 damageable.GetDamage(damagePower);
             }
             else if (other.transform.TryGetComponent(out Rigidbody hitRigid))

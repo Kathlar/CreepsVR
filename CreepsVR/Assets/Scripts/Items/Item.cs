@@ -15,6 +15,8 @@ public abstract class Item : MonoBehaviour
     public bool turnedOn { get; private set; } = false;
     public bool isUsed { get; private set; } = false;
 
+    public bool twoHanded;
+
     protected virtual void Awake()
     {
         audioSource = GetComponent<AudioSource>();

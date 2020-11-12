@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2630212856183607748}
-  - component: {fileID: 3089310380448814549}
   - component: {fileID: 8365047269137781276}
   - component: {fileID: 1133397160892773417}
   - component: {fileID: 4347128445888438318}
@@ -39,19 +38,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3089310380448814549
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2305481102931469631}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8365047269137781276
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -335,6 +321,7 @@ GameObject:
   - component: {fileID: 4140461984131484524}
   - component: {fileID: 5656620090481133665}
   - component: {fileID: 294192010254525462}
+  - component: {fileID: 8970688500882032426}
   m_Layer: 0
   m_Name: BazookaProjectile
   m_TagString: Untagged
@@ -405,6 +392,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8970688500882032426
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672659228076226689}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: a0b12b0b7c7edba4a9740c5ebb7c454d, type: 3}
 --- !u!1001 &2736884021437540519
 PrefabInstance:
   m_ObjectHideFlags: 0

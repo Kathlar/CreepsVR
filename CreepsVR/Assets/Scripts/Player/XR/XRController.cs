@@ -8,6 +8,8 @@ public class XRController : MonoBehaviour
     public SkinnedMeshRenderer meshRenderer { get; private set; }
     public Animator animator { get; private set; }
 
+    public XRPlayer player { get; private set; }
+
     private Material regularMaterial;
 
     public HorizontalSide side;
@@ -22,9 +24,19 @@ public class XRController : MonoBehaviour
         regularMaterial = meshRenderer.material;
     }
 
+    public void Set(XRPlayer player)
+    {
+        this.player = player;
+    }
+
     private void Update()
     {
-        if(InputsVR.Hands.ContainsKey(side))
+        if(equipedItem)
+        {
+            HorizontalSide otherSide = side == HorizontalSide.left ? HorizontalSide.right : HorizontalSide.left;
+            if (equipedItem.twoHanded) equipedItem.transform.LookAt(player.controllers[otherSide].transform.position);
+        }
+        else if(InputsVR.Hands.ContainsKey(side))
         {
             animator.SetFloat("Trigger", InputsVR.Hands[side].trigger.Value);
             animator.SetFloat("Grip", InputsVR.Hands[side].grip.Value);
@@ -37,6 +49,11 @@ public class XRController : MonoBehaviour
         weapon.transform.parent = transform;
         weapon.transform.ResetLocalTransform();
         equipedItem = weapon;
+    }
+
+    public void EquipAsSecond()
+    {
+        animator.gameObject.SetActive(false);
     }
 
     public void UnequipItem()

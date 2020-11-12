@@ -6,6 +6,7 @@ public class XRPlayer : Player
 {
     public XRController leftController { get; private set; }
     public XRController rightController { get; private set; }
+    public Dictionary<HorizontalSide, XRController> controllers { get; private set; } = new Dictionary<HorizontalSide, XRController>();
     private XRController activeController;
 
     protected override Transform raycastPoint { get { return activeController.transform; } }
@@ -19,6 +20,8 @@ public class XRPlayer : Player
         {
             if (controller.side == HorizontalSide.left) leftController = controller;
             else if (controller.side == HorizontalSide.right) rightController = controller;
+            controllers.Add(controller.side, controller);
+            controller.Set(this);
         }
 
         if (rightController) activeController = rightController;
@@ -44,6 +47,7 @@ public class XRPlayer : Player
     public override void EquipItem(Item item)
     {
         rightController.EquipItem(item);
+        if (item.twoHanded) leftController.EquipAsSecond();
     }
 
     public override void UnequipItem()

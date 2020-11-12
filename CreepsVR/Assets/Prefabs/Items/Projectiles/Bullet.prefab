@@ -114,7 +114,7 @@ MonoBehaviour:
   hitEffectParticle: {fileID: 3359680699115853676}
   trail: {fileID: 6425591574246102217}
   moveSpeed: 25
-  damagePower: 20
+  damagePower: 30
 --- !u!54 &168578068
 Rigidbody:
   m_ObjectHideFlags: 0

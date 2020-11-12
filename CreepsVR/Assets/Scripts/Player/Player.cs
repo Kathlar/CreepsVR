@@ -131,4 +131,9 @@ public abstract class Player : MonoBehaviour
 
     public abstract void EquipItem(Item weapon);
     public abstract void UnequipItem();
+
+    public virtual void SetHandMaterial(Material m = null)
+    {
+
+    }
 }

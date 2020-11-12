@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
 
     protected bool isPlayer;
 
-    public void SetAsPlayer()
+    public virtual void SetAsPlayer()
     {
         Transform playerTransform = Game.Player.transform.parent;
         playerTransform.SetParent(transform);
@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
         isPlayer = true;
     }
 
-    public void SetAsNotPlayer()
+    public virtual void SetAsNotPlayer()
     {
         isPlayer = false;
     }

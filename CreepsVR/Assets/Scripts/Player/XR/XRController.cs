@@ -5,7 +5,10 @@ using UnityEngine;
 public class XRController : MonoBehaviour
 {
     public LineRenderer raycastLine { get; private set; }
+    public SkinnedMeshRenderer meshRenderer { get; private set; }
     public Animator animator { get; private set; }
+
+    private Material regularMaterial;
 
     public HorizontalSide side;
 
@@ -15,6 +18,8 @@ public class XRController : MonoBehaviour
     {
         raycastLine = GetComponentInChildren<LineRenderer>();
         animator = GetComponentInChildren<Animator>();
+        meshRenderer = animator.GetComponentInChildren<SkinnedMeshRenderer>();
+        regularMaterial = meshRenderer.material;
     }
 
     private void Update()
@@ -38,5 +43,11 @@ public class XRController : MonoBehaviour
     {
         animator.gameObject.SetActive(true);
         if(equipedItem) Destroy(equipedItem.gameObject);
+    }
+
+    public void SetMaterial(Material m = null)
+    {
+        if (m == null) meshRenderer.material = regularMaterial;
+        else meshRenderer.material = m;
     }
 }

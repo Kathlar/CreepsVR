@@ -90,9 +90,11 @@ public class LevelFlow : Singleton<LevelFlow>
                     currentPlayerNumber = 0;
                     currentTurnNumber++;
                 }
+                characterGod.transform.localPosition = Vector3.zero;
                 characterGod.SetAsPlayer();
                 characterGod.canvas.gameObject.SetActive(true);
                 Game.Player.SetRaycast(true);
+                Game.Player.SetHandMaterial(Database.PlayerInfos[currentPlayerNumber].material);
                 foreach (var s in soldiers.Values)
                     foreach (CharacterSoldier soldier in s)
                     {

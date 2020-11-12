@@ -51,4 +51,17 @@ public class XRPlayer : Player
         leftController.UnequipItem();
         rightController.UnequipItem();
     }
+
+    public override void SetHandMaterial(Material m = null)
+    {
+        base.SetHandMaterial(m);
+        leftController.SetMaterial(m);
+        rightController.SetMaterial(m);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.black;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 5);
+    }
 }

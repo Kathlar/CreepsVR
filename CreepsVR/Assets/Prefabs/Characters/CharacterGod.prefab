@@ -176,6 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7308946311958504273}
+  - component: {fileID: 4540211821058862113}
   m_Layer: 0
   m_Name: GodCanvasPivot
   m_TagString: Untagged
@@ -198,6 +199,18 @@ Transform:
   m_Father: {fileID: 3379364598249052214}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4540211821058862113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4402193058540298593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52397b0ffa29b34198c2a4272547a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5152427173165987790
 GameObject:
   m_ObjectHideFlags: 0

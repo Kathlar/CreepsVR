@@ -16,6 +16,7 @@ public class CharacterSoldier : Character, IDamageable
 
     public int maxHealth = 100;
     private int currentHealth;
+    private float timeOfLastDamage = -10, timeOfLastDamageAnimation = -10;
 
     [Header("Weapon Selection")]
     public RectTransform weaponSelectionGrid;
@@ -183,8 +184,13 @@ public class CharacterSoldier : Character, IDamageable
 
     public void GetDamage(int power, Vector3 hitPoint, Vector3 damageVelocity)
     {
-        animator.SetInteger("Action", Random.Range(1, 5));
-        animator.SetTrigger("HitTrigger");
+        timeOfLastDamage = Time.timeSinceLevelLoad;
+        if(Time.timeSinceLevelLoad > timeOfLastDamageAnimation + 1)
+        {
+            timeOfLastDamageAnimation = Time.timeSinceLevelLoad;
+            animator.SetInteger("Action", Random.Range(1, 5));
+            animator.SetTrigger("HitTrigger");
+        }
         SetHealth(Mathf.Clamp(currentHealth - power, 0, currentHealth));
     }
 

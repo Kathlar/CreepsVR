@@ -113,6 +113,11 @@ public class CharacterSoldier : Character, IDamageable
         holdingWeapon = false;
         Game.Player.UnequipItem();
         soldierInfoPivot.gameObject.SetActive(true);
+
+        Vector3 lookAtVec = transform.position + Game.Player.mainCamera.transform.forward;
+        lookAtVec.y = transform.position.y;
+        transform.LookAt(lookAtVec);
+
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.turnStart);
         SetAsNotPlayer();
         regularModeObject.SetActive(true);

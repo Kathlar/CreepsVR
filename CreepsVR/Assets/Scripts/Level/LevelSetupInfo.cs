@@ -21,6 +21,6 @@ public class LevelSetupInfo
 
     public static LevelSetupInfo DefaultLevelSetupInfo()
     {
-        return new LevelSetupInfo(2, 2, false, true, false);
+        return new LevelSetupInfo(2, 2, true, true, false);
     }
 }

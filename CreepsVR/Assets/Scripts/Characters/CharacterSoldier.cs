@@ -25,6 +25,7 @@ public class CharacterSoldier : Character, IDamageable
 
     private Item spawnedItem;
     private bool holdingWeapon, attacking;
+    private float timeOfAttackingStart;
 
     [Header("Soldier Info Window")]
     public Transform soldierInfoPivot;
@@ -62,9 +63,9 @@ public class CharacterSoldier : Character, IDamageable
     private void Update()
     {
         Vector3 moveVector = Vector3.zero;
-        if (isPlayer && holdingWeapon)
+        if(isPlayer)
         {
-            if(!attacking || endingTurn)
+            if(holdingWeapon || endingTurn)
             {
                 Transform cameraTransform = Game.Player.mainCamera.transform;
                 Vector2 moveInputValue = new Vector2(Mathf.Clamp(Inputs.MainHorizontal +
@@ -72,21 +73,26 @@ public class CharacterSoldier : Character, IDamageable
                     InputsVR.LeftHand.joystick.Value.y, -1, 1));
                 Vector3 walkVector = cameraTransform.forward.FlatY() * moveInputValue.y +
                     cameraTransform.right.FlatY() * moveInputValue.x;
-                moveVector += walkVector * moveSpeed;
+                moveVector += walkVector * moveSpeed * (attacking ? .4f : 1);
+            }
 
-                if(InputsVR.LeftHand.triggerButton.WasPressed || Inputs.RightMouse.WasPressed)
+            if(holdingWeapon && !attacking)
+            {
+                if (InputsVR.RightHand.triggerButton.WasPressed || Inputs.LeftMouse.WasPressed)
                     StartAttackMode();
             }
-            else
+
+            if(holdingWeapon && attacking && Time.timeSinceLevelLoad > timeOfAttackingStart + .5f)
             {
                 if (InputsVR.RightHand.triggerButton.WasPressed || Inputs.LeftMouse.WasPressed) spawnedItem.UseStart();
                 else if (InputsVR.RightHand.triggerButton.IsPressed || Inputs.LeftMouse.IsPressed) spawnedItem.UseContinue();
                 else if (InputsVR.RightHand.triggerButton.WasReleased || Inputs.LeftMouse.WasReleased) spawnedItem.UseEnd();
 
-                if(!spawnedItem.StillUsing())
+                if (!spawnedItem.StillUsing())
                     EndTurn();
             }
         }
+
         bool isGrounded = Physics.CheckSphere(groundPoint.position, .2f, Database.Layers.walkableLayers);
         if (isGrounded) yVelocity = -1;
         else yVelocity = Mathf.Lerp(yVelocity, Physics.gravity.y, Time.deltaTime * 3);
@@ -115,7 +121,7 @@ public class CharacterSoldier : Character, IDamageable
 
     public void GetChosen()
     {
-        endingTurn = false;
+        endingTurn = attacking = holdingWeapon = false;
         regularModeObject.SetActive(false);
         SetAsPlayer();
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.soldierWeaponChoice);
@@ -159,15 +165,30 @@ public class CharacterSoldier : Character, IDamageable
         Game.Player.EquipItem(spawnedItem);
 
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.soldierMovement);
+        Game.Player.timer.SetTimer(10);
+        StartCoroutine(ChooseWeaponCoroutine(10));
+    }
+
+    private IEnumerator ChooseWeaponCoroutine(float time)
+    {
+        yield return new WaitForSeconds(time);
+        if (!attacking && !endingTurn) StartAttackMode();
     }
 
     public void StartAttackMode()
     {
         attacking = true;
+        timeOfAttackingStart = Time.timeSinceLevelLoad;
         spawnedItem.TurnOn();
-        Game.Player.timer.TurnOffTimer();
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.soliderAttack);
-        Game.Player.timer.SetTimer(5);
+        Game.Player.timer.SetTimer(7);
+        StartCoroutine(StartAttackModeCoroutine(7));
+    }
+
+    private IEnumerator StartAttackModeCoroutine(float time)
+    {
+        yield return new WaitForSeconds(time);
+        if (!endingTurn) EndTurn();
     }
 
     public void GetDamage(int power)
@@ -205,15 +226,20 @@ public class CharacterSoldier : Character, IDamageable
     {
         endingTurn = true;
         attacking = false;
+        holdingWeapon = false;
+
+        Game.Player.timer.TurnOffTimer();
+        Game.Player.timer.SetTimer(3);
+        LevelFlow.SetTurnPart(LevelFlow.TurnPart.soldierFinish);
+        Game.Player.UnequipItem();
 
         StartCoroutine(EndTurnCoroutine());
     }
 
     private IEnumerator EndTurnCoroutine()
     {
-        yield return new WaitForSeconds(2f);
-        holdingWeapon = false;
-        Game.Player.UnequipItem();
+        yield return new WaitForSeconds(3f);
+        Game.Player.timer.TurnOffTimer();
         soldierInfoPivot.gameObject.SetActive(true);
 
         Vector3 lookAtVec = transform.position + Game.Player.mainCamera.transform.forward;

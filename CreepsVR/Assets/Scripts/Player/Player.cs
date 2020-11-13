@@ -32,7 +32,6 @@ public abstract class Player : MonoBehaviour
         mainCamera = GetComponentInChildren<Camera>();
 
         timer = GetComponentInChildren<TurnTimer>();
-        timer.Set(delegate { LevelFlow.OnTimerEnd(); });
 
         raycastLine = GetComponentInChildren<LineRenderer>();
         raycastLine.positionCount = 2;

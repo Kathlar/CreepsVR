@@ -11,9 +11,6 @@ public class TurnTimer : MonoBehaviour
     public List<GameObject> decimalNumbers = new List<GameObject>();
     private int digitNumber, decimalNumber;
 
-    public delegate void TimerEnd();
-    public TimerEnd timerEnd;
-
     private void Awake()
     {
         TurnOffTimer();
@@ -26,10 +23,7 @@ public class TurnTimer : MonoBehaviour
         float newTimerValue = timerValue - Time.deltaTime;
         if(newTimerValue <= 0)
         {
-            Debug.Log(timerValue);
-            Debug.Log("TEST");
             TurnOffTimer();
-            timerEnd();
         }
         else
         {
@@ -39,11 +33,6 @@ public class TurnTimer : MonoBehaviour
             }
             timerValue = newTimerValue;
         }
-    }
-
-    public void Set(TimerEnd onTimerEnd)
-    {
-        timerEnd = onTimerEnd;
     }
 
     public void SetTimer(float time)

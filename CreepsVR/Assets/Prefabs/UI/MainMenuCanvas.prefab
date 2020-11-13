@@ -1644,7 +1644,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7069580572584779638}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Toggle_DestructionSetting
+        m_MethodName: Toggle_InfiniteAmmoSetting
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1654,7 +1654,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!65 &1634668031
 BoxCollider:
   m_ObjectHideFlags: 0

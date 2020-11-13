@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     public List<Image> playerInfoTabs = new List<Image>();
 
     protected int numberOfPlayers = 2, numberOfCharacters = 3;
-    protected bool timerGame, enviroDestructionGame = true;
+    protected bool timerGame, enviroDestructionGame = true, infiniteAmmoGame;
 
     private int currentChosenLevelNumber = 0;
 
@@ -116,9 +116,14 @@ public class MainMenu : MonoBehaviour
         enviroDestructionGame = on;
     }
 
+    public void Toggle_InfiniteAmmoSetting(bool on)
+    {
+        infiniteAmmoGame = on;
+    }
+
     public void Button_StartGame()
     {
-        LevelSetupInfo setupInfo = new LevelSetupInfo(numberOfPlayers, numberOfCharacters, timerGame, enviroDestructionGame);
+        LevelSetupInfo setupInfo = new LevelSetupInfo(numberOfPlayers, numberOfCharacters, timerGame, enviroDestructionGame, infiniteAmmoGame);
         LevelFlow.levelSetupInfo = setupInfo;
         loadingIconObject.SetActive(true);
         transform.parent.gameObject.SetActive(false);

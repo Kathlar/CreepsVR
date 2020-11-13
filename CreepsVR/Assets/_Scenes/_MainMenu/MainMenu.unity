@@ -427,6 +427,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1634668032, guid: fd8e3eb3fa70d504586d8049925e2e9b, type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1634668032, guid: fd8e3eb3fa70d504586d8049925e2e9b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Toggle_InfiniteAmmoSetting
+      objectReference: {fileID: 0}
     - target: {fileID: 7069580572265072635, guid: fd8e3eb3fa70d504586d8049925e2e9b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -10,7 +10,7 @@ public class CharacterSoldier : Character, IDamageable
 
     [Header("Soldier Info")]
     public GameObject regularModeObject;
-    [HideInInspector] public PlayerInstance player;
+    [HideInInspector] public PlayerInstance playerInstance;
     [HideInInspector] public CharacterSoldierChoice choice;
     public SkinnedMeshRenderer characterMesh;
 
@@ -54,9 +54,9 @@ public class CharacterSoldier : Character, IDamageable
 
     private void Start()
     {
-        infoWindow.SetUp(player);
+        infoWindow.SetUp(playerInstance);
         SetHealth(maxHealth);
-        if (characterMesh) characterMesh.material = player.information.polygonPrototypeMaterial;
+        if (characterMesh) characterMesh.material = playerInstance.information.polygonPrototypeMaterial;
     }
 
     private void Update()
@@ -127,7 +127,7 @@ public class CharacterSoldier : Character, IDamageable
         weaponSelectionIcons.Clear();
         soldierInfoPivot.gameObject.SetActive(false);
 
-        foreach(var weapon in player.weaponInformations.weapons)
+        foreach(var weapon in playerInstance.weaponInformations.weapons)
         {
             WeaponSelectionIcon icon = Instantiate(weaponSelectionButtonPrefab, weaponSelectionGrid).GetComponent<WeaponSelectionIcon>();
             Item item = weapon.weaponPrefab.GetComponent<Item>();

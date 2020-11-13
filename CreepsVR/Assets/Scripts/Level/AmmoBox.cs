@@ -18,7 +18,7 @@ public class AmmoBox : MonoBehaviour
     {
         if(other.TryGetComponent(out CharacterSoldier soldier))
         {
-            soldier.player.weaponInformations.weapons.Find(x => x.weaponPrefab.name == itemPrefab.name).
+            soldier.playerInstance.weaponInformations.weapons.Find(x => x.weaponPrefab.name == itemPrefab.name).
                 usagesForStart += ammoValue;
             if(audioSource)
             {

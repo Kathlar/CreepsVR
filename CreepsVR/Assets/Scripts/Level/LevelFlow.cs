@@ -39,6 +39,8 @@ public class LevelFlow : Singleton<LevelFlow>
         for (int i = 0; i < levelSetupInfo.numberOfPlayers; i++)
         {
             PlayerInstance player = new PlayerInstance(i, Database.PlayerInfos[i], Database.WeaponInformations.Clone());
+            if (levelSetupInfo.infiniteAmmo) foreach (WeaponInformation w in player.weaponInformations.weapons)
+                    w.usagesForStart = 999;
             players.Add(player);
 
             for (int j = 0; j < levelSetupInfo.numberOfCharacters; j++)
@@ -50,7 +52,7 @@ public class LevelFlow : Singleton<LevelFlow>
                 soldier.transform.SetParent(charactersParent);
                 soldierSpawnPoints.RemoveAt(randomSpawnPointNumber);
                 player.soldiers.Add(soldier);
-                soldier.player = player;
+                soldier.playerInstance = player;
             }
         }
     }
@@ -152,10 +154,10 @@ public class LevelFlow : Singleton<LevelFlow>
 
     public static void NotifyOfSoldierDeath(CharacterSoldier soldier)
     {
-        soldier.player.soldiers.Remove(soldier);
-        if (soldier.player.soldiers.Count == 0)
+        soldier.playerInstance.soldiers.Remove(soldier);
+        if (soldier.playerInstance.soldiers.Count == 0)
         {
-            soldier.player.dead = true;
+            soldier.playerInstance.dead = true;
 
             int numberOfDeadPlayers = 0;
             foreach (PlayerInstance player in Instance.players)

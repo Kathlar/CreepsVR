@@ -8,17 +8,19 @@ public class LevelSetupInfo
     public int numberOfCharacters;
     public bool timerGame;
     public bool destructableGame;
+    public bool infiniteAmmo;
 
-    public LevelSetupInfo(int numberOfPlayers, int numberOfCharacters, bool timerGame, bool destructableGame)
+    public LevelSetupInfo(int numberOfPlayers, int numberOfCharacters, bool timerGame, bool destructableGame, bool infiniteAmmo)
     {
         this.numberOfPlayers = numberOfPlayers;
         this.numberOfCharacters = numberOfCharacters;
         this.timerGame = timerGame;
         this.destructableGame = destructableGame;
+        this.infiniteAmmo = infiniteAmmo;
     }
 
     public static LevelSetupInfo DefaultLevelSetupInfo()
     {
-        return new LevelSetupInfo(2, 2, false, true);
+        return new LevelSetupInfo(2, 2, false, true, false);
     }
 }

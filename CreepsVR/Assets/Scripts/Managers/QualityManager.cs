@@ -19,6 +19,7 @@ public class QualityManager : Singleton<QualityManager>
 
     private void Start()
     {
+        if (!Game.Player && Game.Player.mainCamera) return;
         volume = Game.Player.mainCamera.GetComponent<PostProcessVolume>();
         if(volume.profile)
             volume.profile = profile = Instantiate(volume.profile);

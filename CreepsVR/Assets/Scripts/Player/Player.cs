@@ -8,18 +8,18 @@ public abstract class Player : MonoBehaviour
     public GameObject pauseMenuObject;
     public TurnTimer timer { get; private set; }
 
-    public Character currentCharacter;
+    [HideInInspector] public Character currentCharacter;
     private Quaternion startRotation;
 
-    public LayerMask raycastLayer;
     public bool raycastOn { get; private set; } = true;
-    protected abstract Transform raycastPoint { get; }
     protected LineRenderer raycastLine;
+    protected abstract Transform raycastPoint { get; }
     public Transform raycastEnd;
+    private float startRaycastSize;
+
     protected IHoverOver lastHoverOver;
     protected IClickable lastClickable;
     protected GameObject lastClickableGO;
-    private float startRaycastSize;
 
     public enum PlayerType { flat, vr }
     public abstract PlayerType playerType { get; }
@@ -30,18 +30,20 @@ public abstract class Player : MonoBehaviour
     protected virtual void Awake()
     {
         mainCamera = GetComponentInChildren<Camera>();
-        raycastLine = GetComponentInChildren<LineRenderer>();
+
         timer = GetComponentInChildren<TurnTimer>();
         timer.Set(delegate { LevelFlow.OnTimerEnd(); });
+
+        raycastLine = GetComponentInChildren<LineRenderer>();
+        raycastLine.positionCount = 2;
         startRaycastSize = raycastLine.startWidth;
+
         startRotation = transform.rotation;
     }
 
     protected virtual void Start()
     {
         pauseMenuObject.SetActive(false);
-        raycastLine.positionCount = 2;
-        SetRaycast(true);
     }
 
     protected virtual void Update()
@@ -51,7 +53,7 @@ public abstract class Player : MonoBehaviour
         {
             Ray ray = new Ray(raycastPoint.position, raycastPoint.forward);
             raycastLine.SetPosition(0, raycastPoint.position);
-            if (Physics.Raycast(ray, out RaycastHit hit, 1000, raycastLayer))
+            if (Physics.Raycast(ray, out RaycastHit hit, 1000, Database.Layers.UILayer))
             {
                 GameObject hitGameObject = hit.transform.gameObject;
                 raycastEnd.gameObject.SetActive(true);
@@ -100,6 +102,12 @@ public abstract class Player : MonoBehaviour
                 lastClickable = null;
                 lastClickableGO = null;
             }
+        }
+        else
+        {
+            lastHoverOver = null;
+            lastClickable = null;
+            lastClickableGO = null;
         }
         if (lastClickable != null && !lastClickableGO.activeInHierarchy)
         {

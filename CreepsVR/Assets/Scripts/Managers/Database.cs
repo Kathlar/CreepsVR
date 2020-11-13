@@ -23,6 +23,15 @@ public class Database : ScriptableObject
 
     public WeaponInformations weaponInformations;
     public static WeaponInformations WeaponInformations { get { return database.weaponInformations; } }
+
+    [System.Serializable]
+    public class LayerInfo
+    {
+        public LayerMask UILayer;
+        public LayerMask walkableLayers;
+    }
+    public LayerInfo layers;
+    public static LayerInfo Layers { get { return database.layers; } }
 }
 
 /// <summary>

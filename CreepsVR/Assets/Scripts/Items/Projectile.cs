@@ -49,7 +49,7 @@ public class Projectile : MonoBehaviour
             shouldExplode = true;
         else
         {
-            if (LevelFlow.DestructableGame && other.transform.TryGetComponent(out MeshDestroy meshDestroy))
+            if (LevelFlow.levelSetupInfo.destructableGame && other.transform.TryGetComponent(out MeshDestroy meshDestroy))
                 meshDestroy.DestroyMesh();
             if (hitEffectParticle)
             {

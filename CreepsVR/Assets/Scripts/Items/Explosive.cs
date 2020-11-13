@@ -38,7 +38,7 @@ public class Explosive : MonoBehaviour
 
         foreach (Collider objectInRadius in objectsInRadius)
         {
-            if (LevelFlow.DestructableGame && objectInRadius.TryGetComponent(out MeshDestroy meshDestroy))
+            if (LevelFlow.levelSetupInfo.destructableGame && objectInRadius.TryGetComponent(out MeshDestroy meshDestroy))
                 meshDestroy.DestroyMesh();
             if (objectInRadius.TryGetComponent(out IDamageable damageable))
                 damageable.GetDamage(damagePower);

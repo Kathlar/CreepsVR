@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WeaponSelectionIcon : MonoBehaviour
 {
-    public UIInteractable uIInteractable { get; private set; }
+    public UIButton uIInteractable { get; private set; }
     public Image bgImage { get; private set; }
     public Button button { get; private set; }
     public Image iconImage;
@@ -17,7 +17,7 @@ public class WeaponSelectionIcon : MonoBehaviour
 
     private void Awake()
     {
-        uIInteractable = GetComponent<UIInteractable>();
+        uIInteractable = GetComponent<UIButton>();
         bgImage = GetComponent<Image>();
         button = GetComponent<Button>();
     }

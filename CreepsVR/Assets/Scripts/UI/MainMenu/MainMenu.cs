@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     public List<Image> playerInfoTabs = new List<Image>();
 
     protected int numberOfPlayers = 2, numberOfCharacters = 3;
+    protected bool timerGame, enviroDestructionGame = true;
 
     private int currentChosenLevelNumber = 0;
 
@@ -105,9 +106,19 @@ public class MainMenu : MonoBehaviour
         levelNameText.text = Database.Levels.gameLevelInfos[currentChosenLevelNumber].levelName;
     }
 
+    public void Toggle_TimerSetting(bool on)
+    {
+        timerGame = on;
+    }
+
+    public void Toggle_DestructionSetting(bool on)
+    {
+        enviroDestructionGame = on;
+    }
+
     public void Button_StartGame()
     {
-        LevelSetupInfo setupInfo = new LevelSetupInfo(numberOfPlayers, numberOfCharacters);
+        LevelSetupInfo setupInfo = new LevelSetupInfo(numberOfPlayers, numberOfCharacters, timerGame, enviroDestructionGame);
         LevelFlow.levelSetupInfo = setupInfo;
         loadingIconObject.SetActive(true);
         transform.parent.gameObject.SetActive(false);

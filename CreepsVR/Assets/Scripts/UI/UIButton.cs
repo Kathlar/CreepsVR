@@ -1,42 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class UIInteractable : MonoBehaviour, IHoverOver, IClickable
+public class UIButton : UIElement, IClickable
 {
-
     public Button button { get; private set; }
     public Image image { get; private set; }
 
-    public GameObject tooltipWindow;
-
     public bool worksWhenGamePaused;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         button = GetComponent<Button>();
         image = GetComponent<Image>();
     }
 
-    public void OnHoverStart()
+    public override void OnHoverStart()
     {
+        base.OnHoverStart();
         if (!worksWhenGamePaused && Game.Paused) return;
         image.color = button.colors.highlightedColor;
-        if (tooltipWindow) tooltipWindow.gameObject.SetActive(true);
     }
 
-    public void OnHoverEnd()
+    public override void OnHoverEnd()
     {
+        base.OnHoverEnd();
         image.color = button.colors.normalColor;
-        if (tooltipWindow) tooltipWindow.gameObject.SetActive(false);
     }
 
     public void OnClick()
     {
         if (!worksWhenGamePaused && Game.Paused) return;
         button.onClick.Invoke();
-        if (tooltipWindow) tooltipWindow.gameObject.SetActive(false);
     }
 }

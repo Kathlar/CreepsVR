@@ -33,7 +33,8 @@ public class MeshDestroy : MonoBehaviour
 
     protected void GenerateMeshParts()
     {
-        if (!LevelFlow.DestructableGame) return;
+        
+        if (!LevelFlow.levelSetupInfo.destructableGame) return;
         var originalMesh = GetComponent<MeshFilter>().mesh;
         if (!originalMesh.isReadable) return;
         originalMesh.RecalculateBounds();
@@ -85,7 +86,7 @@ public class MeshDestroy : MonoBehaviour
         {
             if(mesh) mesh.Notify(this);
         }
-        if (!LevelFlow.DestructableGame) return;
+        if (!LevelFlow.levelSetupInfo.destructableGame) return;
         for (var i = 0; i < parts.Count; i++)
         {
             parts[i].GameObject.SetActive(true);

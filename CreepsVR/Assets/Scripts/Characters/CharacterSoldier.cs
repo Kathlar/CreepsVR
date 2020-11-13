@@ -34,7 +34,6 @@ public class CharacterSoldier : Character, IDamageable
     [Header("Velocity Info")]
     public Transform groundPoint;
     private float yVelocity;
-    public LayerMask groundLayer;
 
     private bool endingTurn;
 
@@ -88,7 +87,7 @@ public class CharacterSoldier : Character, IDamageable
                     EndTurn();
             }
         }
-        bool isGrounded = Physics.CheckSphere(groundPoint.position, .2f, groundLayer);
+        bool isGrounded = Physics.CheckSphere(groundPoint.position, .2f, Database.Layers.walkableLayers);
         if (isGrounded) yVelocity = -1;
         else yVelocity = Mathf.Lerp(yVelocity, Physics.gravity.y, Time.deltaTime * 3);
         moveVector += new Vector3(0, yVelocity, 0);
@@ -138,7 +137,7 @@ public class CharacterSoldier : Character, IDamageable
             icon.iconImage.sprite = item.icon;
             icon.nameText.text = item.itemName;
             icon.weaponCountText.text = weapon.usagesForStart.ToString();
-            icon.uIInteractable.tooltipWindow.GetComponentInChildren<UnityEngine.UI.Text>().text = item.description;
+            icon.uIInteractable.tooltipText.text = item.description;
             if (weapon.usagesForStart <= 0)
             {
                 icon.bgImage.color = Color.grey;

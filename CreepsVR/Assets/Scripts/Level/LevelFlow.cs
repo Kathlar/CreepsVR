@@ -29,14 +29,6 @@ public class LevelFlow : Singleton<LevelFlow>
     public static Vector2 ClampMovementValuesX { get { return Instance.clampMovementValuesX; } }
     public static Vector2 ClampMovementValuesZ { get { return Instance.clampMovementValuesZ; } }
 
-    [Tooltip("Defines if the level should have a timer rule, where player has certain amount of time as soldier to make a move.")]
-    public bool timerGame;
-    public static bool TimerGame { get { return Instance.timerGame; } }
-
-    [Tooltip("Defines if the level should have destructable objects.")]
-    public bool destructableGame;
-    public static bool DestructableGame { get { return Instance.destructableGame; } }
-
     [Tooltip("Defines if player can choose characters, or if they are chosen randomly.")]
     public bool randomSoldierGame;
 

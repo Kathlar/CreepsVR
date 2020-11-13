@@ -588,9 +588,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuObject: {fileID: 4998977064838052559}
   currentCharacter: {fileID: 0}
-  raycastLayer:
-    serializedVersion: 2
-    m_Bits: 32
   raycastEnd: {fileID: 1046719627290259406}
   rotationSpeed: 80
 --- !u!1 &4103953943464927502
@@ -688,7 +685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5457696119962307454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.411, z: 0.846}
+  m_LocalPosition: {x: 0, y: 0.411, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6606203639607921324}

@@ -61,3 +61,10 @@ MonoBehaviour:
     - weaponPrefab: {fileID: 3159506143561133604, guid: d7a9da506e9be004a887dea233798211, type: 3}
       usagesForStart: 1
       canBeDroppedInRandomCrate: 1
+  layers:
+    UILayer:
+      serializedVersion: 2
+      m_Bits: 32
+    walkableLayers:
+      serializedVersion: 2
+      m_Bits: 1

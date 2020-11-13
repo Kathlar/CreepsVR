@@ -17,26 +17,21 @@ public class CharacterSoldierChoice : MonoBehaviour, IHoverOver, IClickable
 
     private void Start()
     {
-        meshRenderer.material = Database.PlayerInfos[character.playerNumber].transparentMaterial;
+        meshRenderer.material = character.player.information.transparentMaterial;
     }
 
-    public void TurnOn()
+    public void SetState(bool on)
     {
-        isOn = true;
-    }
-
-    public void TurnOff()
-    {
-        isOn = false;
-        if(meshRenderer)
-            meshRenderer.material = Database.PlayerInfos[character.playerNumber].transparentMaterial;
+        isOn = on;
+        if (!on && meshRenderer)
+            meshRenderer.material = character.player.information.transparentMaterial;
     }
 
     public void OnHoverStart()
     {
         if (Game.Paused) return;
         if (!isOn) return;
-        meshRenderer.material = Database.PlayerInfos[character.playerNumber].material;
+        meshRenderer.material = character.player.information.material;
     }
 
     public void OnClick()
@@ -48,6 +43,6 @@ public class CharacterSoldierChoice : MonoBehaviour, IHoverOver, IClickable
     public void OnHoverEnd()
     {
         if (Game.Paused) return;
-        meshRenderer.material = Database.PlayerInfos[character.playerNumber].transparentMaterial;
+        meshRenderer.material = character.player.information.transparentMaterial;
     }
 }

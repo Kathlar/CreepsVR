@@ -38,6 +38,23 @@ public class PlayerInformation
     public Material polygonPrototypeMaterial;
 }
 
+[System.Serializable]
+public class PlayerInstance
+{
+    public PlayerInformation information;
+    public int number;
+    public bool dead;
+    public WeaponInformations weaponInformations;
+    public List<CharacterSoldier> soldiers = new List<CharacterSoldier>();
+
+    public PlayerInstance(int number, PlayerInformation information, WeaponInformations weapons)
+    {
+        this.number = number;
+        this.information = information;
+        this.weaponInformations = weapons;
+    }
+}
+
 /// <summary>
 /// Information about a game level.
 /// </summary>

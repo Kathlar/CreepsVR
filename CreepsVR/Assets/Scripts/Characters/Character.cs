@@ -7,7 +7,6 @@ public class Character : MonoBehaviour
     public Transform canvas;
 
     public float moveSpeed = 6;
-
     protected bool isPlayer;
 
     private bool canvasWasOn;

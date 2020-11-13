@@ -10,7 +10,7 @@ public class CharacterSoldier : Character, IDamageable
 
     [Header("Soldier Info")]
     public GameObject regularModeObject;
-    [HideInInspector] public int playerNumber;
+    [HideInInspector] public PlayerInstance player;
     [HideInInspector] public CharacterSoldierChoice choice;
     public SkinnedMeshRenderer characterMesh;
 
@@ -48,16 +48,16 @@ public class CharacterSoldier : Character, IDamageable
 
         choice = GetComponentInChildren<CharacterSoldierChoice>();
         choice.character = this;
-        SetChoice(false);
+        ShowChoiceObject(false);
 
         canvas.gameObject.SetActive(false);
     }
 
     private void Start()
     {
-        infoWindow.SetUp(playerNumber);
+        infoWindow.SetUp(player);
         SetHealth(maxHealth);
-        if (characterMesh) characterMesh.material = Database.PlayerInfos[playerNumber].polygonPrototypeMaterial;
+        if (characterMesh) characterMesh.material = player.information.polygonPrototypeMaterial;
     }
 
     private void Update()
@@ -76,9 +76,7 @@ public class CharacterSoldier : Character, IDamageable
                 moveVector += walkVector * moveSpeed;
 
                 if(InputsVR.LeftHand.triggerButton.WasPressed || Inputs.RightMouse.WasPressed)
-                {
                     StartAttackMode();
-                }
             }
             else
             {
@@ -87,53 +85,33 @@ public class CharacterSoldier : Character, IDamageable
                 else if (InputsVR.RightHand.triggerButton.WasReleased || Inputs.LeftMouse.WasReleased) spawnedItem.UseEnd();
 
                 if(!spawnedItem.StillUsing())
-                {
                     EndTurn();
-                }
             }
         }
         bool isGrounded = Physics.CheckSphere(groundPoint.position, .2f, groundLayer);
         if (isGrounded) yVelocity = -1;
         else yVelocity = Mathf.Lerp(yVelocity, Physics.gravity.y, Time.deltaTime * 3);
         moveVector += new Vector3(0, yVelocity, 0);
+
         controller.Move(moveVector * Time.deltaTime);
     }
 
-    public void EndTurn()
+    public void ShowChoiceObject(bool clickable)
     {
-        endingTurn = true;
-        attacking = false;
-
-        StartCoroutine(EndTurnCoroutine());
+        choice.gameObject.SetActive(true); 
+        choice.SetState(clickable);
     }
 
-    private IEnumerator EndTurnCoroutine()
-    {
-        yield return new WaitForSeconds(2f);
-        holdingWeapon = false;
-        Game.Player.UnequipItem();
-        soldierInfoPivot.gameObject.SetActive(true);
-
-        Vector3 lookAtVec = transform.position + Game.Player.mainCamera.transform.forward;
-        lookAtVec.y = transform.position.y;
-        transform.LookAt(lookAtVec);
-
-        LevelFlow.SetTurnPart(LevelFlow.TurnPart.turnStart);
-        SetAsNotPlayer();
-        regularModeObject.SetActive(true);
-    }
-
-    public void SetChoice(bool on)
-    {
-        choice.gameObject.SetActive(true);
-        if (on) choice.TurnOn();
-        else choice.TurnOff();
-    }
-
-    public void HideChoice()
+    public void HideChoiceObject()
     {
         choice.gameObject.SetActive(false);
-        choice.TurnOff();
+        choice.SetState(false);
+    }
+
+    public override void SetAsPlayer()
+    {
+        base.SetAsPlayer();
+        LevelFlow.SetCurrentSoldier(this);
     }
 
     public void GetChosen()
@@ -142,19 +120,17 @@ public class CharacterSoldier : Character, IDamageable
         regularModeObject.SetActive(false);
         SetAsPlayer();
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.soldierWeaponChoice);
-        LevelFlow.SetCurrentSoldier(this);
 
         canvas.gameObject.SetActive(true);
         for(int j = weaponSelectionIcons.Count - 1; j >= 0; j--)
-        {
             Destroy(weaponSelectionIcons[j]);
-        }
+
         weaponSelectionIcons.Clear();
         soldierInfoPivot.gameObject.SetActive(false);
-        foreach(var weapon in LevelFlow.WeaponInformations[playerNumber].weapons)
+
+        foreach(var weapon in player.weaponInformations.weapons)
         {
-            WeaponSelectionIcon icon = Instantiate(weaponSelectionButtonPrefab, 
-                weaponSelectionGrid).GetComponent<WeaponSelectionIcon>();
+            WeaponSelectionIcon icon = Instantiate(weaponSelectionButtonPrefab, weaponSelectionGrid).GetComponent<WeaponSelectionIcon>();
             Item item = weapon.weaponPrefab.GetComponent<Item>();
 
             icon.weapon = weapon;
@@ -216,7 +192,7 @@ public class CharacterSoldier : Character, IDamageable
 
     public void Die()
     {
-        LevelFlow.NotifyOfDeath(this);
+        LevelFlow.NotifyOfSoldierDeath(this);
         animator.SetTrigger("DieTrigger");
         Destroy(gameObject);
     }
@@ -224,5 +200,29 @@ public class CharacterSoldier : Character, IDamageable
     public void SetInfoWindowSize(bool small)
     {
         soldierInfoPivot.transform.localScale = (small ? .25f : 1f) * startInfoWindowScale;
+    }
+
+    public void EndTurn()
+    {
+        endingTurn = true;
+        attacking = false;
+
+        StartCoroutine(EndTurnCoroutine());
+    }
+
+    private IEnumerator EndTurnCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        holdingWeapon = false;
+        Game.Player.UnequipItem();
+        soldierInfoPivot.gameObject.SetActive(true);
+
+        Vector3 lookAtVec = transform.position + Game.Player.mainCamera.transform.forward;
+        lookAtVec.y = transform.position.y;
+        transform.LookAt(lookAtVec);
+
+        LevelFlow.SetTurnPart(LevelFlow.TurnPart.turnStart);
+        SetAsNotPlayer();
+        regularModeObject.SetActive(true);
     }
 }

@@ -4555,6 +4555,7 @@ Transform:
   - {fileID: 640072928}
   - {fileID: 1314446609}
   - {fileID: 907470416}
+  - {fileID: 514154705}
   - {fileID: 1030612108}
   - {fileID: 1461020026}
   - {fileID: 1929875394}
@@ -4562,11 +4563,10 @@ Transform:
   - {fileID: 2012174801}
   - {fileID: 1603366259}
   - {fileID: 695683789}
-  - {fileID: 514154705}
+  - {fileID: 1251656039}
   - {fileID: 1661363499}
   - {fileID: 3211997}
   - {fileID: 692015632}
-  - {fileID: 1251656039}
   m_Father: {fileID: 1505371650}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9723,7 +9723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d42d9c8ad22d940b8a40bd220818af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInformations: []
+  players: []
+  charactersParent: {fileID: 1655489554}
   characterGod: {fileID: 958156082}
   characterSoldierPrefab: {fileID: 3117111010778642094, guid: c6a4ca2c19fec1549b34b5d1b35b6dbb, type: 3}
   nonVrCamera: {fileID: 1559852198}
@@ -9731,6 +9732,7 @@ MonoBehaviour:
   clampMovementValuesZ: {x: -33.5, y: 25.8}
   timerGame: 0
   destructableGame: 1
+  randomSoldierGame: 0
 --- !u!4 &528208388
 Transform:
   m_ObjectHideFlags: 0

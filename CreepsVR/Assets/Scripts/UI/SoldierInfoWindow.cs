@@ -12,12 +12,12 @@ public class SoldierInfoWindow : MonoBehaviour
     public Image healthBarImage;
     public Text healthBarText;
 
-    public void SetUp(int playerNumber)
+    public void SetUp(PlayerInstance player)
     {
-        iconBG.color = Database.PlayerInfos[playerNumber].color;
-        playerIconImage.color = Database.PlayerInfos[playerNumber].color;
+        iconBG.color = player.information.color;
+        playerIconImage.color = player.information.color;
         playerNameText.color = playerIconImage.color;
-        playerNameText.text = "PLAYER " + (playerNumber + 1).ToString();
+        playerNameText.text = "PLAYER " + (player.number + 1).ToString();
         UpdateHealthBar(100, 100);
     }
 

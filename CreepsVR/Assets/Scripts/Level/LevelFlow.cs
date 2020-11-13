@@ -5,16 +5,18 @@ using UnityEngine;
 
 public class LevelFlow : Singleton<LevelFlow>
 {
+    //LEVEL INFO
     public static LevelSetupInfo levelSetupInfo;
     private int currentTurnNumber = 1;
-    private int currentPlayerNumber = -1;
-    private List<int> deadPlayerNumbers = new List<int>();
-    public List<WeaponInformations> weaponInformations = new List<WeaponInformations>();
-    public static List<WeaponInformations> WeaponInformations { get { return Instance.weaponInformations; } }
 
+    //PLAYERS
+    public List<PlayerInstance> players = new List<PlayerInstance>();
+    private int currentPlayerNumber = -1;
+
+    //CHARACTERS
+    public Transform charactersParent;
     public CharacterGod characterGod;
     public GameObject characterSoldierPrefab;
-    private Dictionary<int, List<CharacterSoldier>> soldiers = new Dictionary<int, List<CharacterSoldier>>();
     private List<SpawnPoint> soldierSpawnPoints = new List<SpawnPoint>();
     private CharacterSoldier currentSoldier;
 
@@ -22,11 +24,21 @@ public class LevelFlow : Singleton<LevelFlow>
     private TurnPart turnPart = TurnPart.turnStart;
 
     public Camera nonVrCamera;
-    private bool showingNonVRCamera;
 
     public Vector2 clampMovementValuesX, clampMovementValuesZ;
     public static Vector2 ClampMovementValuesX { get { return Instance.clampMovementValuesX; } }
     public static Vector2 ClampMovementValuesZ { get { return Instance.clampMovementValuesZ; } }
+
+    [Tooltip("Defines if the level should have a timer rule, where player has certain amount of time as soldier to make a move.")]
+    public bool timerGame;
+    public static bool TimerGame { get { return Instance.timerGame; } }
+
+    [Tooltip("Defines if the level should have destructable objects.")]
+    public bool destructableGame;
+    public static bool DestructableGame { get { return Instance.destructableGame; } }
+
+    [Tooltip("Defines if player can choose characters, or if they are chosen randomly.")]
+    public bool randomSoldierGame;
 
     protected override void SingletonAwake()
     {
@@ -34,27 +46,22 @@ public class LevelFlow : Singleton<LevelFlow>
         soldierSpawnPoints = FindObjectsOfType<SpawnPoint>().ToList();
         for (int i = 0; i < levelSetupInfo.numberOfPlayers; i++)
         {
-            soldiers.Add(i, new List<CharacterSoldier>());
-            weaponInformations.Add(Database.WeaponInformations.Clone());
+            PlayerInstance player = new PlayerInstance(i, Database.PlayerInfos[i], Database.WeaponInformations.Clone());
+            players.Add(player);
+
             for (int j = 0; j < levelSetupInfo.numberOfCharacters; j++)
             {
                 int randomSpawnPointNumber = Random.Range(0, soldierSpawnPoints.Count);
                 CharacterSoldier soldier = Instantiate(characterSoldierPrefab,
                     soldierSpawnPoints[randomSpawnPointNumber].transform.position,
                     soldierSpawnPoints[randomSpawnPointNumber].transform.rotation).GetComponent<CharacterSoldier>();
-                soldier.transform.SetParent(characterGod.transform.parent);
+                soldier.transform.SetParent(charactersParent);
                 soldierSpawnPoints.RemoveAt(randomSpawnPointNumber);
-                soldiers[i].Add(soldier);
-                soldier.playerNumber = i;
+                player.soldiers.Add(soldier);
+                soldier.player = player;
             }
         }
     }
-
-    public bool timerGame;
-    public static bool TimerGame { get { return Instance.timerGame; } }
-
-    public bool destructableGame;
-    public static bool DestructableGame { get { return Instance.destructableGame; } }
 
     private void Start()
     {
@@ -65,15 +72,9 @@ public class LevelFlow : Singleton<LevelFlow>
     private void Update()
     {
         if (Inputs.Escape.WasPressed || InputsVR.LeftHand.menuButton.WasPressed)
-        {
             Game.PauseUnpauseGame();
-        }
-
         if(Inputs.Space.WasPressed && nonVrCamera)
-        {
-            showingNonVRCamera = !showingNonVRCamera;
-            nonVrCamera.gameObject.SetActive(showingNonVRCamera);
-        }
+            nonVrCamera.gameObject.SetActive(!nonVrCamera.gameObject.activeSelf);
     }
 
     public static void SetTurnPart(TurnPart part)
@@ -87,6 +88,7 @@ public class LevelFlow : Singleton<LevelFlow>
 
         switch(turnPart)
         {
+            //GOD VIEW
             case TurnPart.turnStart:
                 do
                 {
@@ -97,46 +99,50 @@ public class LevelFlow : Singleton<LevelFlow>
                         currentTurnNumber++;
                     }
                 }
-                while (deadPlayerNumbers.Contains(currentPlayerNumber));
-                characterGod.transform.localPosition = Vector3.zero;
+                while (players[currentPlayerNumber].dead);
                 characterGod.SetAsPlayer();
-                characterGod.canvas.gameObject.SetActive(true);
                 Game.Player.SetRaycast(true);
-                Game.Player.SetHandMaterial(Database.PlayerInfos[currentPlayerNumber].material);
+                Game.Player.SetHandMaterial(players[currentPlayerNumber].information.material);
                 Game.Player.ResetRotation();
-                foreach (var s in soldiers.Values)
-                    foreach (CharacterSoldier soldier in s)
+                foreach (PlayerInstance player in players)
+                    foreach (CharacterSoldier soldier in player.soldiers)
                     {
                         soldier.SetInfoWindowSize(false);
-                        soldier.SetChoice(false);
+                        soldier.ShowChoiceObject(false);
                     }
-                characterGod.turnText.text = "TURN " + currentTurnNumber.ToString();
-                characterGod.playerText.text = "PLAYER " + (currentPlayerNumber + 1).ToString();
-                characterGod.playerText.color = Database.PlayerInfos[currentPlayerNumber].color;
-                break;
-            case TurnPart.characterChoice:
-                for(int i = 0; i < soldiers.Count; i++)
-                    foreach(CharacterSoldier soldier in soldiers[i])
-                        soldier.SetChoice(i == currentPlayerNumber);
+                characterGod.SetTurnInfoText(currentTurnNumber, currentPlayerNumber, players[currentPlayerNumber].information.color);
                 break;
 
+            case TurnPart.characterChoice:
+                foreach (PlayerInstance player in players)
+                    foreach (CharacterSoldier soldier in player.soldiers)
+                        soldier.ShowChoiceObject(player.number == currentPlayerNumber);
+                break;
+
+            //SOLDIER VIEW
             case TurnPart.soldierWeaponChoice:
                 characterGod.SetAsNotPlayer();
-                foreach (CharacterSoldier soldier in soldiers[currentPlayerNumber])
-                    soldier.SetChoice(false);
-                foreach (var s in soldiers.Values)
-                    foreach (CharacterSoldier soldier in s)
+                foreach (CharacterSoldier soldier in players[currentPlayerNumber].soldiers)
+                    soldier.ShowChoiceObject(false);
+                foreach (PlayerInstance player in players)
+                    foreach (CharacterSoldier soldier in player.soldiers)
                     {
                         soldier.SetInfoWindowSize(true);
-                        soldier.HideChoice();
+                        soldier.HideChoiceObject();
                     }
                 Game.Player.ResetRotation();
                 break;
+
             case TurnPart.soldierMovement:
                 Game.Player.SetRaycast(false);
                 Game.Player.timer.SetTimer(15);
                 break;
         }
+    }
+
+    public static void SetCurrentSoldier(CharacterSoldier soldier)
+    {
+        Instance.currentSoldier = soldier;
     }
 
     public static void OnTimerEnd()
@@ -152,18 +158,18 @@ public class LevelFlow : Singleton<LevelFlow>
         }
     }
 
-    public static void SetCurrentSoldier(CharacterSoldier soldier)
+    public static void NotifyOfSoldierDeath(CharacterSoldier soldier)
     {
-        Instance.currentSoldier = soldier;
-    }
-
-    public static void NotifyOfDeath(CharacterSoldier soldier)
-    {
-        Instance.soldiers[soldier.playerNumber].Remove(soldier);
-        if (Instance.soldiers[soldier.playerNumber].Count == 0)
+        soldier.player.soldiers.Remove(soldier);
+        if (soldier.player.soldiers.Count == 0)
         {
-            Instance.deadPlayerNumbers.Add(soldier.playerNumber);
-            if(Instance.deadPlayerNumbers.Count >= levelSetupInfo.numberOfPlayers - 1)
+            soldier.player.dead = true;
+
+            int numberOfDeadPlayers = 0;
+            foreach (PlayerInstance player in Instance.players)
+                if (player.dead) numberOfDeadPlayers++;
+
+            if(numberOfDeadPlayers >= levelSetupInfo.numberOfPlayers - 1)
                 Instance.LevelFinish();
         }
     }

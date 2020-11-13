@@ -7,12 +7,6 @@ public class CharacterGod : Character
 {
     public Text turnText, playerText;
 
-    public void Button_Ready()
-    {
-        canvas.gameObject.SetActive(false);
-        LevelFlow.SetTurnPart(LevelFlow.TurnPart.characterChoice);
-    }
-
     private void FixedUpdate()
     {
         if (!isPlayer) return;
@@ -29,5 +23,25 @@ public class CharacterGod : Character
         newPos.x = Mathf.Clamp(newPos.x, LevelFlow.ClampMovementValuesX.x, LevelFlow.ClampMovementValuesX.y);
         newPos.z = Mathf.Clamp(newPos.z, LevelFlow.ClampMovementValuesZ.x, LevelFlow.ClampMovementValuesZ.y);
         transform.position = newPos;
+    }
+
+    public override void SetAsPlayer()
+    {
+        base.SetAsPlayer();
+        transform.localPosition = Vector3.zero;
+        canvas.gameObject.SetActive(true);
+    }
+
+    public void SetTurnInfoText(int turnNumber, int playerNumber, Color playerColor)
+    {
+        turnText.text = "TURN " + turnNumber.ToString();
+        playerText.text = "PLAYER " + (playerNumber + 1).ToString();
+        playerText.color = playerColor;
+    }
+
+    public void Button_Ready()
+    {
+        canvas.gameObject.SetActive(false);
+        LevelFlow.SetTurnPart(LevelFlow.TurnPart.characterChoice);
     }
 }

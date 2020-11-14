@@ -159,8 +159,12 @@ public class CharacterSoldier : Character, IDamageable
         Game.Player.EquipItem(spawnedItem);
 
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.soldierMovement);
-        Game.Player.timer.SetTimer(10);
-        StartCoroutine(ChooseWeaponCoroutine(10));
+        if (LevelFlow.levelSetupInfo.timerGame)
+        {
+            Game.Player.timer.SetTimer(10);
+            StartCoroutine(ChooseWeaponCoroutine(10));
+        }
+        else StartCoroutine(ChooseWeaponCoroutine(Mathf.Infinity));
     }
 
     private IEnumerator ChooseWeaponCoroutine(float time)
@@ -175,8 +179,13 @@ public class CharacterSoldier : Character, IDamageable
         timeOfAttackingStart = Time.timeSinceLevelLoad;
         spawnedItem.TurnOn();
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.soliderAttack);
-        Game.Player.timer.SetTimer(7);
-        StartCoroutine(StartAttackModeCoroutine(7));
+
+        if (LevelFlow.levelSetupInfo.timerGame)
+        {
+            Game.Player.timer.SetTimer(7);
+            StartCoroutine(StartAttackModeCoroutine(7));
+        }
+        else StartCoroutine(StartAttackModeCoroutine(Mathf.Infinity));
     }
 
     private IEnumerator StartAttackModeCoroutine(float time)

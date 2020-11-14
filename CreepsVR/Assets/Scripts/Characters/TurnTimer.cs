@@ -37,8 +37,8 @@ public class TurnTimer : MonoBehaviour
 
     public void SetTimer(float time)
     {
-        if (!LevelFlow.levelSetupInfo.timerGame) return;
         timerOn = true;
+        if (time > 0) time += .5f;
         timerValue = time;
         SetObjects((int)timerValue);
     }

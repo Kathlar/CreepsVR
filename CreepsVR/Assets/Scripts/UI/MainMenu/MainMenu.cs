@@ -49,10 +49,6 @@ public class MainMenu : MonoBehaviour
 
         for (int i = numberOfPlayers; i < playerInfoTabs.Count; i++)
             playerInfoTabs[i].gameObject.SetActive(false);
-
-        timerToggle.ChangeValue(timerGame);
-        destructionToggle.ChangeValue(enviroDestructionGame);
-        infiniteAmmoToggle.ChangeValue(infiniteAmmoGame);
     }
 
     private void OnDestroy()
@@ -65,6 +61,10 @@ public class MainMenu : MonoBehaviour
         if (Time.timeSinceLevelLoad < .5f) return;
         startGameWindow.SetActive(true);
         mainMenuWindow.SetActive(false);
+
+        timerToggle.ChangeValue(timerGame);
+        destructionToggle.ChangeValue(enviroDestructionGame);
+        infiniteAmmoToggle.ChangeValue(infiniteAmmoGame);
     }
 
     public void Button_SettingsWindow()

@@ -496,7 +496,17 @@ MonoBehaviour:
   canvas: {fileID: 6614611962972898467}
   moveSpeed: 3
   regularModeObject: {fileID: 47822576728473309}
-  playerNumber: 0
+  playerInstance:
+    information:
+      color: {r: 1, g: 1, b: 1, a: 1}
+      material: {fileID: 0}
+      transparentMaterial: {fileID: 0}
+      polygonPrototypeMaterial: {fileID: 0}
+    number: 0
+    dead: 0
+    weaponInformations:
+      weapons: []
+    soldiers: []
   choice: {fileID: 0}
   characterMesh: {fileID: 2139308249147369735}
   maxHealth: 100
@@ -504,9 +514,6 @@ MonoBehaviour:
   weaponSelectionButtonPrefab: {fileID: 225080278188433279, guid: f7184191278966346960f5020ef5fbd3, type: 3}
   soldierInfoPivot: {fileID: 6620867378647855082}
   groundPoint: {fileID: 8536729181260202998}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1
 --- !u!143 &4212433985956757527
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1034,7 +1041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.396}
   m_SizeDelta: {x: 1000, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1687381804350648070

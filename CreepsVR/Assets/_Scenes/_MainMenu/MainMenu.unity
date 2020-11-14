@@ -162,9 +162,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 847679274, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 1143923315}
+    - target: {fileID: 847679277, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.43867922
+      objectReference: {fileID: 0}
+    - target: {fileID: 847679277, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 847679277, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.64695376
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664046903, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 777768873316423467, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.654902
+      value: 0.43867922
       objectReference: {fileID: 0}
     - target: {fileID: 777768873316423467, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
       propertyPath: m_BackGroundColor.g
@@ -172,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 777768873316423467, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.7799457
+      value: 0.64695376
       objectReference: {fileID: 0}
     - target: {fileID: 777768873394869090, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
       propertyPath: m_Name
@@ -222,16 +242,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5179468813892660924, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7415278912400898770, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+--- !u!4 &1143923315 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 777768873316423468, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
+  m_PrefabInstance: {fileID: 1143923314}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1765753838
 GameObject:
   m_ObjectHideFlags: 0

@@ -147,6 +147,12 @@ public class CharacterSoldier : Character, IDamageable
         }
     }
 
+    public override void SetAsPlayer()
+    {
+        base.SetAsPlayer();
+        Game.Player.transform.parent.localPosition -= Vector3.up * .75f;
+    }
+
     public void ChooseWeapon(WeaponSelectionIcon icon)
     {
         holdingWeapon = true;

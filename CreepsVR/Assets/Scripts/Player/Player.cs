@@ -4,14 +4,14 @@ using UnityEngine;
 
 public abstract class Player : MonoBehaviour
 {
-    public Camera mainCamera { get; private set; }
+    public Camera mainCamera, nonVrCamera;
     public GameObject pauseMenuObject;
     public TurnTimer timer { get; private set; }
 
     [HideInInspector] public Character currentCharacter;
     private Quaternion startRotation;
 
-    public bool raycastOn = true;// { get; private set; } = true;
+    public bool raycastOn { get; private set; } = true;
     protected LineRenderer raycastLine;
     protected abstract Transform raycastPoint { get; }
     public Transform raycastEnd;
@@ -29,8 +29,6 @@ public abstract class Player : MonoBehaviour
 
     protected virtual void Awake()
     {
-        mainCamera = GetComponentInChildren<Camera>();
-
         timer = GetComponentInChildren<TurnTimer>();
 
         raycastLine = GetComponentInChildren<LineRenderer>();

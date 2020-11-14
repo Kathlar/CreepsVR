@@ -73,4 +73,9 @@ public abstract class Item : MonoBehaviour
     }
 
     public abstract bool StillUsing();
+
+    public virtual void OnUnequip()
+    {
+
+    }
 }

@@ -59,7 +59,11 @@ public class XRController : MonoBehaviour
     public void UnequipItem()
     {
         animator.gameObject.SetActive(true);
-        if(equipedItem) Destroy(equipedItem.gameObject);
+        if(equipedItem)
+        {
+            equipedItem.OnUnequip();
+            Destroy(equipedItem.gameObject);
+        }
     }
 
     public void SetMaterial(Material m = null)

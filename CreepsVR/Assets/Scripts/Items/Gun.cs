@@ -44,4 +44,14 @@ public class Gun : Weapon
     {
         return numberOfBullets > 0 || projectiles.Count > 0;
     }
+
+    public override void OnUnequip()
+    {
+        base.OnUnequip();
+        if(shootEffect)
+        {
+            shootEffect.transform.SetParent(null);
+            Destroy(shootEffect.gameObject, shootEffect.main.duration);
+        }
+    }
 }

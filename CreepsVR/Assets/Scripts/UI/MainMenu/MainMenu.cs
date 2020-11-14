@@ -55,6 +55,11 @@ public class MainMenu : MonoBehaviour
         infiniteAmmoToggle.ChangeValue(infiniteAmmoGame);
     }
 
+    private void OnDestroy()
+    {
+        SavePreferences();
+    }
+
     public void Button_StartGameWindow()
     {
         if (Time.timeSinceLevelLoad < .5f) return;

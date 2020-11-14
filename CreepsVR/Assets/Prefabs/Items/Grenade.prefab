@@ -85,7 +85,7 @@ MonoBehaviour:
   audioSource: {fileID: 3321868349999594161}
   timeToExplode: 3
   explosionRadius: 4
-  damagePower: 20
+  damagePower: 222
   explosionEffect: {fileID: 7354441450593530958}
 --- !u!135 &4949273326094215957
 SphereCollider:

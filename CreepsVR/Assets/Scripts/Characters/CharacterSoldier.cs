@@ -206,6 +206,7 @@ public class CharacterSoldier : Character, IDamageable
 
     public void Die()
     {
+        if (isPlayer) DoEndTurn();
         LevelFlow.NotifyOfSoldierDeath(this);
         animator.SetTrigger("DieTrigger");
         Destroy(gameObject);
@@ -233,6 +234,11 @@ public class CharacterSoldier : Character, IDamageable
     private IEnumerator EndTurnCoroutine()
     {
         yield return new WaitForSeconds(3f);
+        DoEndTurn();
+    }
+
+    private void DoEndTurn()
+    {
         Game.Player.timer.TurnOffTimer();
         soldierInfoPivot.gameObject.SetActive(true);
 

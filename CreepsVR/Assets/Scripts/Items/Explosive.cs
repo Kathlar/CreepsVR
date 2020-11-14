@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Explosive : MonoBehaviour
 {
+    public GameObject gfxObject;
     public AudioSource audioSource;
 
     public bool exploded { get; private set; }
@@ -22,8 +23,9 @@ public class Explosive : MonoBehaviour
     private IEnumerator ExplodeCoroutine()
     {
         yield return new WaitForSeconds(timeToExplode);
+        Destroy(gfxObject);
 
-        if(audioSource)
+        if (audioSource)
         {
             audioSource.transform.SetParent(null);
             audioSource.Play();

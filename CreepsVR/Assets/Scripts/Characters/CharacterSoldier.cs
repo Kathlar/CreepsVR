@@ -89,7 +89,10 @@ public class CharacterSoldier : Character, IDamageable
                 else if (InputsVR.RightHand.triggerButton.WasReleased || Inputs.LeftMouse.WasReleased) spawnedItem.UseEnd();
 
                 if (!spawnedItem.StillUsing())
+                {
                     EndTurn();
+                    StartCoroutine(EndTurnCoroutine());
+                }
             }
         }
 
@@ -197,7 +200,11 @@ public class CharacterSoldier : Character, IDamageable
     private IEnumerator StartAttackModeCoroutine(float time)
     {
         yield return new WaitForSeconds(time);
-        if (!endingTurn) EndTurn();
+        if (!endingTurn)
+        {
+            EndTurn();
+            StartCoroutine(EndTurnCoroutine());
+        }
     }
 
     public void GetDamage(int power)
@@ -221,7 +228,11 @@ public class CharacterSoldier : Character, IDamageable
 
     public void Die()
     {
-        if (isPlayer) DoEndTurn();
+        if (isPlayer) 
+        {
+            EndTurn();
+            DoEndTurn();
+        }
         LevelFlow.NotifyOfSoldierDeath(this);
         animator.SetTrigger("DieTrigger");
         Destroy(gameObject);
@@ -242,8 +253,6 @@ public class CharacterSoldier : Character, IDamageable
         Game.Player.timer.SetTimer(3);
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.soldierFinish);
         Game.Player.UnequipItem();
-
-        StartCoroutine(EndTurnCoroutine());
     }
 
     private IEnumerator EndTurnCoroutine()

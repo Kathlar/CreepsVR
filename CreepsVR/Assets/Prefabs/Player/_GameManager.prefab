@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   database: {fileID: 11400000, guid: a792831ce4efb5248bb4fd1853019106, type: 2}
-  playerTypeToSpawn: 0
+  playerTypeToSpawn: 1
   flatPlayerPrefab: {fileID: 4626442202369820723, guid: ffa47cd27b74449668e5767258c6f919, type: 3}
   vrPlayerPrefab: {fileID: 777768873394869090, guid: 8e7c460023e3a5d468ae0331a6cef60f, type: 3}
 --- !u!114 &957019914

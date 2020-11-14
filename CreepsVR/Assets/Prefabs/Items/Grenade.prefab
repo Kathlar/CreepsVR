@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Grenade
   description: An throwable object, that explodes after 3 seconds destroying the
-    enviroment and dealing 20 damage.
+    enviroment and dealing 25 damage.
   icon: {fileID: 21300000, guid: ed1c9f9defff64a8e9e09272d8c67fe1, type: 3}
   twoHanded: 0
 --- !u!114 &-2470190296334370606
@@ -85,7 +85,7 @@ MonoBehaviour:
   audioSource: {fileID: 3321868349999594161}
   timeToExplode: 3
   explosionRadius: 4
-  damagePower: 222
+  damagePower: 20
   explosionEffect: {fileID: 7354441450593530958}
 --- !u!135 &4949273326094215957
 SphereCollider:

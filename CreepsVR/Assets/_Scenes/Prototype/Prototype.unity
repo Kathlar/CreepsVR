@@ -9727,6 +9727,7 @@ MonoBehaviour:
   charactersParent: {fileID: 1655489554}
   characterGod: {fileID: 958156082}
   characterSoldierPrefab: {fileID: 3117111010778642094, guid: c6a4ca2c19fec1549b34b5d1b35b6dbb, type: 3}
+  turnPart: 0
   nonVrCamera: {fileID: 1559852198}
   clampMovementValuesX: {x: -28.06, y: 36.7}
   clampMovementValuesZ: {x: -33.5, y: 25.8}
@@ -16245,10 +16246,6 @@ PrefabInstance:
     - target: {fileID: 8496243814037362952, guid: 73bf2e26088e44b4d93c36d81583cb5b, type: 3}
       propertyPath: m_Name
       value: _GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8496243814037362957, guid: 73bf2e26088e44b4d93c36d81583cb5b, type: 3}
-      propertyPath: playerTypeToSpawn
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8496243814037362958, guid: 73bf2e26088e44b4d93c36d81583cb5b, type: 3}
       propertyPath: m_RootOrder

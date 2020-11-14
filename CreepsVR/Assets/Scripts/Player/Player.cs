@@ -11,7 +11,7 @@ public abstract class Player : MonoBehaviour
     [HideInInspector] public Character currentCharacter;
     private Quaternion startRotation;
 
-    public bool raycastOn { get; private set; } = true;
+    public bool raycastOn = true;// { get; private set; } = true;
     protected LineRenderer raycastLine;
     protected abstract Transform raycastPoint { get; }
     public Transform raycastEnd;

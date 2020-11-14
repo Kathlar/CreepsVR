@@ -81,6 +81,7 @@ public class Game : Singleton<Game>
 
     public static void GoToMainMenu()
     {
+        Time.timeScale = 1;
         LoadScene(Database.Levels.mainMenuLevelInfo.sceneAssetName);
     }
 

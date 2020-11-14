@@ -26,4 +26,10 @@ public class UIToggle : UIElement, IClickable
 
         toggle.onValueChanged.Invoke(toggle.isOn);
     }
+
+    public void ChangeValue(bool on)
+    {
+        toggle.isOn = on;
+        onImage.gameObject.SetActive(toggle.isOn);
+    }
 }

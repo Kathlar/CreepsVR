@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     public Text numberOfPlayersText, numberOfCharactersText;
     [Header("Other")]
     public List<Image> playerInfoTabs = new List<Image>();
+    public UIToggle timerToggle, destructionToggle, infiniteAmmoToggle;
 
     protected int numberOfPlayers = 2, numberOfCharacters = 3;
     protected bool timerGame, enviroDestructionGame = true, infiniteAmmoGame;
@@ -21,8 +22,16 @@ public class MainMenu : MonoBehaviour
 
     public GameObject loadingIconObject;
 
+    private const string prefsSet = "PrefsSet";
+    private const string numberOfPlayersPref = "numberOfPlayers", numberOfCharactersPref = "numberOfCharacters";
+    private const string timerGamePref = "timerGame", destructionGamePref = "destructionGame", infiniteAmmoPref = "infiniteAmmo";
+
     private void Start()
     {
+        if (PlayerPrefs.GetInt(prefsSet) == 0)
+            SavePreferences();
+        else LoadPreferences();
+
         mainMenuWindow.SetActive(true);
         startGameWindow.SetActive(false);
         settingsWindow.SetActive(false);
@@ -40,6 +49,10 @@ public class MainMenu : MonoBehaviour
 
         for (int i = numberOfPlayers; i < playerInfoTabs.Count; i++)
             playerInfoTabs[i].gameObject.SetActive(false);
+
+        timerToggle.ChangeValue(timerGame);
+        destructionToggle.ChangeValue(enviroDestructionGame);
+        infiniteAmmoToggle.ChangeValue(infiniteAmmoGame);
     }
 
     public void Button_StartGameWindow()
@@ -65,6 +78,7 @@ public class MainMenu : MonoBehaviour
 
     public void Button_Back()
     {
+        SavePreferences();
         mainMenuWindow.SetActive(true);
         startGameWindow.SetActive(false);
         settingsWindow.SetActive(false);
@@ -73,6 +87,7 @@ public class MainMenu : MonoBehaviour
 
     public void Button_ExitGame()
     {
+        SavePreferences();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -123,10 +138,34 @@ public class MainMenu : MonoBehaviour
 
     public void Button_StartGame()
     {
+        SavePreferences();
+
         LevelSetupInfo setupInfo = new LevelSetupInfo(numberOfPlayers, numberOfCharacters, timerGame, enviroDestructionGame, infiniteAmmoGame);
         LevelFlow.levelSetupInfo = setupInfo;
         loadingIconObject.SetActive(true);
         transform.parent.gameObject.SetActive(false);
         Game.LoadSceneWithLoadingScreen(Database.Levels.gameLevelInfos[currentChosenLevelNumber].sceneAssetName);
+    }
+
+    private void SavePreferences()
+    {
+        PlayerPrefs.SetInt(prefsSet, 1);
+
+        PlayerPrefs.SetInt(numberOfPlayersPref, numberOfPlayers);
+        PlayerPrefs.SetInt(numberOfCharactersPref, numberOfCharacters);
+
+        PlayerPrefs.SetInt(timerGamePref, timerGame ? 1 : 0);
+        PlayerPrefs.SetInt(destructionGamePref, enviroDestructionGame ? 1 : 0);
+        PlayerPrefs.SetInt(infiniteAmmoPref, infiniteAmmoGame ? 1 : 0);
+    }
+
+    private void LoadPreferences()
+    {
+        numberOfPlayers = PlayerPrefs.GetInt(numberOfPlayersPref, 2);
+        numberOfCharacters = PlayerPrefs.GetInt(numberOfCharactersPref, 3);
+
+        timerGame = PlayerPrefs.GetInt(timerGamePref, 0) == 1;
+        enviroDestructionGame = PlayerPrefs.GetInt(destructionGamePref, 0) == 1;
+        infiniteAmmoGame = PlayerPrefs.GetInt(infiniteAmmoPref, 0) == 1;
     }
 }

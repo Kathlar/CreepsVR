@@ -18,10 +18,9 @@ public class LevelFlow : Singleton<LevelFlow>
     public CharacterGod characterGod;
     public GameObject characterSoldierPrefab;
     private List<SpawnPoint> soldierSpawnPoints = new List<SpawnPoint>();
-    private CharacterSoldier currentSoldier;
 
-    public enum TurnPart { turnStart, characterChoice, soldierWeaponChoice, soldierMovement, soliderAttack, soldierFinish, other }
-    private TurnPart turnPart = TurnPart.turnStart;
+    public enum TurnPart { turnStart, characterChoice, soldierWeaponChoice, soldierMovement, soliderAttack, soldierFinish, gameEnd, other }
+    public TurnPart turnPart = TurnPart.turnStart;
 
     public Camera nonVrCamera;
 
@@ -31,6 +30,8 @@ public class LevelFlow : Singleton<LevelFlow>
 
     [Tooltip("Defines if player can choose characters, or if they are chosen randomly.")]
     public bool randomSoldierGame;
+
+    private PlayerInstance playerThatWon;
 
     protected override void SingletonAwake()
     {
@@ -78,9 +79,12 @@ public class LevelFlow : Singleton<LevelFlow>
 
     private void DoSetTurnPart(TurnPart part)
     {
+        if (turnPart == TurnPart.gameEnd)
+            return;
+
         turnPart = part;
 
-        switch(turnPart)
+        switch (turnPart)
         {
             //GOD VIEW
             case TurnPart.turnStart:
@@ -133,11 +137,6 @@ public class LevelFlow : Singleton<LevelFlow>
         }
     }
 
-    public static void SetCurrentSoldier(CharacterSoldier soldier)
-    {
-        Instance.currentSoldier = soldier;
-    }
-
     public static void NotifyOfSoldierDeath(CharacterSoldier soldier)
     {
         soldier.playerInstance.soldiers.Remove(soldier);
@@ -147,19 +146,29 @@ public class LevelFlow : Singleton<LevelFlow>
 
             int numberOfDeadPlayers = 0;
             foreach (PlayerInstance player in Instance.players)
+            {
                 if (player.dead) numberOfDeadPlayers++;
+                else Instance.playerThatWon = player;
+            }
 
-            if(numberOfDeadPlayers >= levelSetupInfo.numberOfPlayers - 1)
+            if (numberOfDeadPlayers >= levelSetupInfo.numberOfPlayers - 1)
                 Instance.LevelFinish();
+            else Instance.playerThatWon = null;
         }
     }
 
     public void LevelFinish()
     {
-        turnPart = TurnPart.other;
+        SetTurnPart(TurnPart.gameEnd);
 
-        //show end sequence
-        Game.GoToMainMenu();
+        characterGod.SetAsPlayer();
+        Game.Player.SetRaycast(true);
+        Game.Player.ResetRotation();
+        characterGod.SetEndGame("Congratulations Player " + (playerThatWon.number.ToString() + 1) + "! You won in " +
+            currentTurnNumber.ToString() + " turns!");
+        foreach (PlayerInstance player in players)
+            foreach (CharacterSoldier soldier in player.soldiers)
+                soldier.regularModeObject.SetActive(true);
     }
 
     void OnDrawGizmosSelected()

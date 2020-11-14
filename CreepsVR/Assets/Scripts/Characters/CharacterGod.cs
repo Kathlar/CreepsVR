@@ -7,6 +7,14 @@ public class CharacterGod : Character
 {
     public Text turnText, playerText;
 
+    public GameObject newTurnInfoObject, endGameObject;
+    public Text endGameText;
+
+    private void Start()
+    {
+        endGameObject.SetActive(false);
+    }
+
     private void FixedUpdate()
     {
         if (!isPlayer) return;
@@ -43,5 +51,17 @@ public class CharacterGod : Character
     {
         canvas.gameObject.SetActive(false);
         LevelFlow.SetTurnPart(LevelFlow.TurnPart.characterChoice);
+    }
+
+    public void Button_ExitGame()
+    {
+        Game.GoToMainMenu();
+    }
+
+    public void SetEndGame(string text)
+    {
+        newTurnInfoObject.SetActive(false);
+        endGameObject.SetActive(true);
+        endGameText.text = text;
     }
 }

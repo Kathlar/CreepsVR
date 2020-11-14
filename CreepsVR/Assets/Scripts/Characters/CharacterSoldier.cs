@@ -113,12 +113,6 @@ public class CharacterSoldier : Character, IDamageable
         choice.SetState(false);
     }
 
-    public override void SetAsPlayer()
-    {
-        base.SetAsPlayer();
-        LevelFlow.SetCurrentSoldier(this);
-    }
-
     public void GetChosen()
     {
         endingTurn = attacking = holdingWeapon = false;

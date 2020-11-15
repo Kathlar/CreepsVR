@@ -10,21 +10,29 @@ public class MainMenu : MonoBehaviour
     public GameObject startGameWindow, settingsWindow, creditsWindow;
     [Header("Texts")]
     public Text levelNameText;
-    public Text numberOfPlayersText, numberOfCharactersText;
-    [Header("Other")]
-    public List<Image> playerInfoTabs = new List<Image>();
-    public UIToggle timerToggle, destructionToggle, infiniteAmmoToggle;
+    public Text numberOfPlayersText, numberOfCharactersText, qualitySettingsText;
+    [Header("Toggle")]
+    public UIToggle timerToggle;
+    public UIToggle destructionToggle, infiniteAmmoToggle;
 
-    protected int numberOfPlayers = 2, numberOfCharacters = 3;
+    [Header("Tabs")]
+    public GameObject qualityTab;
+
+    protected int numberOfPlayers = 2, numberOfCharacters = 3, qualitySettings;
     protected bool timerGame, enviroDestructionGame = true, infiniteAmmoGame;
 
     private int currentChosenLevelNumber = 0;
 
+    [Header("Other")]
+    public List<Image> playerInfoTabs = new List<Image>();
+
+    [Header("Loading")]
     public GameObject loadingIconObject;
 
     private const string prefsSet = "PrefsSet";
     private const string numberOfPlayersPref = "numberOfPlayers", numberOfCharactersPref = "numberOfCharacters";
     private const string timerGamePref = "timerGame", destructionGamePref = "destructionGame", infiniteAmmoPref = "infiniteAmmo";
+    private const string qualitySettingsPref = "qualitySettings";
 
     private void Start()
     {
@@ -49,6 +57,12 @@ public class MainMenu : MonoBehaviour
 
         for (int i = numberOfPlayers; i < playerInfoTabs.Count; i++)
             playerInfoTabs[i].gameObject.SetActive(false);
+
+        qualitySettingsText.text = QualitySettings.names[qualitySettings];
+
+#if UNITY_ANDROID
+        Destroy(qualityTab);
+#endif
     }
 
     private void OnDestroy()
@@ -152,6 +166,15 @@ public class MainMenu : MonoBehaviour
         Game.LoadSceneWithLoadingScreen(Database.Levels.gameLevelInfos[currentChosenLevelNumber].sceneAssetName);
     }
 
+    public void Button_ChangeQualitySettings(bool next)
+    {
+        if (next) QualitySettings.IncreaseLevel();
+        else QualitySettings.DecreaseLevel();
+        Debug.Log(QualitySettings.GetQualityLevel());
+        qualitySettings = QualitySettings.GetQualityLevel();
+        qualitySettingsText.text = QualitySettings.names[qualitySettings];
+    }
+
     private void SavePreferences()
     {
         PlayerPrefs.SetInt(prefsSet, 1);
@@ -162,15 +185,21 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt(timerGamePref, timerGame ? 1 : 0);
         PlayerPrefs.SetInt(destructionGamePref, enviroDestructionGame ? 1 : 0);
         PlayerPrefs.SetInt(infiniteAmmoPref, infiniteAmmoGame ? 1 : 0);
+
+        PlayerPrefs.SetInt(qualitySettingsPref, QualitySettings.GetQualityLevel());
+        qualitySettings = QualitySettings.GetQualityLevel();
     }
 
     private void LoadPreferences()
     {
-        numberOfPlayers = PlayerPrefs.GetInt(numberOfPlayersPref, 2);
-        numberOfCharacters = PlayerPrefs.GetInt(numberOfCharactersPref, 3);
+        numberOfPlayers = PlayerPrefs.GetInt(numberOfPlayersPref);
+        numberOfCharacters = PlayerPrefs.GetInt(numberOfCharactersPref);
 
-        timerGame = PlayerPrefs.GetInt(timerGamePref, 0) == 1;
-        enviroDestructionGame = PlayerPrefs.GetInt(destructionGamePref, 0) == 1;
-        infiniteAmmoGame = PlayerPrefs.GetInt(infiniteAmmoPref, 0) == 1;
+        timerGame = PlayerPrefs.GetInt(timerGamePref) == 1;
+        enviroDestructionGame = PlayerPrefs.GetInt(destructionGamePref) == 1;
+        infiniteAmmoGame = PlayerPrefs.GetInt(infiniteAmmoPref) == 1;
+
+        qualitySettings = PlayerPrefs.GetInt(qualitySettingsPref);
+        QualitySettings.SetQualityLevel(qualitySettings);
     }
 }

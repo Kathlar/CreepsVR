@@ -25,7 +25,9 @@ public class Game : Singleton<Game>
 
     protected override void SingletonAwake()
     {
-#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+#if UNITY_ANDROID
+        playerTypeToSpawn = Player.PlayerType.vr;
+#elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
         playerTypeToSpawn = Player.PlayerType.flat;
 #endif
 

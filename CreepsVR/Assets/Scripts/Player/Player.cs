@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Player : MonoBehaviour
 {
-    public Camera mainCamera, nonVrCamera;
+    public Camera mainCamera, uiCamera, nonVrCamera;
     public GameObject pauseMenuObject;
     public TurnTimer timer { get; private set; }
 
@@ -41,6 +41,12 @@ public abstract class Player : MonoBehaviour
     protected virtual void Start()
     {
         pauseMenuObject.SetActive(false);
+
+#if UNITY_ANDROID
+        Destroy(nonVrCamera.gameObject);
+        mainCamera.cullingMask |= 1 << LayerMask.NameToLayer("UI");
+        Destroy(uiCamera.gameObject);
+#endif
     }
 
     protected virtual void Update()

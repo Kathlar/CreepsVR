@@ -9,6 +9,7 @@ using UnityEngine.Rendering.PostProcessing;
 public class QualityManager : Singleton<QualityManager>
 {
 #if UNITY_POST_PROCESSING_STACK_V2
+    PostProcessLayer ppLayer;
     PostProcessVolume volume;
     PostProcessProfile profile;
 
@@ -21,13 +22,14 @@ public class QualityManager : Singleton<QualityManager>
     {
         if (!Game.Player && Game.Player.mainCamera) return;
         volume = Game.Player.mainCamera.GetComponent<PostProcessVolume>();
-        if(volume.profile)
-            volume.profile = profile = Instantiate(volume.profile);
+        if(volume) ppLayer = volume.GetComponent<PostProcessLayer>();
+        if (volume.profile) volume.profile = profile = Instantiate(volume.profile);
 
         switch (QualitySettings.GetQualityLevel())
         {
             case 0:
-                if(volume)
+                if (ppLayer) ppLayer.enabled = false;
+                if (volume)
                     volume.enabled = false;
                 break;
         }

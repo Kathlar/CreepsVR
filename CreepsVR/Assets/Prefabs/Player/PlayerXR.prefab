@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 847679274}
   - component: {fileID: 847679273}
   m_Layer: 8
-  m_Name: MainCamera (1)
+  m_Name: NonVRCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,6 +835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 777768873316423467}
+  uiCamera: {fileID: 1581822099}
   nonVrCamera: {fileID: 847679277}
   pauseMenuObject: {fileID: 4998977064838052559}
   currentCharacter: {fileID: 0}
